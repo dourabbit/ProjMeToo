@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\mkg3states.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_aux.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_close.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_codec.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_color.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_compress.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dir.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirinfo.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirread.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirwrite.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dumpmode.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_error.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_extension.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3sm.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_flush.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_getimage.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_jbig.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_jpeg.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_luv.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_lzw.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_next.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_ojpeg.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_open.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_packbits.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_pixarlog.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_predict.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_print.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_read.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_stream.cxx" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_strip.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_swab.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_thunder.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_tile.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_version.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_warning.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_win32.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_write.c" />
+    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_zip.c" />
+    <ClCompile Include="..\..\src\Data\image.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</MinimalRebuild>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Async</ExceptionHandling>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</MinimalRebuild>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Default</BasicRuntimeChecks>
+      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Async</ExceptionHandling>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Data\image.hpp" />
+    <ClCompile Include="..\..\src\Math\Math.cpp" />
+    <ClCompile Include="..\..\src\Math\Math.hpp" />
+    <ClCompile Include="..\..\src\Shape\shape.cpp" />
+    <ClCompile Include="..\..\src\Shape\sphere.cpp" />
+    <ClCompile Include="..\..\src\test.hpp" />
+    <ClCompile Include="..\..\src\Tracer\pathTracer.cpp" />
+    <ClCompile Include="..\..\src\Writer\imageWriter.cpp" />
+    <ClCompile Include="..\..\src\Writer\tiffWriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\t4.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiff.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.vc.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.wince.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffio.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffio.hxx" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffiop.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffvers.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.vc.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.wince.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_dir.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_predict.h" />
+    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\uvcode.h" />
+    <ClInclude Include="..\..\src\common.h" />
+    <ClInclude Include="..\..\src\Mat\Mat.h" />
+    <ClInclude Include="..\..\src\Mat\Mat.cpp" />
+    <ClInclude Include="..\..\src\Shape\shape.hpp" />
+    <ClInclude Include="..\..\src\Shape\sphere.hpp" />
+    <ClInclude Include="..\..\src\Tracer\pathTracer.hpp" />
+    <ClInclude Include="..\..\src\Writer\imageWriter.hpp" />
+    <ClInclude Include="..\..\src\Writer\tiffWriter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E438E8F5-4201-4B23-AEF8-2413E7531C3A}</ProjectGuid>
+    <RootNamespace>libMeToo</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\..\src\Math;$(SolutionDir)\..\src;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)\..\lib\</OutDir>
+    <ReferencePath>$(SolutionDir)\..\lib\;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>WINDOWS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalOptions>/nodefaultlib:"msvcrt.lib"  %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

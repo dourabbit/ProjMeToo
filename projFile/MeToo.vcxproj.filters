@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\3rdParty">
+      <UniqueIdentifier>{f1cd4431-1ba6-4799-9a93-7749ad007326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3rdParty\SDL-1.2.15">
+      <UniqueIdentifier>{9780203a-9351-48a1-8273-8fdd3953b849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3rdParty\SDL-1.2.15\include">
+      <UniqueIdentifier>{a8fcb8ce-c45c-4bdb-81f7-de483e32edbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDLApp">
+      <UniqueIdentifier>{66adf766-3840-46a0-85a4-b5695619d312}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\begin_code.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\close_code.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_active.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_audio.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_byteorder.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_cdrom.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_dreamcast.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_macos.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_macosx.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_minimal.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_nds.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_os2.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_symbian.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_win32.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_copying.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_cpuinfo.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_endian.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_error.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_events.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_getenv.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_joystick.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_keyboard.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_keysym.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_loadso.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_main.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_mouse.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_mutex.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_name.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_opengl.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_platform.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_quit.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_rwops.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_stdinc.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_syswm.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_thread.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_timer.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_types.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_version.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_video.h">
+      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SDLApp\CApp.h">
+      <Filter>Source Files\SDLApp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\SDLApp\CApp.cpp">
+      <Filter>Source Files\SDLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SDLApp\SDLHelper.hpp">
+      <Filter>Source Files\SDLApp</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
