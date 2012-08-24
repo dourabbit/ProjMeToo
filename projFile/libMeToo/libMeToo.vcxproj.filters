@@ -168,9 +168,6 @@
     <ClCompile Include="..\..\src\Writer\imageWriter.cpp">
       <Filter>Source Files\Writer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\test.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Shape\shape.cpp">
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
@@ -185,6 +182,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Tracer\pathTracer.cpp">
       <Filter>Source Files\tracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Shape\triangle.cpp">
+      <Filter>Source Files\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Shape\plane.cpp">
+      <Filter>Source Files\Shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +262,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Tracer\pathTracer.hpp">
       <Filter>Source Files\tracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Shape\triangle.hpp">
+      <Filter>Source Files\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Shape\plane.hpp">
+      <Filter>Source Files\Shape</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,8 +1,13 @@
 #include "pathTracer.hpp"
 using namespace Tracer;
 
+void PathTracer::Initialize(){
+	InitializeScenes();
 
-Vec PathTracer::shade(const Vec &x, const Vec &n, const Sphere &obj ,RandomLCG& rand) {
+
+}
+
+Vec PathTracer::shade(const Vec &x, const Vec &n, const Shape &obj ,RandomLCG& rand) {
 		bool isAbsorption = rand() > obj.absorption;
 		Vec radiance = Vec::Zero;
 		if (!isAbsorption){//no absorption
@@ -13,8 +18,11 @@ Vec PathTracer::shade(const Vec &x, const Vec &n, const Sphere &obj ,RandomLCG& 
 
 				Vec w = n;
 				Vec wo = w.x < -0.1 || w.x > 0.1 ? Vec::YAxis : Vec::XAxis;
-				Vec u = (wo ^ w).norm(); 
+				/*Vec u = (wo ^ w).norm(); 
 				Vec v = w ^ u;
+				*/
+				Vec u = (Cross(wo,w)).norm(); 
+				Vec v = Cross(w,u);
 
 				Vec d = (u * cos(r1) * r2s + v * sin(r1) * r2s + w * sqrt(1 - r2)).norm();
 
@@ -36,11 +44,14 @@ PathTracer::PathTracer(){};
 
 Vec PathTracer::trace(const Ray &pixelCol,RandomLCG& rand){
 	double t; 
-	Sphere* obj = intersect(pixelCol, t);
+	Shape* obj = intersect(pixelCol, t);
 	if(!obj) return Vec::Zero;
 	Vec x = pixelCol.o + pixelCol.d * t;
-	Vec n = (x - obj->p).norm();
-	n = n % pixelCol.d < 0 ? n : n * -1;
+	//Vec n = (x - obj->p).norm();
+	Vec n = obj->getNorm(x);
+	//n = n % pixelCol.d < 0 ? n : n * -1;
+	
+	n = Dot(n,pixelCol.d) < 0 ? n : n * -1;
 
 	return shade(x,n, *obj,rand);
 }
@@ -53,11 +64,13 @@ int PathTracer::Render(void * ptr) {
 	const int w = 256;
 	const int h = 256;
 
-	const int samps =  100; // # samples
+	const int samps =  20; // # samples
 
 	const Ray cam(Vec(50, 52, 295.6), Vec(0, -0.042612, -1).norm()); // cam pos, dir
 	const Vec cx(w * .5135 / h);
-	const Vec cy = (cx ^ cam.d).norm() * .5135;
+	//const Vec cy = (cx ^ cam.d).norm() * .5135;
+	const Vec cy = (Cross(cx,cam.d)).norm() * .5135;
+
 	//Vec* c = new Vec[w * h];
 
 #pragma omp parallel for schedule(dynamic, 1)       //OpenMP
@@ -81,10 +94,10 @@ int PathTracer::Render(void * ptr) {
 						double dx = r1 < 1 ? sqrt(r1) - 1 : 1 - sqrt(2 - r1);
 						double dy = r2 < 1 ? sqrt(r2) - 1 : 1 - sqrt(2 - r2);
 
-						Vec d = cx * (((sx + .5 + dx) / 2 + x) / w - .5) +
+						Vec dir = cx * (((sx + .5 + dx) / 2 + x) / w - .5) +
 							    cy * (((sy + .5 + dy) / 2 + y) / h - .5) + cam.d;
 
-						pixelCol =pixelCol+ trace(Ray(cam.o + d * 140, d.norm()),  rand) * (1.0 / samps);
+						pixelCol =pixelCol+ trace(Ray(cam.o + dir * 140, dir.norm()),  rand) * (1.0 / samps);
 					}
 					c[i] = c[i] + Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z)) * .25;
 				}
@@ -95,7 +108,7 @@ int PathTracer::Render(void * ptr) {
 }
 
 
-double PathTracer::BRDF(const Sphere &obj){
+double PathTracer::BRDF(const Shape &obj){
 	return 2*INV_PI;
 }
 

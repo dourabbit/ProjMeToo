@@ -12,21 +12,45 @@ typedef char IMGDATA;
 #include <Math/Math.hpp>
 #include <Mat/Mat.h>
 #include <Shape/sphere.hpp>
+#include <Shape/triangle.hpp>
 #include <stdlib.h>
 #include <stdio.h> 
-
+#include <cstdlib>
+#include <vector>
+//static std::vector<Integrater*> 
 //Scene: radius, position, emission, color, material
-static Sphere spheres[] = {
-	Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25), DIFF),//Left
-	Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF),//Rght
-	Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF),//Back
-	Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF),//Frnt
-	Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF),//Botm
-	Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF),//Top
-	Sphere(16.5, Vec(27,16.5,47),        Vec::Zero, Vec(1,1,1)*.999,  SPEC),//Mirr
-	Sphere(16.5, Vec(73,16.5,78),        Vec::Zero, Vec(1,1,1)*.999,  REFR),//Glas
-	Sphere(600,  Vec(50,681.6-.27,81.6), Vec(12,12,12), Vec::Zero,    DIFF) //Lite
-};
+static std::vector<Shape*> spheres;
+
+
+
+static void InitializeScenes(){
+	spheres.push_back(new Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
+	spheres.push_back(new Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF));//Right
+	spheres.push_back(new Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF));//Back
+	spheres.push_back(new Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF));//Front
+	spheres.push_back(new Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF));//Bottom
+	spheres.push_back(new Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF));//Top
+
+	spheres.push_back(new Triangle( Vec(27,40,47),Vec(34,27,47),Vec(13,29,47),Vec::Zero, Vec(.75,.25,.25),DIFF));
+	
+	spheres.push_back(new Sphere(16.5, Vec(27,16.5,47),        Vec::Zero, Vec(1,1,1)*.999,  SPEC));//Mirror
+	spheres.push_back(new Sphere(16.5, Vec(73,16.5,78),        Vec::Zero, Vec(1,1,1)*.999,  REFR));//Glass
+	spheres.push_back(new Sphere(600,  Vec(50,681.6-.27,81.6), Vec(12,12,12), Vec::Zero,    DIFF));//Light
+
+
+}
+
+//[] = {
+//	Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25), DIFF),//Left
+//	Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF),//Rght
+//	Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF),//Back
+//	Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF),//Frnt
+//	Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF),//Botm
+//	Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF),//Top
+//	Sphere(16.5, Vec(27,16.5,47),        Vec::Zero, Vec(1,1,1)*.999,  SPEC),//Mirr
+//	Sphere(16.5, Vec(73,16.5,78),        Vec::Zero, Vec(1,1,1)*.999,  REFR),//Glas
+//	Sphere(600,  Vec(50,681.6-.27,81.6), Vec(12,12,12), Vec::Zero,    DIFF) //Lite
+//};
 
 INLINE double clamp(double x) { 
 	if (x < 0)
@@ -42,18 +66,20 @@ INLINE int toInt(double x) {
 }
 
 //This extremely low efficient
-INLINE Sphere* intersect(const Ray &pixelCol, double &t) {
+INLINE Shape* intersect(const Ray &pixelCol, double &t) {
 	t = 1e20;
-	Sphere* result = NULL;
+	Shape* result = NULL;
 	
-	for (Sphere* s = spheres; s != spheres + sizeof(spheres) / sizeof(Sphere); ++s) {
+	//for (Sphere* s = spheres; s != spheres + sizeof(spheres) / sizeof(Sphere); ++s) {
+	int dd = spheres.size();
+	for (int i = 0; i<spheres.size(); i++) {
 		double d=0.0f;
-		if(!s->intersect(pixelCol,d))
+		if(!spheres[i]->intersect(pixelCol,d))
 			continue;
 
 		if (d<t) {
 			t = d;
-			result = s;
+			result = spheres[i];
 		}
 	}
 	return result;

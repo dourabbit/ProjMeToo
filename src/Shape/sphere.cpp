@@ -1,15 +1,32 @@
 
 #include <Shape/sphere.hpp>
+//
+//Sphere::Sphere(double rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl) :
+//	p(p), e(e), c(c), rad(rad), refl(refl) {
+//		sqRad = rad * rad;
+//		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;
+//		cc = c * (1.0 / maxC);
+//		this->absorption = maxC;
+//}
+	
 
-Sphere::Sphere(double rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl) :
-	p(p), e(e), c(c), rad(rad), refl(refl) {
+Sphere::Sphere(){};
+Sphere::Sphere(double rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl):
+	Shape(e,c,refl) {
+		this->p = p;
 		sqRad = rad * rad;
 		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;
 		cc = c * (1.0 / maxC);
 		this->absorption = maxC;
-}
-	
+};
 Sphere::~Sphere(){};
+
+Vec Sphere::getNorm(Vec x){
+	Vec result = Vec::Zero;
+	result = (x-this->p).norm();
+
+	return result;
+};
 
 bool Sphere::intersect(const Ray &pixelCol, double &eps){
 		//Solve t^2*d.d + 2*t*(o-p).d + (o-p).(o-p)-pixelCol^2 = 0

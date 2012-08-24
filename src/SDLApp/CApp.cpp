@@ -7,6 +7,7 @@ CApp::CApp() {
     Surf_Display = NULL;
     Running = true;
 	tracer = new Tracer::PathTracer();
+	tracer->Initialize();
 }
 //==============================================================================
 bool CApp::OnInit() {

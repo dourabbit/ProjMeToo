@@ -17,11 +17,12 @@ class PathTracer{
 public:
 	PathTracer();
 	~PathTracer();
+	void Initialize();
 	int static Render(void * ptr);
 private:
 	Vec static trace (const Ray &pixelCol,RandomLCG& rand);
-	Vec static shade(const Vec &x, const Vec &n, const Sphere &obj ,RandomLCG& rand);
-	static double BRDF(const Sphere &obj);
+	Vec static shade(const Vec &x, const Vec &n, const Shape &obj ,RandomLCG& rand);
+	static double BRDF(const Shape &obj);
 };
 }
 #endif
