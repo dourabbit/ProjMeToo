@@ -50,6 +50,7 @@
     <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_win32.c" />
     <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_write.c" />
     <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_zip.c" />
+    <ClCompile Include="..\..\src\Cam\persp.cpp" />
     <ClCompile Include="..\..\src\Data\image.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -69,6 +70,7 @@
     <ClCompile Include="..\..\src\Data\image.hpp" />
     <ClCompile Include="..\..\src\Math\Math.cpp" />
     <ClCompile Include="..\..\src\Math\Math.hpp" />
+    <ClCompile Include="..\..\src\Sampler\sampler.cpp" />
     <ClCompile Include="..\..\src\Shape\plane.cpp" />
     <ClCompile Include="..\..\src\Shape\shape.cpp" />
     <ClCompile Include="..\..\src\Shape\sphere.cpp" />
@@ -94,9 +96,11 @@
     <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3.h" />
     <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_predict.h" />
     <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\uvcode.h" />
+    <ClInclude Include="..\..\src\Cam\persp.hpp" />
     <ClInclude Include="..\..\src\common.h" />
     <ClInclude Include="..\..\src\Mat\Mat.h" />
     <ClInclude Include="..\..\src\Mat\Mat.cpp" />
+    <ClInclude Include="..\..\src\Sampler\sampler.hpp" />
     <ClInclude Include="..\..\src\Shape\plane.hpp" />
     <ClInclude Include="..\..\src\Shape\shape.hpp" />
     <ClInclude Include="..\..\src\Shape\sphere.hpp" />

@@ -1,7 +1,7 @@
 
 #include <Shape/sphere.hpp>
 //
-//Sphere::Sphere(double rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl) :
+//Sphere::Sphere(float rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl) :
 //	p(p), e(e), c(c), rad(rad), refl(refl) {
 //		sqRad = rad * rad;
 //		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;
@@ -11,7 +11,7 @@
 	
 
 Sphere::Sphere(){};
-Sphere::Sphere(double rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl):
+Sphere::Sphere(float rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl):
 	Shape(e,c,refl) {
 		this->p = p;
 		sqRad = rad * rad;
@@ -28,16 +28,17 @@ Vec Sphere::getNorm(Vec x){
 	return result;
 };
 
-bool Sphere::intersect(const Ray &pixelCol, double &eps){
+bool Sphere::intersect(const Ray &pixelCol, float &eps){
 		//Solve t^2*d.d + 2*t*(o-p).d + (o-p).(o-p)-pixelCol^2 = 0
 		Vec op = p - pixelCol.o;
-		double b = op % pixelCol.d;
-		double det = b * b - op % op + sqRad;
+		float b = Dot(op,pixelCol.d);
+		float dd = Dot(op,op);
+		float det = b * b - Dot(op,op) + sqRad;
 
 		if (det < 0)
 			return false;
 		else {
-			double dets = sqrt(det);
+			float dets = sqrt(det);
 
 			if (b - dets > eps){
 				eps = b - dets;

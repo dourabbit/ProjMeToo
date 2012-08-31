@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Mat">
       <UniqueIdentifier>{09b3eeba-3409-4eba-a0de-fa411d88e03d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Cam">
+      <UniqueIdentifier>{18d0694c-8e2b-4366-bf28-456d1fc19b50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sampler">
+      <UniqueIdentifier>{f177af45-eeaa-406e-ba5e-892b47342eca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\mkg3states.c">
@@ -189,6 +195,12 @@
     <ClCompile Include="..\..\src\Shape\plane.cpp">
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Cam\persp.cpp">
+      <Filter>Source Files\Cam</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Sampler\sampler.cpp">
+      <Filter>Source Files\Sampler</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\uvcode.h">
@@ -268,6 +280,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Shape\plane.hpp">
       <Filter>Source Files\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Cam\persp.hpp">
+      <Filter>Source Files\Cam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Sampler\sampler.hpp">
+      <Filter>Source Files\Sampler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

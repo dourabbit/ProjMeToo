@@ -7,14 +7,14 @@ class Sphere:public Shape{
 public:
 	
 	Sphere();
-	Sphere(double rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl) ;
+	Sphere(float rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl) ;
 	virtual ~Sphere();
-	virtual bool intersect(const Ray &pixelCol,  double &eps);
+	virtual bool intersect(const Ray &pixelCol,  float &eps);
 	virtual Vec getNorm(Vec x);
 
-	double rad;       // radius
+	float rad;       // radius
 	Vec p;
-	double sqRad; 
+	float sqRad; 
 
 };
 #endif 

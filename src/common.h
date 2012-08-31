@@ -1,5 +1,5 @@
 
-typedef double DATA;
+typedef float DATA;
 typedef char IMGDATA;
 
 #ifdef __MSC_VER
@@ -13,6 +13,7 @@ typedef char IMGDATA;
 #include <Mat/Mat.h>
 #include <Shape/sphere.hpp>
 #include <Shape/triangle.hpp>
+#include <Shape/plane.hpp>
 #include <stdlib.h>
 #include <stdio.h> 
 #include <cstdlib>
@@ -24,20 +25,36 @@ static std::vector<Shape*> spheres;
 
 
 static void InitializeScenes(){
-	spheres.push_back(new Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
-	spheres.push_back(new Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF));//Right
-	spheres.push_back(new Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF));//Back
-	spheres.push_back(new Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF));//Front
-	spheres.push_back(new Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF));//Bottom
-	spheres.push_back(new Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF));//Top
 
-	spheres.push_back(new Triangle( Vec(27,40,47),Vec(34,27,47),Vec(13,29,47),Vec::Zero, Vec(.75,.25,.25),DIFF));
+	//spheres.push_back(new Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
+	//spheres.push_back(new Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF));//Right
+	//spheres.push_back(new Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF));//Back
+	//spheres.push_back(new Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF));//Front
+	//spheres.push_back(new Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF));//Bottom
+	//spheres.push_back(new Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF));//Top
+
 	
-	spheres.push_back(new Sphere(16.5, Vec(27,16.5,47),        Vec::Zero, Vec(1,1,1)*.999,  SPEC));//Mirror
-	spheres.push_back(new Sphere(16.5, Vec(73,16.5,78),        Vec::Zero, Vec(1,1,1)*.999,  REFR));//Glass
-	spheres.push_back(new Sphere(600,  Vec(50,681.6-.27,81.6), Vec(12,12,12), Vec::Zero,    DIFF));//Light
+	//spheres.push_back(new Triangle( Vec(-20,-12,-47),Vec(3,-40,-47),Vec(7,30,-47),Vec::Zero, Vec(.75,.25,.25),DIFF));
+	Vec t1 = Vec(-50,50,-20);
+	Vec t2 = Vec(-50,50,-70);
+	Vec t3 = Vec(50,50,-20);
+	Vec t4 = Vec(50,50,-70);
 
-
+	Vec b1 = Vec(-50,-50,-20);
+	Vec b2 = Vec(-50,-50,-70);
+	Vec b3 = Vec(50,-50,-70);
+	Vec b4 =Vec(50,-50,-20);
+	spheres.push_back(new Plane( t1,t2,b2,b1, Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
+	spheres.push_back(new Plane( t3,t4,b3,b4, Vec::Zero, Vec(.25,.25,.75),DIFF));//Right
+	
+	spheres.push_back(new Plane( t1,t2,t4,t3, Vec(12,12,12), Vec(.25,.25,.25),DIFF));//Top
+	spheres.push_back(new Plane( b1,b2,b3,b4, Vec::Zero, Vec(.25,.25,.25),DIFF));//Bottom
+	
+	spheres.push_back(new Plane( t2,t3,b3,b2, Vec(12,12,12), Vec(.25,.25,.25),DIFF));//Back
+	
+	//spheres.push_back(new Sphere(55, Vec(0,0,-80),        Vec::Zero, Vec(1,1,1)*.999,  SPEC));//Mirror
+	//spheres.push_back(new Sphere(50, Vec(0,3,-78),        Vec::Zero, Vec(1,1,1)*.999,  REFR));//Glass
+	spheres.push_back(new Sphere(20,  Vec(0,5,-80),     Vec(12,12,12), Vec::Zero,    DIFF));//Light
 }
 
 //[] = {
@@ -52,7 +69,7 @@ static void InitializeScenes(){
 //	Sphere(600,  Vec(50,681.6-.27,81.6), Vec(12,12,12), Vec::Zero,    DIFF) //Lite
 //};
 
-INLINE double clamp(double x) { 
+INLINE float clamp(float x) { 
 	if (x < 0)
 		return 0;
 	else if (x > 1)
@@ -61,19 +78,19 @@ INLINE double clamp(double x) {
 		return x;
 }
 
-INLINE int toInt(double x) { 
-	return int(pow(clamp(x), 1 / 2.2) * 255 + .5); 
+INLINE int toInt(float x) { 
+	return int(pow(clamp(x), 1 / 2.2f) * 255.0f + .5f); 
 }
 
 //This extremely low efficient
-INLINE Shape* intersect(const Ray &pixelCol, double &t) {
+INLINE Shape* intersect(const Ray &pixelCol, float &t) {
 	t = 1e20;
 	Shape* result = NULL;
 	
 	//for (Sphere* s = spheres; s != spheres + sizeof(spheres) / sizeof(Sphere); ++s) {
 	int dd = spheres.size();
 	for (int i = 0; i<spheres.size(); i++) {
-		double d=0.0f;
+		float d=0.0f;
 		if(!spheres[i]->intersect(pixelCol,d))
 			continue;
 

@@ -19,7 +19,7 @@ Shape::Shape(){};
 Shape::~Shape(){};
 
 
-bool Shape::intersect(const Ray &pixelCol, double &eps){
+bool Shape::intersect(const Ray &pixelCol, float &eps){
 	return false;
 }
 

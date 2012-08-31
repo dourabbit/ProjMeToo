@@ -26,7 +26,7 @@ Vec Triangle::getNorm(Vec x){
 	return result;
 };
 
-bool Triangle::intersect(const Ray &ray, double &eps){
+bool Triangle::intersect(const Ray &ray, float &eps){
 		Vec e1 = p2 - p1;
 		Vec e2 = p3 - p1;
 		Vec s1 = Cross(ray.d, e2);

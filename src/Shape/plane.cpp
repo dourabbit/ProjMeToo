@@ -14,7 +14,7 @@ Plane::Plane(	const Vec& p1,const Vec& p2,const Vec& p3,const Vec& p4,
 		this->p4 = p4;
 
 		this->t1 = new Triangle(p1,p2,p3,e,c,refl);
-
+		this->t2 = new Triangle(p3,p4,p1,e,c,refl);
 		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;
 		cc = c * (1.0 / maxC);
 		this->absorption = maxC;
@@ -35,7 +35,7 @@ Vec Plane::getNorm(Vec x){
 	return result;
 };
 
-bool Plane::intersect(const Ray &ray, double &eps){
-		bool result = t1->intersect(ray, eps)&&t2->intersect(ray, eps);
+bool Plane::intersect(const Ray &ray, float &eps){
+		bool result = t1->intersect(ray, eps)||t2->intersect(ray, eps);
 		return result;
 };

@@ -10,13 +10,13 @@ public:
 	Shape(const Vec& e, const Vec& c, Refl_t refl);
 	Shape();
 	virtual ~Shape();
-	virtual bool intersect(const Ray &pixelCol, double &eps);
+	virtual bool intersect(const Ray &pixelCol, float &eps);
 	virtual Vec getNorm(Vec x);
 
 	Vec e, c;      // position, emission, color
 	Vec cc;
-	double maxC;
-	double absorption;
+	float maxC;
+	float absorption;
 	Refl_t refl;
 
 };

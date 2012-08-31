@@ -14,7 +14,7 @@ public:
 	Plane(const Vec& p1,const Vec& p2,const Vec& p3, const Vec &p4,
 						const Vec& e, const Vec& c, Refl_t refl) ;
 	virtual ~Plane();
-	virtual bool intersect(const Ray &pixelCol, double &eps);
+	virtual bool intersect(const Ray &pixelCol, float &eps);
 	virtual Vec getNorm(Vec x);
 };
 #endif
