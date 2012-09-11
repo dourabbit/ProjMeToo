@@ -5,7 +5,7 @@
     #define _CAPP_H_
 
 #include <3rdParty\SDL-1.2.15\SDL.h>
-//#include "test.hpp"
+#include <Tracer/pathTracerSplitted.hpp>
 #include <Tracer/pathTracer.hpp>
 //==============================================================================
 class CApp {
@@ -16,7 +16,7 @@ class CApp {
 		Vec* c;
 		int w,h;
 
-		Tracer::PathTracer*		tracer; 
+		Tracer::PathTracerSplitted*		tracer; 
 
     public:
         CApp();

@@ -68,6 +68,9 @@
       <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Async</ExceptionHandling>
     </ClCompile>
     <ClCompile Include="..\..\src\Data\image.hpp" />
+    <ClCompile Include="..\..\src\Light\sphereLight.cpp" />
+    <ClCompile Include="..\..\src\Light\areaLight.cpp" />
+    <ClCompile Include="..\..\src\Light\light.cpp" />
     <ClCompile Include="..\..\src\Math\Math.cpp" />
     <ClCompile Include="..\..\src\Math\Math.hpp" />
     <ClCompile Include="..\..\src\Sampler\sampler.cpp" />
@@ -76,6 +79,7 @@
     <ClCompile Include="..\..\src\Shape\sphere.cpp" />
     <ClCompile Include="..\..\src\Shape\triangle.cpp" />
     <ClCompile Include="..\..\src\Tracer\pathTracer.cpp" />
+    <ClCompile Include="..\..\src\Tracer\pathTracerSplitted.cpp" />
     <ClCompile Include="..\..\src\Writer\imageWriter.cpp" />
     <ClCompile Include="..\..\src\Writer\tiffWriter.cpp" />
   </ItemGroup>
@@ -98,6 +102,9 @@
     <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\uvcode.h" />
     <ClInclude Include="..\..\src\Cam\persp.hpp" />
     <ClInclude Include="..\..\src\common.h" />
+    <ClInclude Include="..\..\src\Light\sphereLight.hpp" />
+    <ClInclude Include="..\..\src\Light\areaLight.hpp" />
+    <ClInclude Include="..\..\src\Light\light.hpp" />
     <ClInclude Include="..\..\src\Mat\Mat.h" />
     <ClInclude Include="..\..\src\Mat\Mat.cpp" />
     <ClInclude Include="..\..\src\Sampler\sampler.hpp" />
@@ -106,6 +113,7 @@
     <ClInclude Include="..\..\src\Shape\sphere.hpp" />
     <ClInclude Include="..\..\src\Shape\triangle.hpp" />
     <ClInclude Include="..\..\src\Tracer\pathTracer.hpp" />
+    <ClInclude Include="..\..\src\Tracer\pathTracerSplitted.hpp" />
     <ClInclude Include="..\..\src\Writer\imageWriter.hpp" />
     <ClInclude Include="..\..\src\Writer\tiffWriter.h" />
   </ItemGroup>

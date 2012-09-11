@@ -1,3 +1,5 @@
+#ifndef _COMMON_H_
+#define _COMMON_H_
 
 typedef float DATA;
 typedef char IMGDATA;
@@ -9,32 +11,63 @@ typedef char IMGDATA;
 #define INLINE inline
 #endif
 
-#include <Math/Math.hpp>
+//#include <Math/Math.hpp>
 #include <Mat/Mat.h>
 #include <Shape/sphere.hpp>
 #include <Shape/triangle.hpp>
 #include <Shape/plane.hpp>
+#include <Shape/shape.hpp>
+#include <Light/light.hpp>
+#include <Light/areaLight.hpp>
+#include <Light/sphereLight.hpp>
 #include <stdlib.h>
 #include <stdio.h> 
 #include <cstdlib>
 #include <vector>
-//static std::vector<Integrater*> 
-//Scene: radius, position, emission, color, material
-static std::vector<Shape*> spheres;
+
+//class _MathHelper;
+//class Mat4;
+//class Quat;
+//class Ray;
+//class Point;
+//class Shape;
+//
+//class Vec;
+//class RNG;
+
+static std::vector<Shape*> sceneObjs;
+static std::vector<Light*> lights;
+static std::vector<float> dis;
+static std::vector<const Vec*> points;
+
+static float shortDis = 1000;
 
 
+
+
+
+static void prepareLights(){
+	for (int i = 0; i<sceneObjs.size(); i++) {
+		Light* light=NULL;
+		light = dynamic_cast<Light*>(sceneObjs[i]);
+
+		if(light) 
+			lights.push_back(light);
+	}
+
+}
 
 static void InitializeScenes(){
 
-	//spheres.push_back(new Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
-	//spheres.push_back(new Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF));//Right
-	//spheres.push_back(new Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF));//Back
-	//spheres.push_back(new Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF));//Front
-	//spheres.push_back(new Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF));//Bottom
-	//spheres.push_back(new Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF));//Top
+	//sceneObjs.push_back(new Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
+	//sceneObjs.push_back(new Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF));//Right
+	//sceneObjs.push_back(new Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF));//Back
+	//sceneObjs.push_back(new Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF));//Front
+	//sceneObjs.push_back(new Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF));//Bottom
+	//sceneObjs.push_back(new Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF));//Top
 
 	
-	//spheres.push_back(new Triangle( Vec(-20,-12,-47),Vec(3,-40,-47),Vec(7,30,-47),Vec::Zero, Vec(.75,.25,.25),DIFF));
+	//sceneObjs.push_back(new Triangle( Vec(-20,-12,-47),Vec(3,-40,-47),Vec(7,30,-47),Vec::Zero, Vec(.75,.25,.25),DIFF));
 	Vec t1 = Vec(-50,50,-20);
 	Vec t2 = Vec(-50,50,-70);
 	Vec t3 = Vec(50,50,-20);
@@ -44,30 +77,39 @@ static void InitializeScenes(){
 	Vec b2 = Vec(-50,-50,-70);
 	Vec b3 = Vec(50,-50,-70);
 	Vec b4 =Vec(50,-50,-20);
-	spheres.push_back(new Plane( t1,t2,b2,b1, Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
-	spheres.push_back(new Plane( t3,t4,b3,b4, Vec::Zero, Vec(.25,.25,.75),DIFF));//Right
 	
-	spheres.push_back(new Plane( t1,t2,t4,t3, Vec(12,12,12), Vec(.25,.25,.25),DIFF));//Top
-	spheres.push_back(new Plane( b1,b2,b3,b4, Vec::Zero, Vec(.25,.25,.25),DIFF));//Bottom
-	
-	spheres.push_back(new Plane( t2,t3,b3,b2, Vec(12,12,12), Vec(.25,.25,.25),DIFF));//Back
-	
-	//spheres.push_back(new Sphere(55, Vec(0,0,-80),        Vec::Zero, Vec(1,1,1)*.999,  SPEC));//Mirror
-	//spheres.push_back(new Sphere(50, Vec(0,3,-78),        Vec::Zero, Vec(1,1,1)*.999,  REFR));//Glass
-	spheres.push_back(new Sphere(20,  Vec(0,5,-80),     Vec(12,12,12), Vec::Zero,    DIFF));//Light
-}
+	//sceneObjs.push_back(new Plane( t1,t2,b2,b1, Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
+	//sceneObjs.push_back(new Plane( t3,t4,b3,b4, Vec::Zero, Vec(.25,.25,.75),DIFF));//Right
+	//
+	//sceneObjs.push_back(new Plane( t1,t2,t4,t3, Vec::Zero, Vec(.25,.25,.25),DIFF));//Top
+	//sceneObjs.push_back(new Plane(b1,b2,b3,b4, Vec::Zero, Vec(.25,.25,.25),DIFF));//Bottom
+	//
 
-//[] = {
-//	Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25), DIFF),//Left
-//	Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF),//Rght
-//	Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF),//Back
-//	Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF),//Frnt
-//	Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF),//Botm
-//	Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF),//Top
-//	Sphere(16.5, Vec(27,16.5,47),        Vec::Zero, Vec(1,1,1)*.999,  SPEC),//Mirr
-//	Sphere(16.5, Vec(73,16.5,78),        Vec::Zero, Vec(1,1,1)*.999,  REFR),//Glas
-//	Sphere(600,  Vec(50,681.6-.27,81.6), Vec(12,12,12), Vec::Zero,    DIFF) //Lite
-//};
+	//sceneObjs.push_back(new Plane("right",Vec(0,0,0),Vec(0,0,90),100,50,Zero, Vec(.25,.25,.25),DIFF));//Right
+	//sceneObjs.push_back(new Plane("bottom",Vec(0,-50,-45),Zero,100,50,Zero, Vec(.25,.25,.25),DIFF));//Bottom
+	
+	//sceneObjs.push_back(new Plane( t2,t4,b3,b2, Vec::Zero, Vec(.25,.25,.25),DIFF));//Back
+	
+	//sceneObjs.push_back(new SphereLight("sphere",Vec(0,0,0),2,Vec(150,150,150)));//Glass
+	//sceneObjs.push_back(new SphereLight("sphere",Vec(0,2,0),2,Vec(150,150,150)));//Glass
+	
+	sceneObjs.push_back(new Sphere("sphere",Vec(-10,4,0),9,Vec(150,150,150),  Vec(.25,.25,.25),DIFF));//Glass
+
+	sceneObjs.push_back(new AreaLight("AreaLight",Vec(0,30,10),Vec(180,0,0),5,5,Vec(100,100,100)));//Light
+	sceneObjs.push_back(new Plane("right",	Vec(40,0,0),	Vec(0,0,90),80,80,Vec(150,150,150),Vec(.75,.25,.25),DIFF));//Right
+	sceneObjs.push_back(new Plane("left",	Vec(-40,0,0),	Vec(0,0,-90),80,80,Vec(150,150,150),Vec(.25,.25,.75),DIFF));//Right
+	sceneObjs.push_back(new Plane("top",	Vec(0,40,0),	Vec(0,0,-180), 80,80,Vec(150,150,150),Vec(.25,.25,.25),DIFF));//Right
+	sceneObjs.push_back(new Plane("bottom",	Vec(0,-40,0),	Vec(0,0,0), 80,80,Vec(150,150,150),Vec(.25,.25,.25),DIFF));//Right
+	sceneObjs.push_back(new Plane("back",	Vec(0,0,-40),	Vec(90,0,0), 80,80,Vec(150,150,150),Vec(.25,.25,.25),DIFF));//Right
+	
+	//sceneObjs.push_back(new AreaLight("AreaLight",Vec(40,0,0),Vec(0,0,90),20,20,Vec(150,150,150)));//Light
+	
+	prepareLights();
+};
+
+
+
+
 
 INLINE float clamp(float x) { 
 	if (x < 0)
@@ -87,20 +129,36 @@ INLINE Shape* intersect(const Ray &pixelCol, float &t) {
 	t = 1e20;
 	Shape* result = NULL;
 	
-	//for (Sphere* s = spheres; s != spheres + sizeof(spheres) / sizeof(Sphere); ++s) {
-	int dd = spheres.size();
-	for (int i = 0; i<spheres.size(); i++) {
+	//for (Sphere* s = sceneObjs; s != sceneObjs + sizeof(sceneObjs) / sizeof(Sphere); ++s) {
+	int dd = sceneObjs.size();
+	for (int i = 0; i<sceneObjs.size(); i++) {
 		float d=0.0f;
-		if(!spheres[i]->intersect(pixelCol,d))
+		bool isIntersect = sceneObjs[i]->intersect(pixelCol,d);
+		if(!isIntersect)
 			continue;
 
-		if (d<t) {
+		if (d<t && d>THRESHOLD) {
 			t = d;
-			result = spheres[i];
+			result = sceneObjs[i];
 		}
 	}
 	return result;
 }
+
+
+//[] = {
+//	Sphere(1e5,  Vec( 1e5+1,40.8,81.6),  Vec::Zero, Vec(.75,.25,.25), DIFF),//Left
+//	Sphere(1e5,  Vec(-1e5+99,40.8,81.6), Vec::Zero, Vec(.25,.25,.75), DIFF),//Rght
+//	Sphere(1e5,  Vec(50,40.8, 1e5),      Vec::Zero, Vec(.75,.75,.75), DIFF),//Back
+//	Sphere(1e5,  Vec(50,40.8,-1e5+170),  Vec::Zero, Vec::Zero,        DIFF),//Frnt
+//	Sphere(1e5,  Vec(50, 1e5, 81.6),     Vec::Zero, Vec(.75,.75,.75), DIFF),//Botm
+//	Sphere(1e5,  Vec(50,-1e5+81.6,81.6), Vec::Zero, Vec(.75,.75,.75), DIFF),//Top
+//	Sphere(16.5, Vec(27,16.5,47),        Vec::Zero, Vec(1,1,1)*.999,  SPEC),//Mirr
+//	Sphere(16.5, Vec(73,16.5,78),        Vec::Zero, Vec(1,1,1)*.999,  REFR),//Glas
+//	Sphere(600,  Vec(50,681.6-.27,81.6), Vec(12,12,12), Vec::Zero,    DIFF) //Lite
+//};
+
+
 
 //
 //
@@ -249,3 +307,4 @@ INLINE Shape* intersect(const Ray &pixelCol, float &t) {
 //   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 //   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 //   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+#endif

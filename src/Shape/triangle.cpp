@@ -1,18 +1,16 @@
 
 #include <Shape/triangle.hpp>
 
-Triangle::Triangle(	const Vec& p1,const Vec& p2,const Vec& p3,
-				    const Vec& e, const Vec& c, Refl_t refl) //:
-	//e(e), c(c), p1(p1),p2(p2),p3(p3), refl(refl) 
+Triangle::Triangle(	string name,const Vec& p1,const Vec& p2,const Vec& p3,
+				    const Vec& e, const Vec& c, Refl_t refl) :
+	Shape(name,Zero,Zero,e,c,refl)
 {
 		this->e = e;
 		this->c = c;
 		this->p1 = p1;
 		this->p2 = p2;
 		this->p3 = p3;
-		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;
-		cc = c * (1.0 / maxC);
-		this->absorption = maxC;
+		
 }
 	
 Triangle::~Triangle(){};
@@ -26,7 +24,7 @@ Vec Triangle::getNorm(Vec x){
 	return result;
 };
 
-bool Triangle::intersect(const Ray &ray, float &eps){
+bool Triangle::intersect(const Ray &ray, float &t){
 		Vec e1 = p2 - p1;
 		Vec e2 = p3 - p1;
 		Vec s1 = Cross(ray.d, e2);
@@ -49,7 +47,7 @@ bool Triangle::intersect(const Ray &ray, float &eps){
 			return false;
 
 		// Compute _t_ to intersection point
-		float t = Dot(e2, s2) * invDivisor;
+		t = Dot(e2, s2) * invDivisor;
 		if (t < 0 || t > FLT_MAX)
 			return false;
 

@@ -43,8 +43,7 @@ Vec PathTracer::shade(const Vec &x, const Vec &n, const Shape &obj, RNG &rng) {
 				}
 			}
 		}
-		
-		
+
 		return radiance+obj.e;
 };
 

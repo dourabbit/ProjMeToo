@@ -10,7 +10,7 @@ void ConcentricSampleDisk(float u1, float u2, float *dx, float *dy);
 inline Vec CosineSampleHemisphere(float u1, float u2) {
     Vec ret;
     ConcentricSampleDisk(u1, u2, &ret.x, &ret.y);
-    ret.z = sqrtf(max(0.f, 1.f - ret.x*ret.x - ret.y*ret.y));
+    ret.z = sqrtf(Max(0.f, 1.f - ret.x*ret.x - ret.y*ret.y));
     return ret;
 }
 #endif

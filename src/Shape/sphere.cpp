@@ -11,8 +11,8 @@
 	
 
 Sphere::Sphere(){};
-Sphere::Sphere(float rad, const Vec& p, const Vec& e, const Vec& c, Refl_t refl):
-	Shape(e,c,refl) {
+Sphere::Sphere(string name,const Vec& p,float rad , const Vec& e, const Vec& c, Refl_t refl):
+	Shape(name,Zero,Zero,e,c,refl) {
 		this->p = p;
 		sqRad = rad * rad;
 		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;

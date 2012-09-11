@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Sampler">
       <UniqueIdentifier>{f177af45-eeaa-406e-ba5e-892b47342eca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Light">
+      <UniqueIdentifier>{f05f84dc-eab8-440a-8cc9-f37c918f3c96}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\mkg3states.c">
@@ -201,6 +204,18 @@
     <ClCompile Include="..\..\src\Sampler\sampler.cpp">
       <Filter>Source Files\Sampler</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Light\light.cpp">
+      <Filter>Source Files\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Light\areaLight.cpp">
+      <Filter>Source Files\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Tracer\pathTracerSplitted.cpp">
+      <Filter>Source Files\tracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Light\sphereLight.cpp">
+      <Filter>Source Files\Light</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\uvcode.h">
@@ -286,6 +301,18 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Sampler\sampler.hpp">
       <Filter>Source Files\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Light\light.hpp">
+      <Filter>Source Files\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Light\areaLight.hpp">
+      <Filter>Source Files\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Tracer\pathTracerSplitted.hpp">
+      <Filter>Source Files\tracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Light\sphereLight.hpp">
+      <Filter>Source Files\Light</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
