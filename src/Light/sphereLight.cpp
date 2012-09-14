@@ -14,7 +14,7 @@ float SphereLight::Pdf(){
 	return 1.0f/2*M_PI*this->radius;
 };
 
-Vec SphereLight::Sample(const RNG* rng){
+Vec SphereLight::Sample( RNG* rng){
 	float e1=rng->RandomFloat();float e2=rng->RandomFloat();
 	Vec result;
 	

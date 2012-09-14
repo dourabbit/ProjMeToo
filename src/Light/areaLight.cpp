@@ -8,16 +8,14 @@ AreaLight::AreaLight(string name,const Vec& trans,const Vec& rot,const float& wi
 	Plane(name,trans,rot,width,height,e, Zero,DIFF)
 {
 	
-	this->area = width*height;
-	this->width = width;
-	this->height = height;
+
 };
 
 float AreaLight::Pdf(){
 	return 1.0f/this->area;
 };
 
-Vec AreaLight::Sample(const RNG* rng){
+Vec AreaLight::Sample(RNG* rng){
 	float e1=rng->RandomFloat();float e2=rng->RandomFloat();
 	Vec result;
 	result = result + Vec(	e1*this->width- 0.5*this->width,

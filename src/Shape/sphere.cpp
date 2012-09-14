@@ -16,8 +16,8 @@ Sphere::Sphere(string name,const Vec& p,float rad , const Vec& e, const Vec& c, 
 		this->p = p;
 		sqRad = rad * rad;
 		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;
-		cc = c * (1.0 / maxC);
-		this->absorption = maxC;
+		//cc = c * (1.0 / maxC);
+		//this->absorption = maxC;
 };
 Sphere::~Sphere(){};
 

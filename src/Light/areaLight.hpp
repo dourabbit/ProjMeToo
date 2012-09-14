@@ -10,13 +10,13 @@ public:
 	AreaLight();
 	AreaLight(string name,const Vec& trans,const Vec& rot,const float& width, const float& height,const Vec& e);
 	virtual ~AreaLight();
-	virtual Vec Sample(const RNG* rng);
+	virtual Vec Sample(RNG* rng);
 	virtual float Pdf();
 	//virtual bool intersect(const Ray &pixelCol, float &eps);
 
-private:
-	float area;
-	float width;
-	float height;
+//private:
+//	float area;
+//	float width;
+//	float height;
 };
 #endif

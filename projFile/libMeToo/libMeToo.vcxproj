@@ -78,7 +78,9 @@
     <ClCompile Include="..\..\src\Shape\shape.cpp" />
     <ClCompile Include="..\..\src\Shape\sphere.cpp" />
     <ClCompile Include="..\..\src\Shape\triangle.cpp" />
-    <ClCompile Include="..\..\src\Tracer\pathTracer.cpp" />
+    <ClCompile Include="..\..\src\Tracer\pathTracer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\src\Tracer\pathTracerSplitted.cpp" />
     <ClCompile Include="..\..\src\Writer\imageWriter.cpp" />
     <ClCompile Include="..\..\src\Writer\tiffWriter.cpp" />
@@ -112,7 +114,9 @@
     <ClInclude Include="..\..\src\Shape\shape.hpp" />
     <ClInclude Include="..\..\src\Shape\sphere.hpp" />
     <ClInclude Include="..\..\src\Shape\triangle.hpp" />
-    <ClInclude Include="..\..\src\Tracer\pathTracer.hpp" />
+    <ClInclude Include="..\..\src\Tracer\pathTracer.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\..\src\Tracer\pathTracerSplitted.hpp" />
     <ClInclude Include="..\..\src\Writer\imageWriter.hpp" />
     <ClInclude Include="..\..\src\Writer\tiffWriter.h" />
@@ -161,6 +165,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <PreprocessorDefinitions>WINDOWS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

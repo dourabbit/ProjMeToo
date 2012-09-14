@@ -82,6 +82,8 @@ int PathTracer::Render(void * ptr) {
 									Vec(0,0,-1),
 									90,256,256);
 	
+	RNG rng = RNG();
+	
 #pragma omp parallel for schedule(dynamic, 1)       //OpenMP
 	//// Loop over image rows
 	//for (int y = 0; y < h; y++) {
@@ -114,7 +116,6 @@ int PathTracer::Render(void * ptr) {
 	//}
 
 	
-	RNG rng = RNG();
 
 
 	// Loop over image rows

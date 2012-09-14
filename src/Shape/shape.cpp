@@ -11,8 +11,8 @@ Shape::Shape(string name,const Vec &trans,const Vec &rot,const Vec& e, const Vec
 		this->name = name;
 
 		maxC = c.x > c.y && c.y > c.z ? c.x : c.y > c.z ? c.y : c.z;
-		cc = maxC==0?0:c * (1.0 / maxC);
-		this->absorption = maxC;
+		//float luminance = maxC==0?0:c * (1.0 / maxC);
+		this->absorption = 0.4; //= maxC+0.3>1?0.9:maxC+0.3;
 
 		this->translate = trans;
 		this->rotation = rot;

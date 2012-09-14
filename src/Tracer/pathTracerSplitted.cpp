@@ -1,5 +1,6 @@
 #include "pathTracerSplitted.hpp"
 #include <Light/light.hpp>
+#include <omp.h>
 using namespace Tracer;
 
 void PathTracerSplitted::Initialize(){
@@ -10,18 +11,23 @@ int PathTracerSplitted::shaRays = 0;
 int PathTracerSplitted::pathRays = 0;
 int PathTracerSplitted::width = 0;
 int PathTracerSplitted::height = 0;
-
+int PathTracerSplitted::traceDepth = 0;
 
 PathTracerSplitted::PathTracerSplitted(){
-	shaRays = 8;
-	pathRays = 64;
+	shaRays = 4;
+	pathRays = 500;
 };
 
-Vec PathTracerSplitted:: indirectIllumination(const Point &x, const RNG &rng){
+Vec PathTracerSplitted:: indirectIllumination(const Point &x, RNG &rng){
 	float absorption	= rng.RandomFloat();
-	bool isAbsorption	= absorption> x.obj->absorption;
+	bool isAbsorption	= absorption > x.obj->absorption;
 	Vec radiance = Zero;
 	//return radiance;
+
+	if(isAbsorption){
+	
+		return radiance;
+	}
 	if(!isAbsorption){
 		//for(int i=0; i<pathRays;i++){
 			//////////////////////////////////////////Sample dir on hemisphere
@@ -47,22 +53,65 @@ Vec PathTracerSplitted:: indirectIllumination(const Point &x, const RNG &rng){
 			Ray r = Ray(x,dir);
 			Point y = trace (r);
 			
+			if(traceDepth==2&&y.obj!= NULL&&(y.obj->e.x!=0||y.obj->e.y!=0||y.obj->e.z!=0)){
+				//return Zero;
+			}
+
+			if(y.obj==NULL){
+			
+				return Zero;
+			}
+			/////////////////////////////////////////////////////////////////
 			//float d = (y-x).length();
 			if(y.obj!= NULL){
 				float pdf = costheta * INV_PI;
 				float cosNx_dir = Dot(x.obj->getNorm(x),dir);
+				
 				float brdf = BRDF(*x.obj);
 				float d = (y-x).length();
-				radiance =	radiance + y.obj->c *
-				computeRadiance(y,rng)*brdf* cosNx_dir/(pdf);
+				//d = d<1?d+1:d/2;
+				d += 1;
+				
+				
+				////if hit the light, check the light direction
+				////x is the point to be calcuated
+				////y is the point on the light
+				//if((y.obj->e.x!=0||y.obj->e.y!=0||y.obj->e.z!=0)&&	//If the light
+				//	Dot(dir,y.obj->getNorm(y))<-THRESHOLD&&			//If not same direction
+				//	traceDepth!=1){									//If not direct lighting
+				//	float cosNy_dir = Dot( y.obj->getNorm(y),dir);
+				//	radiance = y.obj->e+x.obj->c*brdf*cosNx_dir*abs(cosNy_dir)/(pdf*d*d);
+				//}
+				//else{
+					Vec wi = computeRadiance(y, radiance,rng);
+
+					if(wi.x==0&&wi.y==0&&wi.z==0)
+						return Zero;
+					/*
+					if((x.obj->e.x!=0||x.obj->e.y!=0||x.obj->e.z!=0))
+					{
+						printf("asdf");
+					}*/
+
+
+					radiance =	radiance + x.obj->c *
+								wi*brdf* cosNx_dir/(pdf*d*d);
+				
+					
+				//}
 			}
+
+
 		//}// end of For all the paths
 		//radiance = radiance/pathRays;
 	}//end of isAbsorption
-	return radiance/(1-absorption);
+	radiance = radiance/(1-absorption);
+	
+	return radiance;
 }
 
-Vec PathTracerSplitted::directIllumination(const Point &x,const RNG &rng){
+Vec PathTracerSplitted::directIllumination(const Point &x, RNG &rng){
+
 	Vec estimatedRadiance = Vec();
 
 	for(int i=0; i< shaRays;i++){
@@ -70,11 +119,16 @@ Vec PathTracerSplitted::directIllumination(const Point &x,const RNG &rng){
 		float pdfy;
 		Point y;
 		getLightSample(&pdfy,&rng, y);
+		
+		if(!visibility(x,y))
+			continue;
 		//printf("<%f,%f,%f>\n",x.x,x.y,x.z);
 		float G = radianceTransfer(x,y);
 		
 		if(G==0)
 			continue;
+		
+		
 		/*
 		const Vec* point = &x;
 		points.push_back(point);
@@ -89,7 +143,7 @@ Vec PathTracerSplitted::directIllumination(const Point &x,const RNG &rng){
 
 
 
-void PathTracerSplitted::getLightSample(float* pdf,const RNG* rng, Point &result){
+void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point &result){
 	
 	float e = rng->RandomFloat();
 	int index = (int)e*lights.size();
@@ -143,7 +197,7 @@ float PathTracerSplitted::radianceTransfer(const Point &x, const Point &y ){
 
 	float r = (x-y).length();
 	
-	shortDis = shortDis < r? shortDis:r;
+	shortDis = shortDis < r? shortDis:r;//???????????????????
 	//dis.push_back(r);
 
 	return consine1*consine2/(r*r);
@@ -160,8 +214,8 @@ bool PathTracerSplitted::visibility(const Point &x, const Point &y){
 	return false;
 }
 
-Vec PathTracerSplitted::computeRadiance(const Point &x, const RNG &rng){
-	Vec result;
+Vec PathTracerSplitted::computeRadiance(const Point &x, Vec &result, RNG &rng){
+	//Vec result;
 	result = result + directIllumination(x, rng);
 	result = result + indirectIllumination(x, rng);
 	return result;
@@ -169,8 +223,16 @@ Vec PathTracerSplitted::computeRadiance(const Point &x, const RNG &rng){
 
 
 Point PathTracerSplitted::trace(const Ray &ray){
+	
+	
 	float t; 
 	Point result = Point();
+
+	traceDepth++;
+	/*if(traceDepth>2)
+		return result;*/
+
+
 	Shape* obj = intersect(ray, t);
 	if(!obj) 
 		return result;
@@ -180,28 +242,23 @@ Point PathTracerSplitted::trace(const Ray &ray){
 	return Point(obj, x);
 }
 
-Vec PathTracerSplitted::trace(const Ray &pixelCol,const RNG &rng){
-	//float t; 
-	//Shape* obj = intersect(pixelCol, t);
-	//if(!obj) 
-	//	return Vec::Zero;
-	//Vec x = pixelCol.o + pixelCol.d * t;
-	//Vec n = obj->getNorm(x);
-	//
-	//Point p = Point(obj, x);
-	//n = Dot(n,pixelCol.d) < 0 ? n : n * -1;//??????????????????
+Vec PathTracerSplitted::trace(const Ray &ray,RNG &rng){
 
-	Point p = trace(pixelCol);
+	Point p = trace(ray);
 
-	if(p.obj==NULL) return Zero;
-
+	if(p.obj==NULL) 
+		return Zero;
+	
 	Light* light = dynamic_cast<Light*>(p.obj);
 	if(light)
 		return p.obj->e;
-	else
-		return computeRadiance(p, rng);
+	//else
+	//	return computeRadiance(p, rng);
+	
+	//computeRadiance(p, rng);
+	Vec pixelCol;
 
-	return Zero;
+	return computeRadiance(p, pixelCol ,rng);;
 }
 
 
@@ -212,29 +269,40 @@ int PathTracerSplitted::Render(void * ptr) {
 	clock_t start = clock(); 
 
 
-	const int samps =  128;
+	//const int samps =  128;
 
-	Cam::Persp persp = Cam::Persp(	Vec(-10,0,100),
+	Cam::Persp persp = Cam::Persp(	Vec(0,0,50),
 									Vec(0,0,0),
-									45,width,height);
+									80,width,height);
 	
+	
+
 #pragma omp parallel for schedule(dynamic, 1)       //OpenMP
-	RNG rng = RNG();
+	
 
 
 	// Loop over image rows
 	for (int y = 0; y < height; y++) {
-		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",samps,100.*y/(height-1));
-		//RandomLCG rand(y);
+		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
+		RNG rng = RNG(y);
 		// Loop cols
 		for (unsigned short x=0; x<width; x++) {
 			const int i = (height - y - 1) * width + x;
 			Vec pixelCol = Zero;
-			for(int s = 0; s<samps;s++){
+			for(int s = 0; s<pathRays;s++){
 				Ray ray = persp.UnProject(x,y,rng);
-				pixelCol = pixelCol + trace(ray, rng) * (1.0 / samps);
+				traceDepth = 0;
+				Vec pCol = trace(ray, rng);
+				
+				pixelCol = pixelCol + pCol;
+				//printf("%d\n",traceDepth);
 			}
-			c[i] = c[i] + Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
+			pixelCol = pixelCol * (1.0 / pathRays);
+			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
+			//c[i] = c[i] + Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
+			
+			
+			c[i] = color;
 		}
 	}
 
@@ -245,6 +313,6 @@ int PathTracerSplitted::Render(void * ptr) {
 
 
 double PathTracerSplitted::BRDF(const Shape &obj){
-	return 1;//2*INV_PI;
+	return 1*INV_PI;
 }
 

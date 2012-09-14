@@ -93,14 +93,15 @@ static void InitializeScenes(){
 	//sceneObjs.push_back(new SphereLight("sphere",Vec(0,0,0),2,Vec(150,150,150)));//Glass
 	//sceneObjs.push_back(new SphereLight("sphere",Vec(0,2,0),2,Vec(150,150,150)));//Glass
 	
-	sceneObjs.push_back(new Sphere("sphere",Vec(-10,4,0),9,Vec(150,150,150),  Vec(.25,.25,.25),DIFF));//Glass
-
-	sceneObjs.push_back(new AreaLight("AreaLight",Vec(0,30,10),Vec(180,0,0),5,5,Vec(100,100,100)));//Light
+	sceneObjs.push_back(new Sphere("sphere",Vec(-10,4,0),9, Zero,  Vec(.25,.25,.25),DIFF));//Glass
+	AreaLight* light = new AreaLight("AreaLight",Vec(0,30,10),Vec(180,0,0),10,10,Vec(120,120,120));
+	sceneObjs.push_back(light);//Light
 	sceneObjs.push_back(new Plane("right",	Vec(40,0,0),	Vec(0,0,90),	80,80,		Zero,Vec(.75,.25,.25),DIFF));//Right
 	sceneObjs.push_back(new Plane("left",	Vec(-40,0,0),	Vec(0,0,-90),	80,80,		Zero,Vec(.25,.25,.75),DIFF));//Left
 	sceneObjs.push_back(new Plane("top",	Vec(0,40,0),	Vec(0,0,-180),	80,80,		Zero,Vec(.25,.25,.25),DIFF));//Top
 	sceneObjs.push_back(new Plane("bottom",	Vec(0,-40,0),	Vec(0,0,0),		80,80,		Zero,Vec(.25,.25,.25),DIFF));//Bottom
 	sceneObjs.push_back(new Plane("back",	Vec(0,0,-40),	Vec(90,0,0),	80,80,		Zero,Vec(.25,.25,.25),DIFF));//Back
+	sceneObjs.push_back(new Plane("back",	Vec(0,0,60),	Vec(-90,0,0),	80,80,		Zero,Vec(.25,.25,.25),DIFF));//Back
 	
 	//sceneObjs.push_back(new AreaLight("AreaLight",Vec(40,0,0),Vec(0,0,90),20,20,Vec(150,150,150)));//Light
 	

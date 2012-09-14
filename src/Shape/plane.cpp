@@ -29,7 +29,8 @@ Plane::Plane(string inputNm,const Vec& trans, const Vec& rot,const float &width,
 		name = inputNm;
 		this->width = width;
 		this->height = height;
-		
+		this->area = width*height;
+
 		//this->p1 = this->translate -Vec(width*0.5,0,height*0.5);
 
 		this->p1 = Vec(-width*0.5,0,-height*0.5);

@@ -14,7 +14,7 @@ public:
 
 	int shaRays;
 
-	virtual Vec Sample(const RNG* rng)=0;
+	virtual Vec Sample(RNG* rng)=0;
 	virtual float Pdf()=0;
 };
 #endif

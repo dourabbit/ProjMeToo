@@ -27,7 +27,7 @@ public:
 	Quat quat;
 	Mat4 rotMat;
 	Vec e, c;      // position, emission, color
-	Vec cc;
+	//Vec cc;
 	float maxC;
 	float absorption;
 	Refl_t refl;

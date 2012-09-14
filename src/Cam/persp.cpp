@@ -13,8 +13,8 @@ Persp::Persp(Vec &origin, Vec &target, float fov, int width, int height):vpDista
 	this->height = height;
 	this->width = width;
 
-	
-	float yHeight= vpDistance* tan( fov/2) * 2;
+	float tangent =  tan(MathHelper.ToRadius(fov/2.0));
+	float yHeight= vpDistance*tangent * 2;
 	float xWidth = yHeight * this->aspect;
 
 	this->xDelta = xWidth/(float)this->width;

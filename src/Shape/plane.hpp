@@ -11,7 +11,7 @@ public:
 	Vec p1, p2, p3, p4, norm;
 	Triangle* t1;
 	Triangle* t2;
-	float width, height;
+	float width, height,area;
 	Plane();
 	/*Plane(const Vec& p1,const Vec& p2,const Vec& p3, const Vec &p4,
 						const Vec& e, const Vec& c, Refl_t refl) ;
@@ -21,5 +21,6 @@ public:
 	virtual ~Plane();
 	virtual bool intersect(const Ray &pixelCol, float &eps);
 	virtual Vec getNorm(Vec x);
+
 };
 #endif

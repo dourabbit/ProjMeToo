@@ -10,7 +10,7 @@ public:
 	SphereLight();
 	SphereLight(string name,const Vec& trans,const float& radius,const Vec& e);
 	virtual ~SphereLight();
-	virtual Vec Sample(const RNG* rng);
+	virtual Vec Sample(RNG* rng);
 	virtual float Pdf();
 	//virtual bool intersect(const Ray &pixelCol, float &eps);
 
