@@ -20,16 +20,25 @@ public:
 	~PathTracerSplitted();
 	void Initialize();
 	int static Render(void * ptr);
+
+
+
+	static int width;
+	static int height;
+
+	static int shaRays ;
+	static int pathRays;
+
 private:/*
 	Vec static trace (const Ray &pixelCol, RNG &rng);
 	Vec static shade(const Vec &x, const Vec &n, const Shape &obj, RNG &rng);*/
 	
-	static int shaRays ;
-	static int pathRays;
 	static double BRDF(const Shape &obj);
 	
-	Vec static trace (const Ray &pixelCol,const RNG &rng);
-	
+	Vec static trace (const Ray &ray, const RNG &rng);
+	Point static trace (const Ray &ray);
+	Vec static computeRadiance(const Point &x, const RNG &rng);
+
 	Vec static directIllumination(const Point &x,const RNG &rng);
 	Vec static indirectIllumination(const Point &x, const RNG &rng);
 	float static radianceTransfer(const Point &x, const Point &y );

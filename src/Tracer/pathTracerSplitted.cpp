@@ -7,37 +7,59 @@ void PathTracerSplitted::Initialize(){
 }
 
 int PathTracerSplitted::shaRays = 0;
+int PathTracerSplitted::pathRays = 0;
+int PathTracerSplitted::width = 0;
+int PathTracerSplitted::height = 0;
+
 
 PathTracerSplitted::PathTracerSplitted(){
-	shaRays = 16;
-	pathRays = 16;
+	shaRays = 8;
+	pathRays = 64;
 };
 
 Vec PathTracerSplitted:: indirectIllumination(const Point &x, const RNG &rng){
-	bool isAbsorption = rng.RandomFloat()> x.obj->absorption;
+	float absorption	= rng.RandomFloat();
+	bool isAbsorption	= absorption> x.obj->absorption;
 	Vec radiance = Zero;
+	//return radiance;
 	if(!isAbsorption){
-				float phi = 2 * M_PI * rng.RandomFloat();
-				float sintheta2 = rng.RandomFloat();
-				float costheta = sqrt(1 - sintheta2);
-				float sintheta = sqrt(sintheta2);
+		//for(int i=0; i<pathRays;i++){
+			//////////////////////////////////////////Sample dir on hemisphere
+			//////////////////////////////////////////////////////////////////
+			float phi = 2 * M_PI * rng.RandomFloat();
+			float sintheta2 = rng.RandomFloat();
+			float costheta = sqrt(1 - sintheta2);
+			float sintheta = sqrt(sintheta2);
 
-				Vec w = x.obj->getNorm(x);
-				Vec wo = w.x < -0.1 || w.x > 0.1 ? YAxis : XAxis;
+			Vec w = x.obj->getNorm(x);
+			Vec wo = w.x < -0.1 || w.x > 0.1 ? YAxis : XAxis;
 
-				Vec u = Cross(wo,w);
-				u.norm();
-				Vec v = Cross(w,u);
+			Vec u = Cross(wo,w);
+			u.norm();
+			Vec v = Cross(w,u);
 
-				Vec dir = u * cos(phi) * sintheta + v * sin(phi) * sintheta + w * costheta;
-				dir.norm();
+			Vec dir =	u * cos(phi) * sintheta + 
+						v * sin(phi) * sintheta + 
+						w * costheta;
+			dir.norm();//////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////
 
-				Ray r = Ray(x,dir);
-				trace (r,rng);
-	
-	}
-
-
+			Ray r = Ray(x,dir);
+			Point y = trace (r);
+			
+			//float d = (y-x).length();
+			if(y.obj!= NULL){
+				float pdf = costheta * INV_PI;
+				float cosNx_dir = Dot(x.obj->getNorm(x),dir);
+				float brdf = BRDF(*x.obj);
+				float d = (y-x).length();
+				radiance =	radiance + y.obj->c *
+				computeRadiance(y,rng)*brdf* cosNx_dir/(pdf);
+			}
+		//}// end of For all the paths
+		//radiance = radiance/pathRays;
+	}//end of isAbsorption
+	return radiance/(1-absorption);
 }
 
 Vec PathTracerSplitted::directIllumination(const Point &x,const RNG &rng){
@@ -138,23 +160,46 @@ bool PathTracerSplitted::visibility(const Point &x, const Point &y){
 	return false;
 }
 
-Vec PathTracerSplitted::trace(const Ray &pixelCol,const RNG &rng){
+Vec PathTracerSplitted::computeRadiance(const Point &x, const RNG &rng){
+	Vec result;
+	result = result + directIllumination(x, rng);
+	result = result + indirectIllumination(x, rng);
+	return result;
+}
+
+
+Point PathTracerSplitted::trace(const Ray &ray){
 	float t; 
-	Shape* obj = intersect(pixelCol, t);
+	Point result = Point();
+	Shape* obj = intersect(ray, t);
 	if(!obj) 
-		return Vec::Zero;
-	Vec x = pixelCol.o + pixelCol.d * t;
+		return result;
+	Vec x = ray.o + ray.d * t;
 	Vec n = obj->getNorm(x);
 	
-	Point p = Point(obj, x);
-	n = Dot(n,pixelCol.d) < 0 ? n : n * -1;
+	return Point(obj, x);
+}
 
+Vec PathTracerSplitted::trace(const Ray &pixelCol,const RNG &rng){
+	//float t; 
+	//Shape* obj = intersect(pixelCol, t);
+	//if(!obj) 
+	//	return Vec::Zero;
+	//Vec x = pixelCol.o + pixelCol.d * t;
+	//Vec n = obj->getNorm(x);
+	//
+	//Point p = Point(obj, x);
+	//n = Dot(n,pixelCol.d) < 0 ? n : n * -1;//??????????????????
 
-	Light* light = dynamic_cast<Light*>(obj);
+	Point p = trace(pixelCol);
+
+	if(p.obj==NULL) return Zero;
+
+	Light* light = dynamic_cast<Light*>(p.obj);
 	if(light)
-		return obj->e;
+		return p.obj->e;
 	else
-		return directIllumination(p, rng);
+		return computeRadiance(p, rng);
 
 	return Zero;
 }
@@ -166,61 +211,24 @@ int PathTracerSplitted::Render(void * ptr) {
 
 	clock_t start = clock(); 
 
-	const int w = 256;
-	const int h = 256;
 
-	const int samps =  16; // # samples
-
-	//const Ray cam(Vec(50, 52, 295.6), Vec(0, -0.042612, -1).norm()); // cam pos, dir
-	//const Vec cx(w * .5135 / h);
-	//const Vec cy = (Cross(cx,cam.d)).norm() * .5135;
+	const int samps =  128;
 
 	Cam::Persp persp = Cam::Persp(	Vec(-10,0,100),
 									Vec(0,0,0),
-									45,256,256);
+									45,width,height);
 	
 #pragma omp parallel for schedule(dynamic, 1)       //OpenMP
-	//// Loop over image rows
-	//for (int y = 0; y < h; y++) {
-	//	fprintf(stderr,"\rRendering (%d spp) %5.2f%%",samps*4,100.*y/(h-1));
-	//	RandomLCG rand(y);
-	//	// Loop cols
-	//	for (unsigned short x=0; x<w; x++) {
-	//		// 2x2 subpixel rows
-	//		for (int sy = 0; sy < 2; sy++) {
-	//			const int i = (h - y - 1) * w + x;
-
-	//			// 2x2 subpixel cols
-	//			for (int sx = 0; sx < 2; sx++) {        
-	//				Vec pixelCol = Vec::Zero;
-	//				for (int s = 0; s < samps; s++) {
-	//					float r1 = 2 * rand();
-	//					float sintheta2 = 2 * rand();
-	//					float dx = r1 < 1 ? sqrt(r1) - 1 : 1 - sqrt(2 - r1);
-	//					float dy = sintheta2 < 1 ? sqrt(sintheta2) - 1 : 1 - sqrt(2 - sintheta2);
-
-	//					Vec dir = cx * (((sx + .5 + dx) / 2 + x) / w - .5) +
-	//						    cy * (((sy + .5 + dy) / 2 + y) / h - .5) + cam.d;
-
-	//					pixelCol = pixelCol + trace(Ray(cam.o + dir * 140, dir.norm()),  rand) * (1.0 / samps);
-	//				}
-	//				c[i] = c[i] + Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z)) * .25;
-	//			}
-	//		}
-	//	}
-	//}
-
-	
 	RNG rng = RNG();
 
 
 	// Loop over image rows
-	for (int y = 0; y < h; y++) {
-		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",samps*4,100.*y/(h-1));
+	for (int y = 0; y < height; y++) {
+		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",samps,100.*y/(height-1));
 		//RandomLCG rand(y);
 		// Loop cols
-		for (unsigned short x=0; x<w; x++) {
-			const int i = (h - y - 1) * w + x;
+		for (unsigned short x=0; x<width; x++) {
+			const int i = (height - y - 1) * width + x;
 			Vec pixelCol = Zero;
 			for(int s = 0; s<samps;s++){
 				Ray ray = persp.UnProject(x,y,rng);

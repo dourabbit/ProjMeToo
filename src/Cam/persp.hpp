@@ -19,7 +19,7 @@ public:
 	Vec leftBottomVP;
 	float xDelta, yDelta;
 	const float vpDistance;
-	Persp(Vec &origin, Vec &target, float fov,int height,int width);
+	Persp(Vec &origin, Vec &target, float fov,int width,int height);
 	Ray UnProject(int U, int V, RNG &rng);
 	~Persp();
 };

@@ -208,6 +208,8 @@ INLINE float Dot(const Vec& a,const Vec& b){ // dot
 
 class Point:public Vec{
 public:
+	static Point PointZero;
+
 	Shape* obj;
 	Point(){
 	
@@ -220,11 +222,10 @@ public:
 	};
 
 	~Point(){
-	
 		//delete obj;
 	}
-
 };
+
 
 
 class Ray { 

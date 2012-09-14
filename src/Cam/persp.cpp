@@ -1,7 +1,7 @@
 #include <Cam/persp.hpp>
 #include <math.h>
 using namespace Cam;
-Persp::Persp(Vec &origin, Vec &target, float fov, int height, int width):vpDistance(0.1f){
+Persp::Persp(Vec &origin, Vec &target, float fov, int width, int height):vpDistance(0.1f){
 	
 	this->target = target;
 	this->direction = (target-origin).norm();
@@ -27,15 +27,16 @@ Persp::Persp(Vec &origin, Vec &target, float fov, int height, int width):vpDista
 
 Ray Persp::UnProject(int U, int V, RNG &rng){
 	Ray result;
-	Vec centerOfPixel = leftBottomVP + 
+	/*Vec centerOfPixel = leftBottomVP + 
 						Vec(U*xDelta,V*yDelta,0) + 
-						Vec(xDelta/2.0f,yDelta/2.0f,.0f);
+						Vec(xDelta/2.0f,yDelta/2.0f,.0f);*/
+
 	float epsilon1 = rng.RandomFloat(); float epsilon2 = rng.RandomFloat();
-	centerOfPixel = centerOfPixel + Vec( epsilon1*xDelta, epsilon2*yDelta,.0f);
-	Vec dir = Vec(centerOfPixel.x, centerOfPixel.y, centerOfPixel.z);
+	Vec targetPoint = leftBottomVP + Vec(U*xDelta,V*yDelta,0) + Vec( epsilon1*xDelta, epsilon2*yDelta,.0f);
+	Vec dir = Vec(targetPoint.x, targetPoint.y, targetPoint.z);
 	dir.norm();
 
-	result = Mat4::Mul(this->viewMatInv,Ray(centerOfPixel, dir));
+	result = Mat4::Mul(this->viewMatInv,Ray(targetPoint, dir));
 	return result;
 }
 Persp::~Persp(){

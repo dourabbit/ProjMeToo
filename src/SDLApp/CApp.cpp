@@ -14,7 +14,7 @@ bool CApp::OnInit() {
     if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         return false;
     }
-	w = h= 256;
+	w = h= 512;
     if((Surf_Display = SDL_SetVideoMode(w, h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
         return false;
     }
@@ -27,7 +27,8 @@ bool CApp::OnInit() {
 
 	
 	c = new Vec[w * h];
-	
+	tracer->width  = w;
+	tracer->height = h;
 	thread = SDL_CreateThread(tracer->Render,  (void *)c);
 
     return true;
