@@ -15,7 +15,7 @@ int PathTracerSplitted::traceDepth = 0;
 
 PathTracerSplitted::PathTracerSplitted(){
 	shaRays = 4;
-	pathRays = 500;
+	pathRays = 100;
 };
 
 Vec PathTracerSplitted:: indirectIllumination(const Point &x, RNG &rng){
@@ -145,8 +145,14 @@ Vec PathTracerSplitted::directIllumination(const Point &x, RNG &rng){
 
 void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point &result){
 	
-	float e = rng->RandomFloat();
-	int index = (int)e*lights.size();
+	int index = lights.size();
+
+	while(index==lights.size()){
+	
+		float e = rng->RandomFloat();
+		index = (int)e*lights.size();
+	}
+
 
 	*pdf = 1.0f/lights.size();
 	*pdf *= lights[index]->Pdf();
