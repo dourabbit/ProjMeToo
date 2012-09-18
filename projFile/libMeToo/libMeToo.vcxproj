@@ -71,9 +71,10 @@
     <ClCompile Include="..\..\src\Light\sphereLight.cpp" />
     <ClCompile Include="..\..\src\Light\areaLight.cpp" />
     <ClCompile Include="..\..\src\Light\light.cpp" />
-    <ClCompile Include="..\..\src\Math\Math.cpp" />
     <ClCompile Include="..\..\src\Math\Math.hpp" />
-    <ClCompile Include="..\..\src\Sampler\sampler.cpp" />
+    <ClCompile Include="..\..\src\Sampler\sampler.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\src\Shape\plane.cpp" />
     <ClCompile Include="..\..\src\Shape\shape.cpp" />
     <ClCompile Include="..\..\src\Shape\sphere.cpp" />
@@ -82,8 +83,16 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\Tracer\pathTracerSplitted.cpp" />
-    <ClCompile Include="..\..\src\Writer\imageWriter.cpp" />
-    <ClCompile Include="..\..\src\Writer\tiffWriter.cpp" />
+    <ClCompile Include="..\..\src\Writer\imageWriter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Writer\test.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Writer\tiffWriter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\t4.h" />
@@ -108,8 +117,9 @@
     <ClInclude Include="..\..\src\Light\areaLight.hpp" />
     <ClInclude Include="..\..\src\Light\light.hpp" />
     <ClInclude Include="..\..\src\Mat\Mat.h" />
-    <ClInclude Include="..\..\src\Mat\Mat.cpp" />
-    <ClInclude Include="..\..\src\Sampler\sampler.hpp" />
+    <ClInclude Include="..\..\src\Sampler\sampler.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\..\src\Shape\plane.hpp" />
     <ClInclude Include="..\..\src\Shape\shape.hpp" />
     <ClInclude Include="..\..\src\Shape\sphere.hpp" />
@@ -118,8 +128,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\..\src\Tracer\pathTracerSplitted.hpp" />
-    <ClInclude Include="..\..\src\Writer\imageWriter.hpp" />
-    <ClInclude Include="..\..\src\Writer\tiffWriter.h" />
+    <ClInclude Include="..\..\src\Writer\imageWriter.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Writer\tiffWriter.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -157,6 +171,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)\..\src\Math;$(SolutionDir)\..\src;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\..\lib\</OutDir>
+    <ReferencePath>$(SolutionDir)\..\lib\;$(ReferencePath)</ReferencePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)\..\src;$(IncludePath)</IncludePath>
     <ReferencePath>$(SolutionDir)\..\lib\;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

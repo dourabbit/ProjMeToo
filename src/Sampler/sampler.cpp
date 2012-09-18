@@ -3,6 +3,7 @@
 
 
 
+//Testing code
 //Copy from Physical Based Rendering by Matt
 void ConcentricSampleDisk(float u1, float u2, float *dx, float *dy) {
     float r, theta;

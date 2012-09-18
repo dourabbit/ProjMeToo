@@ -171,12 +171,6 @@
     <ClCompile Include="..\..\src\Data\image.cpp">
       <Filter>Source Files\Data</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Writer\tiffWriter.cpp">
-      <Filter>Source Files\Writer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Writer\imageWriter.cpp">
-      <Filter>Source Files\Writer</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Shape\shape.cpp">
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
@@ -184,9 +178,6 @@
       <Filter>Source Files\Shape</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Math\Math.hpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Math\Math.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Tracer\pathTracer.cpp">
@@ -215,6 +206,15 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Light\sphereLight.cpp">
       <Filter>Source Files\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Writer\imageWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Writer\test.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Writer\tiffWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -269,16 +269,7 @@
     <ClInclude Include="..\..\src\common.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Writer\tiffWriter.h">
-      <Filter>Source Files\Writer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Writer\imageWriter.hpp">
-      <Filter>Source Files\Writer</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\Mat\Mat.h">
-      <Filter>Source Files\Mat</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Mat\Mat.cpp">
       <Filter>Source Files\Mat</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\Shape\shape.hpp">
@@ -313,6 +304,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\Light\sphereLight.hpp">
       <Filter>Source Files\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Writer\imageWriter.hpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Writer\tiffWriter.h">
+      <Filter>Source Files\Writer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
