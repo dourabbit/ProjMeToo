@@ -4,7 +4,7 @@
 #ifndef _CAPP_H_
     #define _CAPP_H_
 
-#include "SDL.h"
+#include <SDL.h>
 #include "pathTracerSplitted.hpp"
 //==============================================================================
 class CApp {

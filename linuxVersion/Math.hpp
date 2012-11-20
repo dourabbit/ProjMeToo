@@ -135,6 +135,30 @@ private:
     mutable int mti;
 };
 
+template <class T>
+class Vec2D{
+public:
+    T x,y;
+    
+	INLINE Vec2D(T x = 0, T y = 0) : x(x), y(y){
+	}
+    
+	INLINE bool operator==(const Vec2D& b) const {
+		return x==b.x&&y==b.y?true:false;
+	}
+    
+    
+    
+    
+	INLINE Vec2D operator+(const Vec2D& b) const {
+		return Vec2D(x + b.x, y + b.y);
+	}
+    
+	INLINE Vec2D operator-(const Vec2D& b) const {
+		return Vec2D(x - b.x, y - b.y);
+	}
+    
+};
 
 
 
@@ -219,22 +243,22 @@ INLINE float Dot(const Vec& a,const Vec& b){ // dot
 		return a.x * b.x + a.y * b.y + a.z * b.z; 
 };
 
-class Point:public Vec{
+class Point3D:public Vec{
 public:
-	static Point PointZero;
+	static Point3D Point3DZero;
 
 	Shape* obj;
-	Point(){
+	Point3D(){
 	
 		obj = NULL;
 	};
-	Point(Shape * geometry,Vec vec):obj(geometry){
+	Point3D(Shape * geometry,Vec vec):obj(geometry){
 		this->x = vec.x;
 		this->y = vec.y;
 		this->z = vec.z;
 	};
 
-	~Point(){
+	~Point3D(){
 		//delete obj;
 	}
 };

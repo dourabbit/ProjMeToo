@@ -1,8 +1,8 @@
 
 XX = g++
-CFLAGS =  -Wall -O -Wno-deprecated `sdl-config --cflags --libs` -fopenmp
-LIB = -L ./lib/
-INC = -I ./SDL
+CFLAGS =  -Wall -O -fopenmp
+LIB = -L /Library/Frameworks/SDL.framework
+INC = -I /Library/Frameworks/SDL.framework/Headers
 TARGET = ./MeToo
 
 

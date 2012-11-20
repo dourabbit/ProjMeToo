@@ -1,5 +1,15 @@
 // MeToo.cpp : Defines the entry point for the console application.
 //
+#ifdef __cplusplus
+    #include <cstdlib>
+#else
+    #include <stdlib.h>
+#endif
+#ifdef __APPLE__
+#include <SDL/SDL.h>
+#else
+#include <SDL.h>
+#endif
 
 #include "stdafx.h"
 #include <common.h>
@@ -9,8 +19,8 @@
 #include <Writer/tiffWriter.h>
 using namespace Data;
 using namespace Writer;
-int main(int argc, _TCHAR* argv[])
-{
+//int main(int argc, _TCHAR* argv[])
+//{
 
 
 	//Test Tiff
@@ -24,5 +34,5 @@ int main(int argc, _TCHAR* argv[])
 	//t->Write(imgData,outputPath);
 	////ImageWriter* p = new ImageWriter();
 	//return 0;
-}
+//}
 

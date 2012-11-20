@@ -11,6 +11,7 @@
 #include <stdlib.h> 
 #include <stdio.h> 
 #include <time.h>		
+#include <worker.hpp>
 
 
 namespace Tracer{
@@ -20,7 +21,7 @@ public:
 	~PathTracerSplitted();
 	void Initialize();
 	int static Render(void * ptr);
-
+    int static Render(Block &block);
 
 
 	static int width;
@@ -38,14 +39,14 @@ private:/*
 	static double BRDF(const Shape &obj);
 	
 	Vec static trace (const Ray &ray,  RNG &rng);
-	Point static trace (const Ray &ray);
-	Vec static computeRadiance(const Point &x, Vec &result, RNG &rng);
+	Point3D static trace (const Ray &ray);
+	Vec static computeRadiance(const Point3D &x, Vec &result, RNG &rng);
 
-	Vec static directIllumination(const Point &x,RNG &rng);
-	Vec static indirectIllumination(const Point &x, RNG &rng);
-	float static radianceTransfer(const Point &x, const Point &y );
-	bool static visibility(const Point &x, const Point &y);
-	void static getLightSample(float* pdf,RNG* rng, Point &point);
+	Vec static directIllumination(const Point3D &x,RNG &rng);
+	Vec static indirectIllumination(const Point3D &x, RNG &rng);
+	float static radianceTransfer(const Point3D &x, const Point3D &y );
+	bool static visibility(const Point3D &x, const Point3D &y);
+	void static getLightSample(float* pdf,RNG* rng, Point3D &point);
 };
 }
 #endif

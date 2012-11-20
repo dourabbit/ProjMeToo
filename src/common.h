@@ -11,7 +11,7 @@ typedef char IMGDATA;
 #define INLINE inline
 #endif
 
-//#include <Math/Math.hpp>
+#include <Math/Math.hpp>
 #include <Mat/Mat.h>
 #include <Shape/sphere.hpp>
 #include <Shape/triangle.hpp>
@@ -30,9 +30,10 @@ typedef char IMGDATA;
 //class Quat;
 //class Ray;
 //class Point;
-//class Shape;
+
 //
-//class Vec;
+class Vec;
+class Shape;
 //class RNG;
 
 static std::vector<Shape*> sceneObjs;
@@ -40,7 +41,7 @@ static std::vector<Light*> lights;
 static std::vector<float> dis;
 static std::vector<const Vec*> points;
 
-static float shortDis = 1000;
+//static float shortDis = 1000;
 
 
 
@@ -68,16 +69,16 @@ static void InitializeScenes(){
 
 	
 	//sceneObjs.push_back(new Triangle( Vec(-20,-12,-47),Vec(3,-40,-47),Vec(7,30,-47),Vec::Zero, Vec(.75,.25,.25),DIFF));
-	Vec t1 = Vec(-50,50,-20);
-	Vec t2 = Vec(-50,50,-70);
-	Vec t3 = Vec(50,50,-20);
-	Vec t4 = Vec(50,50,-70);
-
-	Vec b1 = Vec(-50,-50,-20);
-	Vec b2 = Vec(-50,-50,-70);
-	Vec b3 = Vec(50,-50,-70);
-	Vec b4 =Vec(50,-50,-20);
-	
+//	Vec t1 = Vec(-50,50,-20);
+//	Vec t2 = Vec(-50,50,-70);
+//	Vec t3 = Vec(50,50,-20);
+//	Vec t4 = Vec(50,50,-70);
+//
+//	Vec b1 = Vec(-50,-50,-20);
+//	Vec b2 = Vec(-50,-50,-70);
+//	Vec b3 = Vec(50,-50,-70);
+//	Vec b4 =Vec(50,-50,-20);
+//	
 	//sceneObjs.push_back(new Plane( t1,t2,b2,b1, Vec::Zero, Vec(.75,.25,.25),DIFF));//Left
 	//sceneObjs.push_back(new Plane( t3,t4,b3,b4, Vec::Zero, Vec(.25,.25,.75),DIFF));//Right
 	//
@@ -131,7 +132,7 @@ INLINE Shape* intersect(const Ray &pixelCol, float &t) {
 	Shape* result = NULL;
 	
 	//for (Sphere* s = sceneObjs; s != sceneObjs + sizeof(sceneObjs) / sizeof(Sphere); ++s) {
-	int dd = sceneObjs.size();
+	//int dd = sceneObjs.size();
 	for (int i = 0; i<sceneObjs.size(); i++) {
 		float d=0.0f;
 		bool isIntersect = sceneObjs[i]->intersect(pixelCol,d);

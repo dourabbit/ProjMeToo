@@ -1,6 +1,6 @@
 #include "pathTracerSplitted.hpp"
 #include "light.hpp"
-#include <omp.h>
+//#include <omp.h>
 using namespace Tracer;
 
 void PathTracerSplitted::Initialize(){
@@ -18,7 +18,7 @@ PathTracerSplitted::PathTracerSplitted(){
 	pathRays = 100;
 };
 
-Vec PathTracerSplitted:: indirectIllumination(const Point &x, RNG &rng){
+Vec PathTracerSplitted:: indirectIllumination(const Point3D &x, RNG &rng){
 	float absorption	= rng.RandomFloat();
 	bool isAbsorption	= absorption > x.obj->absorption;
 	Vec radiance = Zero;
@@ -51,7 +51,7 @@ Vec PathTracerSplitted:: indirectIllumination(const Point &x, RNG &rng){
 			/////////////////////////////////////////////////////////////////
 
 			Ray r = Ray(x,dir);
-			Point y = trace (r);
+			Point3D y = trace (r);
 			
 			if(traceDepth==2&&y.obj!= NULL&&(y.obj->e.x!=0||y.obj->e.y!=0||y.obj->e.z!=0)){
 				//return Zero;
@@ -110,14 +110,14 @@ Vec PathTracerSplitted:: indirectIllumination(const Point &x, RNG &rng){
 	return radiance;
 }
 
-Vec PathTracerSplitted::directIllumination(const Point &x, RNG &rng){
+Vec PathTracerSplitted::directIllumination(const Point3D &x, RNG &rng){
 
 	Vec estimatedRadiance = Vec();
 
 	for(int i=0; i< shaRays;i++){
 		
 		float pdfy;
-		Point y;
+		Point3D y;
 		getLightSample(&pdfy,&rng, y);
 		
 		if(!visibility(x,y))
@@ -143,7 +143,7 @@ Vec PathTracerSplitted::directIllumination(const Point &x, RNG &rng){
 
 
 
-void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point &result){
+void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point3D &result){
 	
 	int index = lights.size();
 
@@ -174,7 +174,7 @@ void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point &result){
 }
 
 //x is point on the object; y is point on the light
-float PathTracerSplitted::radianceTransfer(const Point &x, const Point &y ){
+float PathTracerSplitted::radianceTransfer(const Point3D &x, const Point3D &y ){
 
 	Vec vecx = Vec(x.x,x.y,x.z),vecy = Vec(y.x,y.y,y.z);
 	Vec normy = y.obj->getNorm(y);
@@ -209,7 +209,7 @@ float PathTracerSplitted::radianceTransfer(const Point &x, const Point &y ){
 	return consine1*consine2/(r*r);
 };
 
-bool PathTracerSplitted::visibility(const Point &x, const Point &y){
+bool PathTracerSplitted::visibility(const Point3D &x, const Point3D &y){
 	float t = 0, d = (x-y).length();
 	Vec dir = (y-x).norm();
 	Ray r = Ray(x,dir);
@@ -220,7 +220,7 @@ bool PathTracerSplitted::visibility(const Point &x, const Point &y){
 	return false;
 }
 
-Vec PathTracerSplitted::computeRadiance(const Point &x, Vec &result, RNG &rng){
+Vec PathTracerSplitted::computeRadiance(const Point3D &x, Vec &result, RNG &rng){
 	//Vec result;
 	result = result + directIllumination(x, rng);
 	result = result + indirectIllumination(x, rng);
@@ -228,11 +228,11 @@ Vec PathTracerSplitted::computeRadiance(const Point &x, Vec &result, RNG &rng){
 }
 
 
-Point PathTracerSplitted::trace(const Ray &ray){
+Point3D PathTracerSplitted::trace(const Ray &ray){
 	
 	
 	float t; 
-	Point result = Point();
+	Point3D result = Point3D();
 
 	traceDepth++;
 	/*if(traceDepth>2)
@@ -245,12 +245,12 @@ Point PathTracerSplitted::trace(const Ray &ray){
 	Vec x = ray.o + ray.d * t;
 	Vec n = obj->getNorm(x);
 	
-	return Point(obj, x);
+	return Point3D(obj, x);
 }
 
 Vec PathTracerSplitted::trace(const Ray &ray,RNG &rng){
 
-	Point p = trace(ray);
+	Point3D p = trace(ray);
 
 	if(p.obj==NULL) 
 		return Zero;
@@ -283,8 +283,8 @@ int PathTracerSplitted::Render(void * ptr) {
 	
 	
 
-#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
-	
+//#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
+//#pragma omp parallel for
 
 
 	// Loop over image rows
@@ -314,6 +314,50 @@ int PathTracerSplitted::Render(void * ptr) {
 
 
 
+	return 0;
+}
+
+
+
+
+int PathTracerSplitted::Render(Block &block) {
+
+    
+	Cam::Persp persp = Cam::Persp(	Vec(0,0,50),
+                                  Vec(0,0,0),
+                                  80.0f,width,height);
+	
+	
+    
+    //#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
+    //#pragma omp parallel for
+    
+    
+	// Loop over image rows
+	for (int y = block.pos.y; y < block.height; y++) {
+		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
+		RNG rng = RNG(y);
+		// Loop cols
+		for (unsigned short x=block.pos.x; x<block.width; x++) {
+			const int i = (height - y - 1) * width + x;
+			Vec pixelCol = Zero;
+			for(int s = 0; s<pathRays;s++){
+				Ray ray = persp.UnProject(x,y,rng);
+				traceDepth = 0;
+				Vec pCol = trace(ray, rng);
+				
+				pixelCol = pixelCol + pCol;
+				//printf("%d\n",traceDepth);
+			}
+			pixelCol = pixelCol * (1.0 / pathRays);
+			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
+		
+			block.col[i] = color;
+		}
+	}
+    
+    
+    
 	return 0;
 }
 

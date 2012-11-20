@@ -2,10 +2,12 @@
 #ifndef _SHAPE_H_
 #define _SHAPE_H_
 
-#include <Math/Math.hpp>
-//#include <common.h>
+#include <common.h>
 #include <Mat/Mat.h>
 #include <string>
+
+#include "Math.hpp"
+//#include <Math/Math.hpp>
 using namespace std;
 class Shape{
 public:

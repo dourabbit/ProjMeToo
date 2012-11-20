@@ -1,0 +1,116 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		1BBD36821646A8C300F305D5 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
+		1BBD36831646A8C300F305D5 /* 3rdParty */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 3rdParty; sourceTree = "<group>"; };
+		1BBD36841646A8C300F305D5 /* Cam */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cam; sourceTree = "<group>"; };
+		1BBD36851646A8C300F305D5 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		1BBD36861646A8C300F305D5 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		1BBD36871646A8C300F305D5 /* Light */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Light; sourceTree = "<group>"; };
+		1BBD36881646A8C300F305D5 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		1BBD36891646A8C300F305D5 /* Mat */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mat; sourceTree = "<group>"; };
+		1BBD368A1646A8C300F305D5 /* Math */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Math; sourceTree = "<group>"; };
+		1BBD368B1646A8C300F305D5 /* MeToo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MeToo.cpp; sourceTree = "<group>"; };
+		1BBD368C1646A8C300F305D5 /* ref */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ref; sourceTree = "<group>"; };
+		1BBD368D1646A8C300F305D5 /* Sampler */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sampler; sourceTree = "<group>"; };
+		1BBD368E1646A8C300F305D5 /* SDLApp */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SDLApp; sourceTree = "<group>"; };
+		1BBD368F1646A8C300F305D5 /* Shape */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Shape; sourceTree = "<group>"; };
+		1BBD36901646A8C300F305D5 /* stdafx.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		1BBD36911646A8C300F305D5 /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		1BBD36921646A8C300F305D5 /* targetver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = targetver.h; sourceTree = "<group>"; };
+		1BBD36931646A8C300F305D5 /* Tracer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tracer; sourceTree = "<group>"; };
+		1BBD36941646A8C300F305D5 /* Writer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Writer; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1BBD367A1646A8C300F305D5 = {
+			isa = PBXGroup;
+			children = (
+				1BBD36821646A8C300F305D5 /* .DS_Store */,
+				1BBD36831646A8C300F305D5 /* 3rdParty */,
+				1BBD36841646A8C300F305D5 /* Cam */,
+				1BBD36851646A8C300F305D5 /* common.h */,
+				1BBD36861646A8C300F305D5 /* Data */,
+				1BBD36871646A8C300F305D5 /* Light */,
+				1BBD36881646A8C300F305D5 /* Makefile */,
+				1BBD36891646A8C300F305D5 /* Mat */,
+				1BBD368A1646A8C300F305D5 /* Math */,
+				1BBD368B1646A8C300F305D5 /* MeToo.cpp */,
+				1BBD368C1646A8C300F305D5 /* ref */,
+				1BBD368D1646A8C300F305D5 /* Sampler */,
+				1BBD368E1646A8C300F305D5 /* SDLApp */,
+				1BBD368F1646A8C300F305D5 /* Shape */,
+				1BBD36901646A8C300F305D5 /* stdafx.cpp */,
+				1BBD36911646A8C300F305D5 /* stdafx.h */,
+				1BBD36921646A8C300F305D5 /* targetver.h */,
+				1BBD36931646A8C300F305D5 /* Tracer */,
+				1BBD36941646A8C300F305D5 /* Writer */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		1BBD367C1646A8C300F305D5 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1BBD367F1646A8C300F305D5 /* Build configuration list for PBXProject "src" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1BBD367A1646A8C300F305D5;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		1BBD367D1646A8C300F305D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1BBD367E1646A8C300F305D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1BBD367F1646A8C300F305D5 /* Build configuration list for PBXProject "src" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BBD367D1646A8C300F305D5 /* Debug */,
+				1BBD367E1646A8C300F305D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1BBD367C1646A8C300F305D5 /* Project object */;
+}
