@@ -1,13 +1,26 @@
 //==============================================================================
 #include "CApp.h"
 #include "SDLHelper.hpp"
-
+#include "blockManager.hpp"
 //==============================================================================
 CApp::CApp() {
-    Surf_Display = NULL;
-    Running = true;
+	Surf_Display = NULL;
+	Running = true;
 	tracer = new Tracer::PathTracerSplitted();
 	tracer->Initialize();
+	this->result = NULL;
+}
+CApp::~CApp(){
+	delete this->manager;
+	//If still running
+	for(int i = 0; i<this->threadsPool.size();i++){
+		SDL_KillThread(this->threadsPool[i]);
+		//delete this->threadsPool[i];
+	}
+
+	//delete tracer; //Memory Leaking here!
+	delete c;
+	delete wholeBlock;
 }
 //==============================================================================
 bool CApp::OnInit() {
@@ -22,15 +35,26 @@ bool CApp::OnInit() {
 	SDL_FillRect(Surf_Display, NULL, 0); 
 	SDL_Flip(Surf_Display);
 
-	SDL_Thread *thread;
 	int threadReturnValue;
 
 	
 	c = new Vec[w * h];
 	tracer->width  = w;
 	tracer->height = h;
-	thread = SDL_CreateThread(tracer->Render,  (void *)c);
+    
+	//thread = SDL_CreateThread(tracer->Render,  (void *)c);
 
+    wholeBlock = new Block(Vec2D<int>(0,0),"result",512,512);
+    manager = new BlockManager(8,this->threadsPool,512,512);
+		//BlockManager::getManager();
+    
+    
+	SDL_Thread *thread;
+    thread = SDL_CreateThread(manager->Run,  (void *)wholeBlock);
+	this->threadsPool.push_back(thread);
+	//manager->Run(wholeBlock, this->threadsPool);
+    
+    //manager->Run((void*)c);
     return true;
 }
 //==============================================================================
@@ -47,7 +71,7 @@ void CApp::OnRender() {
 		for(int y =0; y<Surf_Display->h;y++){
 			int index = (y) * w + x;
 			SetPixelColor(Surf_Display, x, y, 
-				SDL_MapRGB(Surf_Display->format,c[index].x*255,c[index].y*255,c[index].z*255));
+				SDL_MapRGB(Surf_Display->format,wholeBlock->col[index].x*255,wholeBlock->col[index].y*255,wholeBlock->col[index].z*255));
 		}
 	SDL_Flip(Surf_Display);
 }

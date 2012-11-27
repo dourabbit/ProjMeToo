@@ -21,7 +21,7 @@ public:
 	~PathTracerSplitted();
 	void Initialize();
 	int static Render(void * ptr);
-    int static Render(Block &block);
+    int static Render(Block* block);
 
 
 	static int width;

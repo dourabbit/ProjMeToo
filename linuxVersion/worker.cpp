@@ -7,3 +7,4 @@
 //
 
 #include "worker.hpp"
+Block* Block::wholeBlock = NULL;

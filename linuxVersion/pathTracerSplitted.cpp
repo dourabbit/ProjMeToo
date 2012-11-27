@@ -17,6 +17,9 @@ PathTracerSplitted::PathTracerSplitted(){
 	shaRays = 4;
 	pathRays = 100;
 };
+PathTracerSplitted::~PathTracerSplitted(){
+
+};
 
 Vec PathTracerSplitted:: indirectIllumination(const Point3D &x, RNG &rng){
 	float absorption	= rng.RandomFloat();
@@ -269,79 +272,78 @@ Vec PathTracerSplitted::trace(const Ray &ray,RNG &rng){
 
 
 
-int PathTracerSplitted::Render(void * ptr) {
-	Vec* c = (Vec*)ptr;
-
-	clock_t start = clock(); 
-
-
-	//const int samps =  128;
-
-	Cam::Persp persp = Cam::Persp(	Vec(0,0,50),
-									Vec(0,0,0),
-									80.0f,width,height);
-	
-	
-
-//#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
-//#pragma omp parallel for
-
-
-	// Loop over image rows
-	for (int y = 0; y < height; y++) {
-		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
-		RNG rng = RNG(y);
-		// Loop cols
-		for (unsigned short x=0; x<width; x++) {
-			const int i = (height - y - 1) * width + x;
-			Vec pixelCol = Zero;
-			for(int s = 0; s<pathRays;s++){
-				Ray ray = persp.UnProject(x,y,rng);
-				traceDepth = 0;
-				Vec pCol = trace(ray, rng);
-				
-				pixelCol = pixelCol + pCol;
-				//printf("%d\n",traceDepth);
-			}
-			pixelCol = pixelCol * (1.0 / pathRays);
-			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
-			//c[i] = c[i] + Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
-			
-			
-			c[i] = color;
-		}
-	}
-
-
-
-	return 0;
-}
-
-
+//int PathTracerSplitted::Render(void * ptr) {
+//	Vec* c = (Vec*)ptr;
+//
+//	clock_t start = clock(); 
+//
+//
+//	//const int samps =  128;
+//
+//	Cam::Persp persp = Cam::Persp(	Vec(0,0,50),
+//									Vec(0,0,0),
+//									80.0f,width,height);
+//	
+//	
+//
+////#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
+////#pragma omp parallel for
+//
+//
+//	// Loop over image rows
+//	for (int y = 0; y < height; y++) {
+//		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
+//		RNG rng = RNG(y);
+//		// Loop cols
+//		for (unsigned short x=0; x<width; x++) {
+//			const int i = (height - y - 1) * width + x;
+//			Vec pixelCol = Zero;
+//			for(int s = 0; s<pathRays;s++){
+//				Ray ray = persp.UnProject(x,y,rng);
+//				traceDepth = 0;
+//				Vec pCol = trace(ray, rng);
+//				
+//				pixelCol = pixelCol + pCol;
+//				//printf("%d\n",traceDepth);
+//			}
+//			pixelCol = pixelCol * (1.0 / pathRays);
+//			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
+//			//c[i] = c[i] + Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
+//			
+//			
+//			c[i] = color;
+//		}
+//	}
+//
+//
+//
+//	return 0;
+//}
 
 
-int PathTracerSplitted::Render(Block &block) {
 
-    
-	Cam::Persp persp = Cam::Persp(	Vec(0,0,50),
+
+int PathTracerSplitted::Render(void * ptr){
+    Block* block = (Block*)ptr;
+    //Vec2D<int> a = Vec2D<int>(100,100);
+	Cam::Persp persp = Cam::Persp(Vec(0,0,50),
                                   Vec(0,0,0),
                                   80.0f,width,height);
 	
-	
-    
     //#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
     //#pragma omp parallel for
     
-    
+    int x, y;
 	// Loop over image rows
-	for (int y = block.pos.y; y < block.height; y++) {
-		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
-		RNG rng = RNG(y);
+	for (int r = block->pos.y; r < block->height+block->pos.y; r++) {
+		//fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
+		RNG rng = RNG(r);
 		// Loop cols
-		for (unsigned short x=block.pos.x; x<block.width; x++) {
-			const int i = (height - y - 1) * width + x;
+		for (unsigned short c=block->pos.x; c<block->width+block->pos.x; c++) {
+			const int i = r * width+c;
 			Vec pixelCol = Zero;
 			for(int s = 0; s<pathRays;s++){
+				x = c; y = height - r -1;	
 				Ray ray = persp.UnProject(x,y,rng);
 				traceDepth = 0;
 				Vec pCol = trace(ray, rng);
@@ -352,11 +354,9 @@ int PathTracerSplitted::Render(Block &block) {
 			pixelCol = pixelCol * (1.0 / pathRays);
 			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
 		
-			block.col[i] = color;
+			block->wholeBlock->col[i] = color;
 		}
 	}
-    
-    
     
 	return 0;
 }

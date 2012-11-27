@@ -11,136 +11,42 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\mkg3states.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_aux.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_close.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_codec.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_color.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_compress.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dir.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirinfo.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirread.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirwrite.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dumpmode.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_error.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_extension.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3sm.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_flush.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_getimage.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_jbig.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_jpeg.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_luv.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_lzw.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_next.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_ojpeg.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_open.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_packbits.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_pixarlog.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_predict.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_print.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_read.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_stream.cxx" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_strip.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_swab.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_thunder.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_tile.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_version.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_warning.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_win32.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_write.c" />
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_zip.c" />
-    <ClCompile Include="..\..\src\Cam\persp.cpp" />
-    <ClCompile Include="..\..\src\Data\image.cpp">
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsManaged>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeader>
-      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</MinimalRebuild>
-      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
-      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Async</ExceptionHandling>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsManaged>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeader>
-      <MinimalRebuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</MinimalRebuild>
-      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Default</BasicRuntimeChecks>
-      <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Async</ExceptionHandling>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Data\image.hpp" />
-    <ClCompile Include="..\..\src\Light\sphereLight.cpp" />
-    <ClCompile Include="..\..\src\Light\areaLight.cpp" />
-    <ClCompile Include="..\..\src\Light\light.cpp" />
-    <ClCompile Include="..\..\src\Math\Math.hpp" />
-    <ClCompile Include="..\..\src\Sampler\sampler.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Shape\plane.cpp" />
-    <ClCompile Include="..\..\src\Shape\shape.cpp" />
-    <ClCompile Include="..\..\src\Shape\sphere.cpp" />
-    <ClCompile Include="..\..\src\Shape\triangle.cpp" />
-    <ClCompile Include="..\..\src\Tracer\pathTracer.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Tracer\pathTracerSplitted.cpp" />
-    <ClCompile Include="..\..\src\Writer\imageWriter.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Writer\test.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Writer\tiffWriter.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\t4.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiff.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.vc.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.wince.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffio.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffio.hxx" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffiop.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffvers.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.vc.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.wince.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_dir.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_predict.h" />
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\uvcode.h" />
-    <ClInclude Include="..\..\src\Cam\persp.hpp" />
-    <ClInclude Include="..\..\src\common.h" />
-    <ClInclude Include="..\..\src\Light\sphereLight.hpp" />
-    <ClInclude Include="..\..\src\Light\areaLight.hpp" />
-    <ClInclude Include="..\..\src\Light\light.hpp" />
-    <ClInclude Include="..\..\src\Mat\Mat.h" />
-    <ClInclude Include="..\..\src\Sampler\sampler.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Shape\plane.hpp" />
-    <ClInclude Include="..\..\src\Shape\shape.hpp" />
-    <ClInclude Include="..\..\src\Shape\sphere.hpp" />
-    <ClInclude Include="..\..\src\Shape\triangle.hpp" />
-    <ClInclude Include="..\..\src\Tracer\pathTracer.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Tracer\pathTracerSplitted.hpp" />
-    <ClInclude Include="..\..\src\Writer\imageWriter.hpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="..\..\src\Writer\tiffWriter.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\linuxVersion\areaLight.hpp" />
+    <ClInclude Include="..\..\linuxVersion\blockManager.hpp" />
+    <ClInclude Include="..\..\linuxVersion\CApp.h" />
+    <ClInclude Include="..\..\linuxVersion\common.h" />
+    <ClInclude Include="..\..\linuxVersion\light.hpp" />
+    <ClInclude Include="..\..\linuxVersion\Mat.h" />
+    <ClInclude Include="..\..\linuxVersion\Math.hpp" />
+    <ClInclude Include="..\..\linuxVersion\persp.hpp" />
+    <ClInclude Include="..\..\linuxVersion\plane.hpp" />
+    <ClInclude Include="..\..\linuxVersion\SDLHelper.hpp" />
+    <ClInclude Include="..\..\linuxVersion\shape.hpp" />
+    <ClInclude Include="..\..\linuxVersion\sphere.hpp" />
+    <ClInclude Include="..\..\linuxVersion\sphereLight.hpp" />
+    <ClInclude Include="..\..\linuxVersion\triangle.hpp" />
+    <ClInclude Include="..\..\linuxVersion\worker.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\linuxVersion\areaLight.cpp" />
+    <ClCompile Include="..\..\linuxVersion\blockManager.cpp" />
+    <ClCompile Include="..\..\linuxVersion\CApp.cpp" />
+    <ClCompile Include="..\..\linuxVersion\light.cpp" />
+    <ClCompile Include="..\..\linuxVersion\pathTracerSplitted.cpp" />
+    <ClCompile Include="..\..\linuxVersion\persp.cpp" />
+    <ClCompile Include="..\..\linuxVersion\plane.cpp" />
+    <ClCompile Include="..\..\linuxVersion\shape.cpp" />
+    <ClCompile Include="..\..\linuxVersion\sphere.cpp" />
+    <ClCompile Include="..\..\linuxVersion\sphereLight.cpp" />
+    <ClCompile Include="..\..\linuxVersion\triangle.cpp" />
+    <ClCompile Include="..\..\linuxVersion\worker.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E438E8F5-4201-4B23-AEF8-2413E7531C3A}</ProjectGuid>

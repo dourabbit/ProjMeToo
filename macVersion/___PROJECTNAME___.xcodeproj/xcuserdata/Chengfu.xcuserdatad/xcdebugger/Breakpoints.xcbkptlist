@@ -45,12 +45,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../linuxVersion/worker.hpp"
-         timestampString = "374896947.479895"
+         timestampString = "375350522.05877"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
-         landmarkName = "CpyBlockBuff()"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "Initialize(Block* result)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../linuxVersion/worker.hpp"
+         timestampString = "375350428.220324"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
+         landmarkName = "class Block"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../linuxVersion/blockManager.cpp"
+         timestampString = "375641561.541036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
+         landmarkName = "BlockManager::genBlocks()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../linuxVersion/blockManager.cpp"
+         timestampString = "375641561.541036"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "BlockManager::Run(void* ptr)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

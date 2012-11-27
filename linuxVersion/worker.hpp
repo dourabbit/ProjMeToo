@@ -13,14 +13,15 @@
 #include <assert.h>
 
 using namespace std;
+
 class Block{
 public:
     
     static Block* wholeBlock;
     Vec2D<int>   pos;
     Vec*   col;
-    const int width;
-    const int height;
+    int width;
+    int height;
     string blockNm;
     
 //    static int totalWidth;
@@ -28,17 +29,32 @@ public:
 //    static Vec* totalCol;
 
     Block();
-    Block(const Vec2D<int> &p,const string &name, const int &w, const int &h):
-        pos(p),blockNm(name),width(w),height(h){
+    Block(const Vec2D<int> &p,const string &name, const int &w, const int &h){
+    //    :pos(p),blockNm(name),width(w),height(h){
         
-            col = new Vec[width*height];
-        
+            col = new Vec[w*h];
+			pos = p;
+			blockNm = name;
+			width = w;
+			height = h;
+
+			//if(this->wholeBlock==NULL) this->wholeBlock = this;
     };
     ~Block(){
         
         delete col;
     };
-    
+	void Initialize(Block* result){
+            
+        this->wholeBlock = result;
+        
+//		this->wholeBlock = new  Block(Vec2D<int>(0,0),"test",width,height);
+//		for(int i=0;i<width*height;i++){
+//			this->wholeBlock->col[i].x = this->wholeBlock->col[i].y = this->wholeBlock->col[i].z = 0;
+//			
+//			//this->wholeBlock->col
+//		}
+	};
     
     
     void CpyBlockBuff() const{

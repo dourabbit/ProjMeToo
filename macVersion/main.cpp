@@ -17,7 +17,7 @@
 #include <Tracer/pathTracerSplitted.hpp>
 //#include <Tracer/pathTracer.hpp>
 #include "Tracer/pathTracerSplitted.hpp"
-#include <Test.h>
+//#include <Test.h>
 
 
 int main(int argc, char* argv[]) {

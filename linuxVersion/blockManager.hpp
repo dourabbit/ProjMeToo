@@ -10,17 +10,28 @@
 #define _WORKERMANAGER_H_
 
 #include "pathTracerSplitted.hpp"
+#include "worker.hpp"
+#include <SDL.h>
+#include <vector>
 class BlockManager{
     
 public:
-    BlockManager(int numOfThread);
+    BlockManager(const int numOfThread,vector<SDL_Thread*> pool, const int width, const int height);
     ~BlockManager();
-    BlockManager* getManager();
-    void Run(void *ptr);
+    static vector<SDL_Thread*> pool;
+    static BlockManager* getManager();
+    static int renderWidth;
+    static int renderHeight;
+    static int Run(void* ptr);
+    static int numOfCPUs;
+    static int blockWidth;
+    static int blockHeight;
+	//static int Run(Block *block);
 private:
-    BlockManager *_singleton;
-    int _numOfThread;
-    Tracer::PathTracerSplitted* _tracer;
+    static BlockManager*  _singleton;
+    static vector<Block*> blockVecs;
+    static Tracer::PathTracerSplitted* _tracer;
+    static void genBlocks();
     
 };
 

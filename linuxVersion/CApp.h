@@ -6,6 +6,9 @@
 
 #include <SDL.h>
 #include "pathTracerSplitted.hpp"
+#include <worker.hpp>
+#include <vector>
+#include "blockManager.hpp"
 //==============================================================================
 class CApp {
     private:
@@ -13,13 +16,17 @@ class CApp {
 
         SDL_Surface*    Surf_Display;
 		Vec* c;
+		Block* wholeBlock;
 		int w,h;
+        Block* result;
+		BlockManager* manager;
+		Tracer::PathTracerSplitted*		tracer;
 
-		Tracer::PathTracerSplitted*		tracer; 
+		vector<SDL_Thread*> threadsPool;
 
     public:
         CApp();
-
+		~CApp();
         int OnExecute();
 
     public:

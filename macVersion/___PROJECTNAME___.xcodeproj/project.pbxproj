@@ -10,7 +10,6 @@
 		002F39FA09D0881F00EBEB88 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
 		002F3A0009D0884600EBEB88 /* SDL.framework in Copy Frameworks into .app bundle */ = {isa = PBXBuildFile; fileRef = 002F39F909D0881F00EBEB88 /* SDL.framework */; };
 		002F3A3F09D088BA00EBEB88 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 002F3A3E09D088BA00EBEB88 /* main.cpp */; };
-		1B1F40E81653BD6700E09AD9 /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B1F40E71653BD6700E09AD9 /* Test.cpp */; };
 		1B1F40EB1653BE0F00E09AD9 /* SDLMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B1F40EA1653BE0F00E09AD9 /* SDLMain.mm */; };
 		1B2E54E116549B5000D55005 /* areaLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E54DF16549B5000D55005 /* areaLight.cpp */; };
 		1B2E54E416549B5D00D55005 /* CApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E54E216549B5D00D55005 /* CApp.cpp */; };
@@ -47,8 +46,6 @@
 		002F3A3E09D088BA00EBEB88 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = SOURCE_ROOT; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		1B1F40E61653BD4400E09AD9 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
-		1B1F40E71653BD6700E09AD9 /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
 		1B1F40E91653BE0F00E09AD9 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		1B1F40EA1653BE0F00E09AD9 /* SDLMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SDLMain.mm; sourceTree = "<group>"; };
 		1B2E54DF16549B5000D55005 /* areaLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = areaLight.cpp; path = ../linuxVersion/areaLight.cpp; sourceTree = "<group>"; };
@@ -125,15 +122,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1B1F40EC1653C40400E09AD9 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				1B1F40E71653BD6700E09AD9 /* Test.cpp */,
-				1B1F40E61653BD4400E09AD9 /* Test.h */,
-			);
-			name = Test;
-			sourceTree = "<group>";
-		};
 		29B97314FDCFA39411CA2CEA /* ___PROJECTNAMEASXML___ */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +155,6 @@
 				1B2E54E016549B5000D55005 /* areaLight.hpp */,
 				1B1F40E91653BE0F00E09AD9 /* SDLMain.h */,
 				1B1F40EA1653BE0F00E09AD9 /* SDLMain.mm */,
-				1B1F40EC1653C40400E09AD9 /* Test */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -266,7 +253,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				002F3A3F09D088BA00EBEB88 /* main.cpp in Sources */,
-				1B1F40E81653BD6700E09AD9 /* Test.cpp in Sources */,
 				1B1F40EB1653BE0F00E09AD9 /* SDLMain.mm in Sources */,
 				1B2E54E116549B5000D55005 /* areaLight.cpp in Sources */,
 				1B2E54E416549B5D00D55005 /* CApp.cpp in Sources */,

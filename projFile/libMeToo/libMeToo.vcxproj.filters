@@ -13,303 +13,90 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\3rdParty">
-      <UniqueIdentifier>{1f8da56f-b2a9-406e-b1e3-cee61804d200}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\3rdParty\tiff-3.9.4">
-      <UniqueIdentifier>{d4d9704d-8bde-4631-b35b-317289d32564}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Writer">
-      <UniqueIdentifier>{69d09da3-ba4b-4ebe-8f8c-88197cc4e12e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Data">
-      <UniqueIdentifier>{8e7b8c2d-f611-4004-b89d-037bb59490e3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\tracer">
-      <UniqueIdentifier>{eb127cfe-4d2a-4579-82b1-735e593cbabf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Math">
-      <UniqueIdentifier>{d3438454-3873-4a6f-97b8-3c9a0b6f1a18}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Shape">
-      <UniqueIdentifier>{5e071e8e-e07d-4330-a3db-b0253a3cd9d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Mat">
-      <UniqueIdentifier>{09b3eeba-3409-4eba-a0de-fa411d88e03d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Cam">
-      <UniqueIdentifier>{18d0694c-8e2b-4366-bf28-456d1fc19b50}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Sampler">
-      <UniqueIdentifier>{f177af45-eeaa-406e-ba5e-892b47342eca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Light">
-      <UniqueIdentifier>{f05f84dc-eab8-440a-8cc9-f37c918f3c96}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\mkg3states.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_aux.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_close.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_codec.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_color.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_compress.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dir.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirinfo.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirread.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dirwrite.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_dumpmode.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_error.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_extension.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3sm.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_flush.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_getimage.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_jbig.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_jpeg.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_luv.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_lzw.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_next.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_ojpeg.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_open.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_packbits.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_pixarlog.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_predict.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_print.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_read.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_stream.cxx">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_strip.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_swab.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_thunder.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_tile.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_version.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_warning.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_win32.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_write.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\3rdParty\tiff-3.9.4\tif_zip.c">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Data\image.hpp">
-      <Filter>Source Files\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Data\image.cpp">
-      <Filter>Source Files\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Shape\shape.cpp">
-      <Filter>Source Files\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Shape\sphere.cpp">
-      <Filter>Source Files\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Math\Math.hpp">
-      <Filter>Source Files\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Tracer\pathTracer.cpp">
-      <Filter>Source Files\tracer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Shape\triangle.cpp">
-      <Filter>Source Files\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Shape\plane.cpp">
-      <Filter>Source Files\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Cam\persp.cpp">
-      <Filter>Source Files\Cam</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Sampler\sampler.cpp">
-      <Filter>Source Files\Sampler</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Light\light.cpp">
-      <Filter>Source Files\Light</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Light\areaLight.cpp">
-      <Filter>Source Files\Light</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Tracer\pathTracerSplitted.cpp">
-      <Filter>Source Files\tracer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Light\sphereLight.cpp">
-      <Filter>Source Files\Light</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Writer\imageWriter.cpp">
-      <Filter>Source Files\Writer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Writer\test.cpp">
-      <Filter>Source Files\Writer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Writer\tiffWriter.cpp">
-      <Filter>Source Files\Writer</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\uvcode.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\t4.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.vc.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_config.wince.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_dir.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_fax3.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tif_predict.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiff.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.vc.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffconf.wince.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffio.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffio.hxx">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffiop.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\3rdParty\tiff-3.9.4\tiffvers.h">
-      <Filter>Source Files\3rdParty\tiff-3.9.4</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\common.h">
+    <ClInclude Include="..\..\linuxVersion\worker.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Mat\Mat.h">
-      <Filter>Source Files\Mat</Filter>
+    <ClInclude Include="..\..\linuxVersion\areaLight.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Shape\shape.hpp">
-      <Filter>Source Files\Shape</Filter>
+    <ClInclude Include="..\..\linuxVersion\blockManager.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Shape\sphere.hpp">
-      <Filter>Source Files\Shape</Filter>
+    <ClInclude Include="..\..\linuxVersion\CApp.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Tracer\pathTracer.hpp">
-      <Filter>Source Files\tracer</Filter>
+    <ClInclude Include="..\..\linuxVersion\common.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Shape\triangle.hpp">
-      <Filter>Source Files\Shape</Filter>
+    <ClInclude Include="..\..\linuxVersion\light.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Shape\plane.hpp">
-      <Filter>Source Files\Shape</Filter>
+    <ClInclude Include="..\..\linuxVersion\Mat.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Cam\persp.hpp">
-      <Filter>Source Files\Cam</Filter>
+    <ClInclude Include="..\..\linuxVersion\Math.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Sampler\sampler.hpp">
-      <Filter>Source Files\Sampler</Filter>
+    <ClInclude Include="..\..\linuxVersion\persp.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Light\light.hpp">
-      <Filter>Source Files\Light</Filter>
+    <ClInclude Include="..\..\linuxVersion\plane.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Light\areaLight.hpp">
-      <Filter>Source Files\Light</Filter>
+    <ClInclude Include="..\..\linuxVersion\SDLHelper.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Tracer\pathTracerSplitted.hpp">
-      <Filter>Source Files\tracer</Filter>
+    <ClInclude Include="..\..\linuxVersion\shape.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Light\sphereLight.hpp">
-      <Filter>Source Files\Light</Filter>
+    <ClInclude Include="..\..\linuxVersion\sphere.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Writer\imageWriter.hpp">
-      <Filter>Source Files\Writer</Filter>
+    <ClInclude Include="..\..\linuxVersion\sphereLight.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\Writer\tiffWriter.h">
-      <Filter>Source Files\Writer</Filter>
+    <ClInclude Include="..\..\linuxVersion\triangle.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\linuxVersion\areaLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\blockManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\CApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\pathTracerSplitted.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\persp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\shape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\sphereLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\linuxVersion\worker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -13,18 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\3rdParty">
-      <UniqueIdentifier>{f1cd4431-1ba6-4799-9a93-7749ad007326}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\3rdParty\SDL-1.2.15">
-      <UniqueIdentifier>{9780203a-9351-48a1-8273-8fdd3953b849}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\3rdParty\SDL-1.2.15\include">
-      <UniqueIdentifier>{a8fcb8ce-c45c-4bdb-81f7-de483e32edbd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\SDLApp">
-      <UniqueIdentifier>{66adf766-3840-46a0-85a4-b5695619d312}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -36,139 +24,94 @@
     <ClInclude Include="..\src\targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\begin_code.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\worker.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\close_code.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\areaLight.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\blockManager.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_active.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\CApp.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_audio.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\common.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_byteorder.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\light.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_cdrom.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\Mat.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\Math.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_dreamcast.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\pathTracerSplitted.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_macos.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\persp.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_macosx.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\plane.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_minimal.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\SDLHelper.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_nds.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\shape.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_os2.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\sphere.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_symbian.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
+    <ClInclude Include="..\linuxVersion\sphereLight.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_config_win32.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_copying.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_cpuinfo.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_endian.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_error.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_events.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_getenv.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_joystick.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_keyboard.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_keysym.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_loadso.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_main.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_mouse.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_mutex.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_name.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_opengl.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_platform.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_quit.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_rwops.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_stdinc.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_syswm.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_thread.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_timer.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_types.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_version.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\3rdparty\SDL-1.2.15\include\SDL_video.h">
-      <Filter>Source Files\3rdParty\SDL-1.2.15\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\SDLApp\CApp.h">
-      <Filter>Source Files\SDLApp</Filter>
+    <ClInclude Include="..\linuxVersion\triangle.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\SDLApp\CApp.cpp">
-      <Filter>Source Files\SDLApp</Filter>
+    <ClCompile Include="..\linuxVersion\main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\SDLApp\SDLHelper.hpp">
-      <Filter>Source Files\SDLApp</Filter>
+    <ClCompile Include="..\linuxVersion\areaLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\blockManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\CApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\pathTracerSplitted.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\persp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\shape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\sphere.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\sphereLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\linuxVersion\worker.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
