@@ -3,7 +3,7 @@
 
 typedef float DATA;
 typedef char IMGDATA;
-
+typedef unsigned char ImgDATA;
 #ifdef __MSC_VER
 #define INLINE __forceinline 
 //#define INLINE __declspec(noinline)
@@ -12,6 +12,8 @@ typedef char IMGDATA;
 #endif
 
 //#include <Math/Math.hpp>
+#include "ImgWriter.hpp"
+#include "CImg.h"
 #include "Mat.h"
 #include "sphere.hpp"
 #include "triangle.hpp"
@@ -25,6 +27,8 @@ typedef char IMGDATA;
 #include <cstdlib>
 #include <vector>
 
+#include <SDL_thread.h>
+#include <SDL_timer.h>
 //class _MathHelper;
 //class Mat4;
 //class Quat;
@@ -35,6 +39,10 @@ typedef char IMGDATA;
 //class Vec;
 //class RNG;
 
+
+
+typedef int (SDLCALL *AfterRenderExec)(const void*);
+
 static std::vector<Shape*> sceneObjs;
 static std::vector<Light*> lights;
 static std::vector<float> dis;
@@ -43,8 +51,8 @@ static std::vector<const Vec*> points;
 static float shortDis = 1000;
 
 
-
-
+static int EXITFLAG = 0;
+static SDL_mutex *mutLock;
 
 static void prepareLights(){
 	for (int i = 0; i<sceneObjs.size(); i++) {

@@ -6,21 +6,18 @@
 CApp::CApp() {
 	Surf_Display = NULL;
 	Running = true;
-	tracer = new Tracer::PathTracerSplitted();
-	tracer->Initialize();
+	//tracer = new Tracer::PathTracerSplitted();
+	//tracer->Initialize();
 	this->result = NULL;
 }
 CApp::~CApp(){
-	delete this->manager;
-	//If still running
-	for(int i = 0; i<this->threadsPool.size();i++){
-		SDL_KillThread(this->threadsPool[i]);
-		//delete this->threadsPool[i];
-	}
+	
+    delete this->manager;
 
-	//delete tracer; //Memory Leaking here!
-	delete c;
+    
 	delete wholeBlock;
+	//delete c;
+	
 }
 //==============================================================================
 bool CApp::OnInit() {
@@ -38,21 +35,21 @@ bool CApp::OnInit() {
 	int threadReturnValue;
 
 	
-	c = new Vec[w * h];
-	tracer->width  = w;
-	tracer->height = h;
+	//c = new Vec[w * h];
+	//tracer->width  = w;
+	//tracer->height = h;
     
 	//thread = SDL_CreateThread(tracer->Render,  (void *)c);
 
     wholeBlock = new Block(Vec2D<int>(0,0),"result",512,512);
-    manager = new BlockManager(8,this->threadsPool,512,512);
+    manager = new BlockManager(4,this->threadsPool,512,512);
 		//BlockManager::getManager();
     
     
-	SDL_Thread *thread;
-    thread = SDL_CreateThread(manager->Run,  (void *)wholeBlock);
-	this->threadsPool.push_back(thread);
-	//manager->Run(wholeBlock, this->threadsPool);
+	//SDL_Thread *thread;
+    //thread = SDL_CreateThread(manager->Run,  (void *)wholeBlock);
+	//this->threadsPool.push_back(thread);
+	manager->Run(wholeBlock);
     
     //manager->Run((void*)c);
     return true;
@@ -78,9 +75,19 @@ void CApp::OnRender() {
 //==============================================================================
 
 void CApp::OnCleanup() {
+	//If still running
+	
+	//int threads = this->threadsPool.size();
+	//for(int i = 0; i<this->threadsPool.size();i++){
+	//	SDL_KillThread(this->threadsPool[i]);
+	//	//delete this->threadsPool[i];
+	//}
+    this->manager->CleanUp();
+    
+    SDL_Delay(1500);
 	SDL_FreeSurface(Surf_Display);
     SDL_Quit();
-	free(tracer);
+	//free(tracer);
 }
 
 //==============================================================================

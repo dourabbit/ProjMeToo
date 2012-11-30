@@ -9,8 +9,11 @@
 #include <blockManager.hpp>
 #include <cmath>
 #include <sstream>
+
+#include <pathTracerSplitted.hpp>
 BlockManager* BlockManager::_singleton=NULL;
 Tracer::PathTracerSplitted* BlockManager::_tracer = NULL;
+
 //Block* BlockManager::block = NULL;
 int BlockManager::numOfCPUs = 4;
 int BlockManager::blockWidth = 50;
@@ -19,44 +22,59 @@ int BlockManager::blockHeight =50;
 int BlockManager::renderHeight = 0;
 int BlockManager::renderWidth = 0;
 
-vector<Block*> BlockManager::blockVecs;
-vector<SDL_Thread*> BlockManager::pool;
+vector<Block*> BlockManager::blockPool;
+vector<SDL_Thread*> threadPool;
+//vector<ManageInfo*> BlockManager::infoPool;
+
+
+
+//vector<Block*> blockPool;
 BlockManager::BlockManager(const int numOfThread,vector<SDL_Thread*> threadP,
                            const int width, const int height){
-    pool = threadP;
+    //threadPool = threadP;
     renderHeight = width;
     renderWidth = height;
     numOfCPUs = numOfThread;
-    _tracer = new Tracer::PathTracerSplitted();
+    
+	_tracer = new Tracer::PathTracerSplitted();
+	_tracer->Initialize();
+	_tracer->width = width;
+	_tracer->height = height;
+
     BlockManager::_singleton = this;
 };
 BlockManager::~BlockManager(){
-    _singleton = NULL;
-    delete _tracer;
     
-    while (!blockVecs.empty()) {
-        delete blockVecs.back();
-        blockVecs.pop_back();
+    delete _tracer;
+
+}
+void BlockManager::CleanUp(){
+    
+    
+    //_singleton = NULL;
+    SDL_mutexP(mutLock);
+    EXITFLAG = 1;
+	SDL_mutexV(mutLock);
+	for(int i=0;i<threadPool.size();i++) {
+		SDL_Thread* thread = threadPool[i];
+		Uint32 id =  SDL_GetThreadID(thread);
+		//delete thread;
+		//SDL_KillThread(thread);
+		//printf("Killed thread:%d",id);
+        threadPool.pop_back();
+	}
+    SDL_Delay(950);
+    while (!blockPool.empty()) {
+        //delete blockPool.back();
+        blockPool.pop_back();
     }
 
-    
 }
 BlockManager* BlockManager::getManager(){
     assert(BlockManager::_singleton!=NULL);
     return _singleton;
 };
-/*
-int BlockManager::Run(void *ptr){
 
-	Block* result = (Block*) ptr;
-	Block* block = new Block(Vec2D<int>(0,0),"test",250,25);
-	block->Initialize(result);
-	_tracer->Render(block);
-
-	delete block;
-	return 0;
-};
-*/
 void BlockManager::genBlocks(){
     
     int reminderX = renderWidth % blockWidth;
@@ -75,57 +93,108 @@ void BlockManager::genBlocks(){
             nstr<< iy*nx + ix;
             string blockNm = "block"+nstr.str();
             if(ix!=nx-1&&iy!=ny-1)//full block
-                blockVecs.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,blockWidth,blockHeight));
+                blockPool.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,blockWidth,blockHeight));
             else if(ix==nx-1&&iy!=ny-1)// last col
-                 blockVecs.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,reminderX,blockHeight));
+                 blockPool.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,reminderX,blockHeight));
             else if(iy==ny-1&&ix!=nx-1)// last row
-                blockVecs.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,blockWidth,reminderY));
+                blockPool.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,blockWidth,reminderY));
             else//last one
-               blockVecs.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,reminderX,reminderY));
+               blockPool.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,reminderX,reminderY));
         }
     }
 };
+int startRendering(void* ptr){
+	Tracer::PathTracerSplitted* tracer = (Tracer::PathTracerSplitted* )ptr;
+	/*while (!BlockManager::blockPool.empty()) {
+		SDL_mutexP(mutLock);
+		Block* block = BlockManager::blockPool.back();
+		BlockManager::blockPool.pop_back();
+		SDL_mutexV(mutLock);
+		SDL_Thread* thread = SDL_CreateThread(tracer->Render, (void*)block);
+		
+		SDL_mutexP(mutLock);
+		threadPool.push_back(thread);
+		SDL_mutexV(mutLock);
+
+		int threadReturnValue;
+		SDL_WaitThread(thread, &threadReturnValue);
+
+		SDL_mutexP(mutLock);
+		for(int i=0;i<threadPool.size();i++){
+			if(SDL_GetThreadID(threadPool[i])==SDL_GetThreadID(thread))
+				threadPool.erase(threadPool.begin()+i);
+		}
+
+		SDL_mutexV(mutLock);
+
+	}*/
+	Tracer::PathTracerSplitted::ManagedRender((void*)&BlockManager::blockPool);
+	return 0;
+};
+
+
+
+
+
 int BlockManager::Run(void* ptr){
     Block* result = (Block*) ptr;
-    
+    mutLock=SDL_CreateMutex();
+
     genBlocks();
+
+
+	for (std::vector<Block*>::iterator i = blockPool.begin(); i != blockPool.end(); ++i) { // Iterate through 'items'
+		(*i)->Initialize(result);
+	}
+
+
+	//for (std::vector<ManageInfo*>::iterator i = infoPool.begin(); i != infoPool.end(); ++i) { // Iterate through 'items'
+	//	(*i)->Initialize(result);
+	//}
 	//Block* block = new Block(Vec2D<int>(350,100),"test",250,250);
     
-    
-    //while (!blockVecs.empty()) {
-        for(int n=0;n<numOfCPUs;n++){
-            Block* block = blockVecs.back();
-            block->Initialize(result);
-            int threadReturnValue;
-            SDL_Thread* thread = SDL_CreateThread(_tracer->Render, (void*)block);
-            if( NULL == thread )
-                printf("\nError: Creating SDL_Thread failed -> \n", SDL_GetError());
-            else
-            {
-                
-                pool.push_back(thread);
-                blockVecs.pop_back();
-                
-                // Wait for the thread to complete. The thread functions return code will
-                //       be placed in the "threadReturnValue" variable when it completes.
-                //
-                SDL_WaitThread( thread, &threadReturnValue);
-                pool.pop_back();
-                if(!blockVecs.empty()){
-                    Block* block = blockVecs.back();
-                    block->Initialize(result);
-                    SDL_Thread* newThread = SDL_CreateThread(_tracer->Render, (void*)block);
-                    pool.push_back(newThread);
-                }
-            }
+	for(int n=0;n<numOfCPUs-1;n++){
+		/*ManageInfo* info = new ManageInfo();
+		info->blockPool = blockPool;
+		info->tracer = _tracer;
+		infoPool.push_back(info);*/
+		SDL_Thread* thread = SDL_CreateThread(startRendering,(void*)_tracer);
+		//infoPool.push_back(info);
+	}
+  //  //while (!blockVecs.empty()) {
+		//for(int n=0;n<numOfCPUs;n++){
+  //          Block* block = blockPool.back();
+  //          block->Initialize(result);
+  //          int threadReturnValue;
+  //          SDL_Thread* thread = SDL_CreateThread(_tracer->Render, (void*)block);
+  //          if( NULL == thread )
+  //              printf("\nError: Creating SDL_Thread failed -> \n", SDL_GetError());
+  //          else
+  //          {
+  //              
+  //              //blockPool.push_back(thread);
+  //              blockPool.pop_back();
+  //              
+  //              //// Wait for the thread to complete. The thread functions return code will
+  //              ////       be placed in the "threadReturnValue" variable when it completes.
+  //              ////
+  //              //SDL_WaitThread( thread, &threadReturnValue);
+  //              //pool.pop_back();
+  //              //if(!blockVecs.empty()){
+  //              //    Block* block = blockVecs.back();
+  //              //    block->Initialize(result);
+  //              //    SDL_Thread* newThread = SDL_CreateThread(_tracer->Render, (void*)block);
+  //              //    pool.push_back(newThread);
+  //              //}
+		//	}
 
-        }
-//        while (!pool.empty()) {
-//            int threadReturnValue;
-//            SDL_Thread* thread =  pool.back();
-//            SDL_WaitThread(thread, &threadReturnValue);
-//            pool.pop_back();
-//        }
+		//}
+  //      while (!blockPool.empty()) {
+  //          int threadReturnValue;
+  //          SDL_Thread* thread =  blockPool.back();
+  //          SDL_WaitThread(thread, &threadReturnValue);
+  //          blockPool.pop_back();
+  //      }
     //}
     
     

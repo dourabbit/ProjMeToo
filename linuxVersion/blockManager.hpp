@@ -11,14 +11,23 @@
 
 #include "pathTracerSplitted.hpp"
 #include "worker.hpp"
-#include <SDL.h>
 #include <vector>
+
+#include "common.h"
+#include <string>
+struct ManageInfo{
+	Tracer::PathTracerSplitted* tracer;
+	//SDL_Thread* thread;
+	vector<Block*> blockPool;
+};
+
 class BlockManager{
     
 public:
     BlockManager(const int numOfThread,vector<SDL_Thread*> pool, const int width, const int height);
     ~BlockManager();
-    static vector<SDL_Thread*> pool;
+    void CleanUp();
+	//static vector<SDL_Thread*> threadPool;
     static BlockManager* getManager();
     static int renderWidth;
     static int renderHeight;
@@ -26,10 +35,15 @@ public:
     static int numOfCPUs;
     static int blockWidth;
     static int blockHeight;
-	//static int Run(Block *block);
+	static vector<Block*> blockPool;
+    
+    static void SetRenderPath();
 private:
+    static std::string _pathNm;
+    
     static BlockManager*  _singleton;
-    static vector<Block*> blockVecs;
+    static ImgWriter* writer;
+   
     static Tracer::PathTracerSplitted* _tracer;
     static void genBlocks();
     

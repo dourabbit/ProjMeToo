@@ -23,7 +23,7 @@ public:
 	int static Render(void * ptr);
     int static Render(Block* block);
 
-
+	int static ManagedRender(void* ptr);
 	static int width;
 	static int height;
 
@@ -31,8 +31,10 @@ public:
 	static int traceDepth;
 	static int shaRays ;
 	static int pathRays;
-
-private:/*
+    
+    //SDLCALL* AfterExecb;
+private:
+    /*
 	Vec static trace (const Ray &pixelCol, RNG &rng);
 	Vec static shade(const Vec &x, const Vec &n, const Shape &obj, RNG &rng);*/
 	

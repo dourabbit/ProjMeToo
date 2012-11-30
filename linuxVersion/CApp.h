@@ -15,7 +15,7 @@ class CApp {
         bool            Running;
 
         SDL_Surface*    Surf_Display;
-		Vec* c;
+		//Vec* c;
 		Block* wholeBlock;
 		int w,h;
         Block* result;

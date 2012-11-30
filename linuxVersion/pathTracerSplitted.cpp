@@ -1,5 +1,6 @@
 #include "pathTracerSplitted.hpp"
 #include "light.hpp"
+#include "blockManager.hpp"
 //#include <omp.h>
 using namespace Tracer;
 
@@ -320,20 +321,35 @@ Vec PathTracerSplitted::trace(const Ray &ray,RNG &rng){
 //	return 0;
 //}
 
+int PathTracerSplitted::ManagedRender(void* ptr){
+	vector<Block*>* blockPool = (vector<Block*>*)ptr;
+	while (!BlockManager::blockPool.empty()) {
+		SDL_mutexP(mutLock);
+		Block* block = BlockManager::blockPool.back();
+		BlockManager::blockPool.pop_back();
+		SDL_mutexV(mutLock);
 
-
+		PathTracerSplitted::Render((void*)block);
+	}
+	return 1;
+};
 
 int PathTracerSplitted::Render(void * ptr){
-    Block* block = (Block*)ptr;
+    
+	
+
+
+
+	Block* block = (Block*)ptr;
     //Vec2D<int> a = Vec2D<int>(100,100);
 	Cam::Persp persp = Cam::Persp(Vec(0,0,50),
                                   Vec(0,0,0),
                                   80.0f,width,height);
 	
+    int x, y;
     //#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
     //#pragma omp parallel for
     
-    int x, y;
 	// Loop over image rows
 	for (int r = block->pos.y; r < block->height+block->pos.y; r++) {
 		//fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
@@ -355,6 +371,14 @@ int PathTracerSplitted::Render(void * ptr){
 			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
 		
 			block->wholeBlock->col[i] = color;
+			if(EXITFLAG){
+				printf("Exit!\n");
+				return 0;
+			}
+			else{
+
+				
+			}
 		}
 	}
     

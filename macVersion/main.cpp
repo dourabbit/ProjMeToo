@@ -12,11 +12,11 @@
 #include "SDL.h"
 
 //==============================================================================
-#include <SDLApp/CApp.h>
-#include <SDLApp/SDLHelper.hpp>
-#include <Tracer/pathTracerSplitted.hpp>
+#include <CApp.h>
+#include <SDLHelper.hpp>
+#include <pathTracerSplitted.hpp>
 //#include <Tracer/pathTracer.hpp>
-#include "Tracer/pathTracerSplitted.hpp"
+#include "pathTracerSplitted.hpp"
 //#include <Test.h>
 
 
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 //    
 //    Tracer::PathTracerSplitted* tracer = new Tracer::PathTracerSplitted();
 //    tracer->Render(c);
-//    return 0;
+    return 0;
 }
 
 ////==============================================================================
