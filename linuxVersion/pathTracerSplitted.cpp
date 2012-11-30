@@ -272,75 +272,33 @@ Vec PathTracerSplitted::trace(const Ray &ray,RNG &rng){
 }
 
 
-
-//int PathTracerSplitted::Render(void * ptr) {
-//	Vec* c = (Vec*)ptr;
-//
-//	clock_t start = clock(); 
-//
-//
-//	//const int samps =  128;
-//
-//	Cam::Persp persp = Cam::Persp(	Vec(0,0,50),
-//									Vec(0,0,0),
-//									80.0f,width,height);
-//	
-//	
-//
-////#pragma omp parallel for schedule(dynamic, 1)       //OpenMP
-////#pragma omp parallel for
-//
-//
-//	// Loop over image rows
-//	for (int y = 0; y < height; y++) {
-//		fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
-//		RNG rng = RNG(y);
-//		// Loop cols
-//		for (unsigned short x=0; x<width; x++) {
-//			const int i = (height - y - 1) * width + x;
-//			Vec pixelCol = Zero;
-//			for(int s = 0; s<pathRays;s++){
-//				Ray ray = persp.UnProject(x,y,rng);
-//				traceDepth = 0;
-//				Vec pCol = trace(ray, rng);
-//				
-//				pixelCol = pixelCol + pCol;
-//				//printf("%d\n",traceDepth);
-//			}
-//			pixelCol = pixelCol * (1.0 / pathRays);
-//			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
-//			//c[i] = c[i] + Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
-//			
-//			
-//			c[i] = color;
-//		}
-//	}
-//
-//
-//
-//	return 0;
-//}
-
-int PathTracerSplitted::ManagedRender(void* ptr){
-	vector<Block*>* blockPool = (vector<Block*>*)ptr;
-	while (!BlockManager::blockPool.empty()) {
+int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,AfterRenderExec callBack){
+	int result=1;
+    while (!BlockManager::blockPool.empty()) {
 		SDL_mutexP(mutLock);
 		Block* block = BlockManager::blockPool.back();
 		BlockManager::blockPool.pop_back();
 		SDL_mutexV(mutLock);
 
 		PathTracerSplitted::Render((void*)block);
+        
+        SDL_mutexP(writerLock);
+        int writerResult = (*callBack)((void*)&block->blockNm);
+        SDL_mutexV(mutLock);
+        
+        delete block;
+        result |= writerResult;
 	}
-	return 1;
+	return result;
 };
 
 int PathTracerSplitted::Render(void * ptr){
-    
-	
-
-
-
 	Block* block = (Block*)ptr;
+    return Render(block);
+};
+
+int PathTracerSplitted::Render(Block* block){
+    
     //Vec2D<int> a = Vec2D<int>(100,100);
 	Cam::Persp persp = Cam::Persp(Vec(0,0,50),
                                   Vec(0,0,0),
@@ -359,7 +317,7 @@ int PathTracerSplitted::Render(void * ptr){
 			const int i = r * width+c;
 			Vec pixelCol = Zero;
 			for(int s = 0; s<pathRays;s++){
-				x = c; y = height - r -1;	
+				x = c; y = height - r -1;
 				Ray ray = persp.UnProject(x,y,rng);
 				traceDepth = 0;
 				Vec pCol = trace(ray, rng);
@@ -369,14 +327,14 @@ int PathTracerSplitted::Render(void * ptr){
 			}
 			pixelCol = pixelCol * (1.0 / pathRays);
 			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
-		
+            block->col[i] = color;
 			block->wholeBlock->col[i] = color;
 			if(EXITFLAG){
 				printf("Exit!\n");
 				return 0;
 			}
 			else{
-
+                
 				
 			}
 		}

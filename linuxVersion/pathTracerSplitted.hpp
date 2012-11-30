@@ -12,7 +12,7 @@
 #include <stdio.h> 
 #include <time.h>		
 #include <worker.hpp>
-
+#include <vector>
 
 namespace Tracer{
 class PathTracerSplitted{
@@ -23,7 +23,7 @@ public:
 	int static Render(void * ptr);
     int static Render(Block* block);
 
-	int static ManagedRender(void* ptr);
+	int static ManagedRender(vector<Block*>* blockPool,AfterRenderExec callBack);
 	static int width;
 	static int height;
 

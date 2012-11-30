@@ -199,12 +199,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../linuxVersion/pathTracerSplitted.cpp"
-         timestampString = "375904751.767263"
+         timestampString = "375958426.532357"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "328"
-         endingLineNumber = "328"
-         landmarkName = "PathTracerSplitted::ManagedRender(void* ptr)"
+         startingLineNumber = "279"
+         endingLineNumber = "279"
+         landmarkName = "PathTracerSplitted::ManagedRender(vector&lt;Block*&gt;* blockPool,AfterRenderExec callBack)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -212,12 +212,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../linuxVersion/pathTracerSplitted.cpp"
-         timestampString = "375904810.36276"
+         timestampString = "375958426.532357"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "330"
-         endingLineNumber = "330"
-         landmarkName = "PathTracerSplitted::ManagedRender(void* ptr)"
+         startingLineNumber = "281"
+         endingLineNumber = "281"
+         landmarkName = "PathTracerSplitted::ManagedRender(vector&lt;Block*&gt;* blockPool,AfterRenderExec callBack)"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -225,12 +225,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../linuxVersion/pathTracerSplitted.cpp"
-         timestampString = "375904812.004529"
+         timestampString = "375958426.532357"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "332"
-         endingLineNumber = "332"
-         landmarkName = "PathTracerSplitted::ManagedRender(void* ptr)"
+         startingLineNumber = "285"
+         endingLineNumber = "285"
+         landmarkName = "PathTracerSplitted::ManagedRender(vector&lt;Block*&gt;* blockPool,AfterRenderExec callBack)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../linuxVersion/blockManager.cpp"
+         timestampString = "375956144.434392"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
+         landmarkName = "startRendering(void* ptr)"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../ImgWriter/ImgWriter.cpp"
+         timestampString = "375958457.538535"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "ImgWriter::Write(const void* data)"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

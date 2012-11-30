@@ -104,31 +104,8 @@ void BlockManager::genBlocks(){
     }
 };
 int startRendering(void* ptr){
-	Tracer::PathTracerSplitted* tracer = (Tracer::PathTracerSplitted* )ptr;
-	/*while (!BlockManager::blockPool.empty()) {
-		SDL_mutexP(mutLock);
-		Block* block = BlockManager::blockPool.back();
-		BlockManager::blockPool.pop_back();
-		SDL_mutexV(mutLock);
-		SDL_Thread* thread = SDL_CreateThread(tracer->Render, (void*)block);
-		
-		SDL_mutexP(mutLock);
-		threadPool.push_back(thread);
-		SDL_mutexV(mutLock);
-
-		int threadReturnValue;
-		SDL_WaitThread(thread, &threadReturnValue);
-
-		SDL_mutexP(mutLock);
-		for(int i=0;i<threadPool.size();i++){
-			if(SDL_GetThreadID(threadPool[i])==SDL_GetThreadID(thread))
-				threadPool.erase(threadPool.begin()+i);
-		}
-
-		SDL_mutexV(mutLock);
-
-	}*/
-	Tracer::PathTracerSplitted::ManagedRender((void*)&BlockManager::blockPool);
+    ImgWriter* writer = new ImgWriter();
+	Tracer::PathTracerSplitted::ManagedRender(&BlockManager::blockPool,&ImgWriter::Write);
 	return 0;
 };
 
@@ -146,64 +123,10 @@ int BlockManager::Run(void* ptr){
 	for (std::vector<Block*>::iterator i = blockPool.begin(); i != blockPool.end(); ++i) { // Iterate through 'items'
 		(*i)->Initialize(result);
 	}
-
-
-	//for (std::vector<ManageInfo*>::iterator i = infoPool.begin(); i != infoPool.end(); ++i) { // Iterate through 'items'
-	//	(*i)->Initialize(result);
-	//}
-	//Block* block = new Block(Vec2D<int>(350,100),"test",250,250);
-    
 	for(int n=0;n<numOfCPUs-1;n++){
-		/*ManageInfo* info = new ManageInfo();
-		info->blockPool = blockPool;
-		info->tracer = _tracer;
-		infoPool.push_back(info);*/
-		SDL_Thread* thread = SDL_CreateThread(startRendering,(void*)_tracer);
-		//infoPool.push_back(info);
+        int a =0;
+		SDL_Thread* thread = SDL_CreateThread(startRendering,(void*)&a);
 	}
-  //  //while (!blockVecs.empty()) {
-		//for(int n=0;n<numOfCPUs;n++){
-  //          Block* block = blockPool.back();
-  //          block->Initialize(result);
-  //          int threadReturnValue;
-  //          SDL_Thread* thread = SDL_CreateThread(_tracer->Render, (void*)block);
-  //          if( NULL == thread )
-  //              printf("\nError: Creating SDL_Thread failed -> \n", SDL_GetError());
-  //          else
-  //          {
-  //              
-  //              //blockPool.push_back(thread);
-  //              blockPool.pop_back();
-  //              
-  //              //// Wait for the thread to complete. The thread functions return code will
-  //              ////       be placed in the "threadReturnValue" variable when it completes.
-  //              ////
-  //              //SDL_WaitThread( thread, &threadReturnValue);
-  //              //pool.pop_back();
-  //              //if(!blockVecs.empty()){
-  //              //    Block* block = blockVecs.back();
-  //              //    block->Initialize(result);
-  //              //    SDL_Thread* newThread = SDL_CreateThread(_tracer->Render, (void*)block);
-  //              //    pool.push_back(newThread);
-  //              //}
-		//	}
 
-		//}
-  //      while (!blockPool.empty()) {
-  //          int threadReturnValue;
-  //          SDL_Thread* thread =  blockPool.back();
-  //          SDL_WaitThread(thread, &threadReturnValue);
-  //          blockPool.pop_back();
-  //      }
-    //}
-    
-    
-//	for(int i = 0;i<blockVecs.size();i++){
-//        for(int n=0;n<numOfCPUs)
-//        Block* block =  blockVecs[i];
-//        block->Initialize(result);
-//        _tracer->Render(block);
-//    }
-	//delete block;
 	return 0;
 };

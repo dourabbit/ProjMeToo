@@ -12,6 +12,14 @@ typedef unsigned char ImgDATA;
 #endif
 
 //#include <Math/Math.hpp>
+
+
+// These includes are necessary to get the plug-in compile !
+#include <cstdio>
+#include <jpeglib.h>
+#include <jerror.h>
+#define cimg_plugin "plugins/jpeg_buffer.h"
+
 #include "ImgWriter.hpp"
 #include "CImg.h"
 #include "Mat.h"
@@ -53,7 +61,7 @@ static float shortDis = 1000;
 
 static int EXITFLAG = 0;
 static SDL_mutex *mutLock;
-
+static SDL_mutex *writerLock;
 static void prepareLights(){
 	for (int i = 0; i<sceneObjs.size(); i++) {
 		Light* light=NULL;

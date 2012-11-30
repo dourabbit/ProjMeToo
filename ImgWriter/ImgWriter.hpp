@@ -13,13 +13,15 @@
 #include <string.h>
 #include <common.h>
 #include <CImg.h>
+using namespace cimg_library;
 class ImgWriter{
 public:
     ImgWriter();
     ~ImgWriter();
-    ImgWriter(std::string path,std::string fileNm);
-    int Write(const cimg_library::CImg<ImgDATA>* cimg);
-    int Write(const void* data);
+    //int  Write(const CImg<ImgDATA>* cimg);
+    static int SDLCALL Write(const void* data);
+    static CImg<ImgDATA> convert2Img();
+    static std::string fileNm;
 private:
     
 };
