@@ -7,12 +7,11 @@
 //
 
 #include "ImgWriter.hpp"
+#include <string>
+//#include <common.h>
 
 
-// Define plugin and include the CImg Library.
-#define cimg_plugin "plugins/jpeg_buffer.h"
-#include "CImg.h"
-using namespace cimg_library;
+
 ImgWriter::ImgWriter(){
 
 };
@@ -24,6 +23,9 @@ ImgWriter::~ImgWriter(){
 int ImgWriter::Write(const void* data){
 
     unsigned buf_size = 500000; // Put the file size here !//??????????????
+    
+    
+    ImgData* imgData = (ImgData*)data;
     
     CImg<unsigned char> img;
     std::fprintf(stderr," - Do simple processing\n");
@@ -47,7 +49,7 @@ int ImgWriter::Write(const void* data){
     
     // Copy the content of the above array into a new file
     // (it should give you a valid JPEG file then !)
-    const char *filename_output = "foo_output.jpg";
+    const char *filename_output = ((std::string *)data)->c_str();
     std::fprintf(stderr," - Save output file '%s'\n",filename_output);
     std::FILE* file_output = std::fopen(filename_output,"wb");
     std::fwrite(buffer_output, sizeof(JOCTET), buf_size, file_output);

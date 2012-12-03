@@ -11,7 +11,7 @@
 #include <Math.hpp>
 #include <iostream>
 #include <assert.h>
-
+#include <common.h>
 using namespace std;
 
 class Block{
@@ -23,6 +23,7 @@ public:
     int width;
     int height;
     string blockNm;
+    //ImgData* data;
     
 //    static int totalWidth;
 //    static int totalHeight;
@@ -41,7 +42,7 @@ public:
 			//if(this->wholeBlock==NULL) this->wholeBlock = this;
     };
     ~Block(){
-        
+        //delete data;
         delete col;
     };
 	void Initialize(Block* result){
@@ -55,6 +56,9 @@ public:
 //			//this->wholeBlock->col
 //		}
 	};
+    void WriteData() const{
+        //const CImg<float> img1(129,129,1,3,"0,64,128,192,255",true);
+    };
     
     
     void CpyBlockBuff() const{

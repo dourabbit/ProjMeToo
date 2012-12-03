@@ -42,7 +42,7 @@ private:
     static std::string _pathNm;
     
     static BlockManager*  _singleton;
-    static ImgWriter* writer;
+    //static ImgWriter* writer;
    
     static Tracer::PathTracerSplitted* _tracer;
     static void genBlocks();
