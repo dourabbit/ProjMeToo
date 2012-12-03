@@ -12,6 +12,12 @@
 #include <iostream>
 #include <string.h>
 #include <common.h>
+
+// These includes are necessary to get the plug-in compile !
+#include <cstdio>
+#include <jpeglib.h>
+#include <jerror.h>
+#define cimg_plugin "plugins/jpeg_buffer.h"
 #include <CImg.h>
 using namespace cimg_library;
 class ImgWriter{

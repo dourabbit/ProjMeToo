@@ -20,8 +20,10 @@ typedef unsigned char ImgDATA;
 #include <jerror.h>
 #define cimg_plugin "plugins/jpeg_buffer.h"
 
-#include "ImgWriter.hpp"
 #include "CImg.h"
+
+
+#include "ImgWriter.hpp"
 #include "Mat.h"
 #include "sphere.hpp"
 #include "triangle.hpp"

@@ -11,7 +11,12 @@
 #include <Math.hpp>
 #include <iostream>
 #include <assert.h>
-
+// These includes are necessary to get the plug-in compile !
+#include <cstdio>
+#include <jpeglib.h>
+#include <jerror.h>
+#define cimg_plugin "plugins/jpeg_buffer.h"
+#include <CImg.h>
 using namespace std;
 
 class Block{
@@ -19,25 +24,23 @@ public:
     
     static Block* wholeBlock;
     Vec2D<int>   pos;
+    
     Vec*   col;
+    CImg<IMGDATA> img;
+    
     int width;
     int height;
     string blockNm;
     
-//    static int totalWidth;
-//    static int totalHeight;
-//    static Vec* totalCol;
 
     Block();
-    Block(const Vec2D<int> &p,const string &name, const int &w, const int &h){
-    //    :pos(p),blockNm(name),width(w),height(h){
-        
+    Block(const Vec2D<int> &p,const string &name, const int &w, const int &h){        
             col = new Vec[w*h];
 			pos = p;
 			blockNm = name;
 			width = w;
 			height = h;
-
+            img = 
 			//if(this->wholeBlock==NULL) this->wholeBlock = this;
     };
     ~Block(){
