@@ -21,6 +21,7 @@
 		1B2E550016549B9000D55005 /* sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E54F416549B9000D55005 /* sphere.cpp */; };
 		1B2E550116549B9000D55005 /* sphereLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E54F616549B9000D55005 /* sphereLight.cpp */; };
 		1B2E550216549B9000D55005 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B2E54F816549B9000D55005 /* triangle.cpp */; };
+		1B3D0EE116688C2D007EDCA1 /* ImgWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B3D0EDF16688C2D007EDCA1 /* ImgWriter.cpp */; };
 		1B3D0EE41668A570007EDCA1 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3D0EE31668A570007EDCA1 /* libjpeg.a */; };
 		1BBE640716574B2F007B149A /* blockManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BBE640616574B2F007B149A /* blockManager.cpp */; };
 		1BBE640A16574DCE007B149A /* worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BBE640916574DCE007B149A /* worker.cpp */; };
@@ -73,7 +74,11 @@
 		1B2E54F716549B9000D55005 /* sphereLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = sphereLight.hpp; path = ../linuxVersion/sphereLight.hpp; sourceTree = "<group>"; };
 		1B2E54F816549B9000D55005 /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = ../linuxVersion/triangle.cpp; sourceTree = "<group>"; };
 		1B2E54F916549B9000D55005 /* triangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = triangle.hpp; path = ../linuxVersion/triangle.hpp; sourceTree = "<group>"; };
+		1B3D0EDF16688C2D007EDCA1 /* ImgWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImgWriter.cpp; path = ../ImgWriter/ImgWriter.cpp; sourceTree = "<group>"; };
+		1B3D0EE016688C2D007EDCA1 /* ImgWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ImgWriter.hpp; path = ../ImgWriter/ImgWriter.hpp; sourceTree = "<group>"; };
 		1B3D0EE31668A570007EDCA1 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../lib/libjpeg.a; sourceTree = "<group>"; };
+		1B3D0EE61668A5F7007EDCA1 /* jpeg_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jpeg_buffer.h; path = ../ImgWriter/plugins/jpeg_buffer.h; sourceTree = "<group>"; };
+		1B3D0EE71668A632007EDCA1 /* CImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CImg.h; path = ../ImgWriter/CImg.h; sourceTree = "<group>"; };
 		1BBE640416574B11007B149A /* blockManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = blockManager.hpp; path = ../linuxVersion/blockManager.hpp; sourceTree = "<group>"; };
 		1BBE640616574B2F007B149A /* blockManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = blockManager.cpp; path = ../linuxVersion/blockManager.cpp; sourceTree = "<group>"; };
 		1BBE640816574DB9007B149A /* worker.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = worker.hpp; path = ../linuxVersion/worker.hpp; sourceTree = "<group>"; };
@@ -128,6 +133,10 @@
 		1B3D0EE51668A5DD007EDCA1 /* Writer */ = {
 			isa = PBXGroup;
 			children = (
+				1B3D0EDF16688C2D007EDCA1 /* ImgWriter.cpp */,
+				1B3D0EE016688C2D007EDCA1 /* ImgWriter.hpp */,
+				1B3D0EE71668A632007EDCA1 /* CImg.h */,
+				1B3D0EE61668A5F7007EDCA1 /* jpeg_buffer.h */,
 			);
 			name = Writer;
 			sourceTree = "<group>";
@@ -278,6 +287,7 @@
 				1B2E550216549B9000D55005 /* triangle.cpp in Sources */,
 				1BBE640716574B2F007B149A /* blockManager.cpp in Sources */,
 				1BBE640A16574DCE007B149A /* worker.cpp in Sources */,
+				1B3D0EE116688C2D007EDCA1 /* ImgWriter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +308,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_OPENMP_SUPPORT = YES;
@@ -314,8 +324,8 @@
 					"\"$(SRCROOT)/../ImgWriter\"",
 					/Library/Frameworks/SDL.framework/Headers,
 					/usr/X11R6/include,
+					../linuxVersion,
 					"../ImgWriter/jpeg-8c",
-					"\"$(SRCROOT)/../linuxVersion\"",
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -327,6 +337,7 @@
 				OTHER_LDFLAGS = (
 					"-lX11",
 					"-lpthread",
+					"-Dcimg_use_jpeg",
 					"-ljpeg",
 				);
 				OTHER_TEST_FLAGS = "-Dcimg_use_jpeg -ljpeg -lX11 -lpthread";
@@ -339,7 +350,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_OPENMP_SUPPORT = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
@@ -353,8 +364,8 @@
 					"\"$(SRCROOT)/../ImgWriter\"",
 					/Library/Frameworks/SDL.framework/Headers,
 					/usr/X11R6/include,
+					../linuxVersion,
 					"../ImgWriter/jpeg-8c",
-					"\"$(SRCROOT)/../linuxVersion\"",
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -366,6 +377,7 @@
 				OTHER_LDFLAGS = (
 					"-lX11",
 					"-lpthread",
+					"-Dcimg_use_jpeg",
 					"-ljpeg",
 				);
 				OTHER_TEST_FLAGS = "-Dcimg_use_jpeg -ljpeg -lX11 -lpthread";

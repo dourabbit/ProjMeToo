@@ -55,69 +55,48 @@ using namespace cimg_library;
 //----------------
 int main() {
     
-    // Create a jpeg memory buffer from the content of a jpeg file.
-    // (this is for testing purposes only)
-    const char *filename_input = "foo.jpg";
-    std::fprintf(stderr," - Reading file '%s'\n",filename_input);
-    std::FILE *file_input = std::fopen(filename_input,"rb");
-    if (!file_input) { std::fprintf(stderr,"Input JPEG file not found !"); std::exit(0); }
-    
-    std::fprintf(stderr," - Construct input JPEG-coded buffer\n");
+//    // Create a jpeg memory buffer from the content of a jpeg file.
+//    // (this is for testing purposes only)
+//    const char *filename_input = "foo.jpg";
+//    std::fprintf(stderr," - Reading file '%s'\n",filename_input);
+//    std::FILE *file_input = std::fopen(filename_input,"rb");
+//    if (!file_input) { std::fprintf(stderr,"Input JPEG file not found !"); std::exit(0); }
+//    
+//    std::fprintf(stderr," - Construct input JPEG-coded buffer\n");
     unsigned buf_size = 500000; // Put the file size here !
-    JOCTET *buffer_input = new JOCTET[buf_size];
-    if (std::fread(buffer_input,sizeof(JOCTET),buf_size,file_input)) std::fclose(file_input);
-    // -> 'buffer_input' is now a valid jpeg-coded memory buffer.
-    
-    // Create a CImg instance from the jpeg-coded buffer using the plug-in function.
-    std::fprintf(stderr," - Create CImg instance from JPEG-coded buffer\n");
-    //unsigned char* data_buffer = new unsigned char[256*256]();
-    unsigned char data_buffer[16*16*3];
-    memset(data_buffer,'\0',16*16*3);
-    
-    CImg<unsigned char> img(data_buffer,16,16,1,3,true);;
-    
-    
-    
-    
-    //img.load_jpeg_buffer(buffer_input, buf_size);
-    
-    
-    unsigned char
-    *ptr_r = img.data(0,0,0,0),
-    *ptr_g = img.data(0,0,0,1),
-    *ptr_b = img.data(0,0,0,2);
-    
-    for(int x =0 ;x<256;x++){
-        for(int y=0;y<256;y++){
-//            
-//            *(ptr_r++) = '\0';
-//            *(ptr_g++) = '\0';
-//            *(ptr_b++) = '\0';
-//            
-        }
-    }
-    
-    //delete[] buffer_input;
-    
+//    JOCTET *buffer_input = new JOCTET[buf_size];
+//    if (std::fread(buffer_input,sizeof(JOCTET),buf_size,file_input)) std::fclose(file_input);
+//    // -> 'buffer_input' is now a valid jpeg-coded memory buffer.
+//    
+//    // Create a CImg instance from the jpeg-coded buffer using the plug-in function.
+//    std::fprintf(stderr," - Create CImg instance from JPEG-coded buffer\n");
+    CImg<unsigned char> img;
+//    img.load_jpeg_buffer(buffer_input, buf_size);
+//    delete[] buffer_input;
+//    
+    // Do you image processing stuff here ....
+    // Here, we just mirror the image and write "hello".
     std::fprintf(stderr," - Do simple processing\n");
-    unsigned char purple[] = { 255, 0, 255 };
+    const unsigned char purple[] = { 255, 0, 0 };
     const unsigned char black[] = { 0, 0, 0 };
-    //img.mirror('y').draw_text(0,0,"   Hello!   ",purple,black,1,57);
-    
-    
-
-    
-    //CImg<unsigned char> img2(128,128);
-    //img = img + img2.draw_text(0,0,"   Hello!   ",purple,black,1,57);
-    
+    img.mirror('y').draw_text(0,0,"   Hello!   ",purple,black,1,57);
     
     // Display image to see if everything's fine.
-    img.display("Using 'jpeg_buffer.h' plugin");
+    //img.display("Using 'jpeg_buffer.h' plugin");
     
+    // Define a new JOCTET array where the processed image has to be saved
+    // (we don't know its dimension before compressing it, therefore we have to allocate enough memory )
+    std::fprintf(stderr," - Construct output JPEG-coded buffer\n");
     JOCTET *buffer_output = new JOCTET[2*buf_size];
     
-    img.save_jpeg_buffer(buffer_output,buf_size,100);
+    // Save processed image into this JOCTET buffer, compressed as jpeg.
+    // This is done again by using the plug-in function.
+    img.save_jpeg_buffer(buffer_output,buf_size,60);
+    // Note that here, the variable 'buf_size' contains the length of the
+    // data which have been written in the given output buffer.
     
+    // Copy the content of the above array into a new file
+    // (it should give you a valid JPEG file then !)
     const char *filename_output = "foo_output.jpg";
     std::fprintf(stderr," - Save output file '%s'\n",filename_output);
     std::FILE* file_output = std::fopen(filename_output,"wb");

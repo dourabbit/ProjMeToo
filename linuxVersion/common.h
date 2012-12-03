@@ -15,33 +15,13 @@ typedef unsigned char ImgDATA;
 
 
 // These includes are necessary to get the plug-in compile !
-//#include <cstdio>
-//#include <jpeglib.h>
-//#include <jerror.h>
-//#define cimg_plugin "plugins/jpeg_buffer.h"
-//
-//#include "CImg.h"
-
-class Block;
-//
-//class ImgData{
-//
-//public:
-//    cimg_library::CImg<IMGDATA>*   image;
-//    char*           imgNm;
-//    enum IMGTYPE{JPG,TIFF};
-//    
-//    IMGTYPE         type;
-//    
-//    ImgData( cimg_library::CImg<IMGDATA>*   image, char* imgNm){
-//        //this->type = IMGTYPE::JPG;
-//        this->image = image;
-//        this->imgNm = imgNm;
-//    }
-//};
-
+#include <cstdio>
+#include <jpeglib.h>
+#include <jerror.h>
+#define cimg_plugin "plugins/jpeg_buffer.h"
 
 #include "ImgWriter.hpp"
+#include "CImg.h"
 #include "Mat.h"
 #include "sphere.hpp"
 #include "triangle.hpp"
