@@ -12,7 +12,6 @@
 #include <iostream>
 #include <assert.h>
 
-#include <common.h>
 using namespace std;
 
 class Block{
@@ -21,7 +20,6 @@ public:
     static Block* wholeBlock;
     Vec2D<int>   pos;
     Vec*   col;
-    CImg<IMGDATA> img;
     int width;
     int height;
     string blockNm;
@@ -39,7 +37,7 @@ public:
 			blockNm = name;
 			width = w;
 			height = h;
-            
+
 			//if(this->wholeBlock==NULL) this->wholeBlock = this;
     };
     ~Block(){
