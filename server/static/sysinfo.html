@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+"http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+<title>系统监控</title>  
+<mce:style type="text/css"><!--  
+table{  
+width:600px;  
+border-collapse:collapse;  
+border:solid #999;  
+border-width:1px 1px 1px 1px;  
+color:#4682B4;  
+}  
+table th,table td {border:solid #999;border-width:0 1px 1px 0;padding:2px;}  
+table td {text-align:center;}  
+span {color:#8B8989}  
+.tablecontent {color:#8B8989}  
+--></mce:style><style type="text/css" mce_bogus="1">table{  
+width:600px;  
+border-collapse:collapse;  
+border:solid #999;  
+border-width:1px 1px 1px 1px;  
+color:#4682B4;  
+}  
+table th,table td {border:solid #999;border-width:0 1px 1px 0;padding:2px;}  
+table td {text-align:center;}  
+span {color:#8B8989}  
+.tablecontent {color:#8B8989}</style>  
+</head>  
+  
+<mce:script type="text/javascript" src="http://www.google.com/jsapi" mce_src="http://www.google.com/jsapi"></mce:script>  
+<mce:script type="text/javascript"><!--  
+google.load('jquery', '1.5.1');  
+google.load('visualization', '1', {'packages':['piechart']});  
+//google.setOnLoadCallback(drawChart);  
+function drawDiskChart(used,free) {  
+var data = new google.visualization.DataTable();  
+data.addColumn('string', 'Space');  
+data.addColumn('number', 'Space number');  
+data.addRows([  
+['未使用'+formatK2GB(free), free],  
+['已使用'+formatK2GB(used), used]  
+]);  
+  
+var chart = new google.visualization.PieChart(document.getElementById('disk_chart_div'));  
+chart.draw(data, {width: 400, height: 240, is3D: true, title: '磁盘使用情况'});  
+}  
+function drawMemChart(used,free) {  
+var data = new google.visualization.DataTable();  
+data.addColumn('string', 'Space');  
+data.addColumn('number', 'Space number');  
+data.addRows([  
+['空闲'+formatB2MB(free), free],  
+['已使用'+formatB2MB(used), used]  
+]);  
+  
+var chart = new google.visualization.PieChart(document.getElementById('mem_chart_div'));  
+chart.draw(data, {width: 400, height: 240, is3D: true, title: '内存使用情况'});  
+}  
+// --></mce:script>  
+<!--<mce:script type="text/javascript" src="/js/jquery-1.5.1.min.js" mce_src="js/jquery-1.5.1.min.js"></mce:script>-->  
+<mce:script type="text/javascript"><!--  
+//过虑掉字符串首尾格式，替换字符串中的多个空格为一个空格。  
+function trim(s){  
+return s.replace(/(^/s*)|(/s*$)/g, "").replace(//s+/g,' ');  
+}  
+//转换从字节到兆字节  
+function formatB2MB(num){  
+return parseInt(num/(1000*1000))+' MB';  
+}  
+//转换从K字节到G字节  
+function formatK2GB(num){  
+return parseInt(num/(1000*1000))+' GB';  
+}  
+$(document).ready(function(){  
+//alert($.fn.jquery); //显示jquery版本号  
+loadSysInfo();  
+setInterval(loadSysInfo,5000);  
+});  
+function loadSysInfo(){  
+$.ajax({url:"/getSysInfo",  
+success:function(data){  
+//alert(data.systemtype);  
+$('#hostname').html(data.hostname);  
+$('#systemtype').html(data.systemtype);  
+$('#systemtype').html(data.systemtype);  
+$('#release').html(data.release);  
+$('#uptime').html(parseInt(data.uptime/(60*60))+' Hours');  
+$('#loadavg').html(data.loadavg.join(','));  
+$('#totalmem').html(formatB2MB(data.totalmem));  
+$('#freemem').html(formatB2MB(data.freemem));  
+$('#cpus').html(data.cpus.length);  
+$('#disk').html(data.disk.used + ' used,' + data.disk.free +' free');  
+//填充cup表格  
+$('.tablecontent').remove();  
+for(var i in data.cpus){  
+$('<tr class=/'tablecontent/'><td>cpu'+ i +'</td>' +  
+'<td>'+ data.cpus[i].model  +'</td>' +  
+'<td>'+ data.cpus[i].speed  +'</td>' +  
+'<td>'+ data.cpus[i].times.user  +'</td>' +  
+'<td>'+ data.cpus[i].times.nice  +'</td>' +  
+'<td>'+ data.cpus[i].times.sys  +'</td>' +  
+'<td>'+ data.cpus[i].times.idle  +'</td>' +  
+'<td>'+ data.cpus[i].times.irq  +'</td>' +  
+'</tr>').appendTo('#cputable');  
+}  
+//图形显示  
+drawDiskChart(parseInt(data.disk.used),parseInt(data.disk.free));  
+drawMemChart(data.totalmem - data.freemem, data.freemem);  
+  
+},  
+cache:false,  
+dataType:"json"});  
+}  
+// --></mce:script>  
+<body>  
+<b>@sysinfo.html</b><br><p>  
+主机名称：<span id='hostname'></span><br>  
+操作系统：<span id='systemtype'></span><br>  
+发行版本：<span id='release'></span><br>  
+运行时间：<span id='uptime'></span><br>  
+负载：   <span id='loadavg'></span><br>  
+内存大小：<span id='totalmem'></span><br>  
+空闲内存：<span id='freemem'></span><br>  
+CPUs：  <span id='cpus'></span><br>  
+硬盘空间：<span id='disk'></span><br>  
+  
+<table id='cputable'>  
+<tr><td colspan=8>CPU使用情况</td></tr>  
+<tr><td>cpu</td>  
+<td>model</td>  
+<td>speed</td>  
+<td>user</td>  
+<td>nice</td>  
+<td>sys</td>  
+<td>idle</td>  
+<td>irq</td>  
+</tr>  
+</table>  
+<span id='disk_chart_div'></span>  
+<span id='mem_chart_div'></span>  
+</body>  
+</html>  

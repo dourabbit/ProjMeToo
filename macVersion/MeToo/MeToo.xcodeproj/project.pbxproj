@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B4C209316A0745F0010F5A8 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4C209216A0745F0010F5A8 /* SDL.framework */; };
+		1B4C209516A074AF0010F5A8 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4C209416A074AF0010F5A8 /* libjpeg.a */; };
+		1B4C209716A074ED0010F5A8 /* libmongoclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4C209616A074ED0010F5A8 /* libmongoclient.a */; };
+		1B4C209F16A078A10010F5A8 /* SDLMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C209E16A078A10010F5A8 /* SDLMain.mm */; };
+		1B4C20DE16A080990010F5A8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B4C20DD16A080990010F5A8 /* main.cpp */; };
+		1B5B74D116A12AEE00A47570 /* libMongoConn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B5B74CC16A12AD700A47570 /* libMongoConn.a */; };
+		1B62114616A05C6500C3C947 /* ImgWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B62114416A05C6500C3C947 /* ImgWriter.cpp */; };
+		1BEB9F8216A0570D006DD336 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEB9F8116A0570D006DD336 /* Cocoa.framework */; };
+		1BEB9F8C16A0570D006DD336 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BEB9F8A16A0570D006DD336 /* InfoPlist.strings */; };
+		1BEB9F9216A0570D006DD336 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1BEB9F9016A0570D006DD336 /* Credits.rtf */; };
+		1BEB9F9816A0570D006DD336 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BEB9F9616A0570D006DD336 /* MainMenu.xib */; };
+		1BEB9FDC16A058FC006DD336 /* areaLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FC016A058FC006DD336 /* areaLight.cpp */; };
+		1BEB9FDD16A058FC006DD336 /* blockManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FC216A058FC006DD336 /* blockManager.cpp */; };
+		1BEB9FDE16A058FC006DD336 /* CApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FC416A058FC006DD336 /* CApp.cpp */; };
+		1BEB9FDF16A058FC006DD336 /* light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FC716A058FC006DD336 /* light.cpp */; };
+		1BEB9FE016A058FC006DD336 /* pathTracerSplitted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FCB16A058FC006DD336 /* pathTracerSplitted.cpp */; };
+		1BEB9FE116A058FC006DD336 /* persp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FCD16A058FC006DD336 /* persp.cpp */; };
+		1BEB9FE216A058FC006DD336 /* plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FCF16A058FC006DD336 /* plane.cpp */; };
+		1BEB9FE316A058FC006DD336 /* shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FD216A058FC006DD336 /* shape.cpp */; };
+		1BEB9FE416A058FC006DD336 /* sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FD416A058FC006DD336 /* sphere.cpp */; };
+		1BEB9FE516A058FC006DD336 /* sphereLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FD616A058FC006DD336 /* sphereLight.cpp */; };
+		1BEB9FE616A058FC006DD336 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FD816A058FC006DD336 /* triangle.cpp */; };
+		1BEB9FE716A058FC006DD336 /* worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FDA16A058FC006DD336 /* worker.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1B5B74CB16A12AD700A47570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1BE03FF916A1255900C7D108;
+			remoteInfo = MongoConn;
+		};
+		1B5B74CD16A12AD700A47570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1B63E64316A128DA00DF639D;
+			remoteInfo = Test;
+		};
+		1B5B74CF16A12AE600A47570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BE03FF816A1255900C7D108;
+			remoteInfo = MongoConn;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1B4C209216A0745F0010F5A8 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL.framework; sourceTree = "<group>"; };
+		1B4C209416A074AF0010F5A8 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../lib/libjpeg.a; sourceTree = "<group>"; };
+		1B4C209616A074ED0010F5A8 /* libmongoclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmongoclient.a; path = ../../lib/libmongoclient.a; sourceTree = "<group>"; };
+		1B4C209D16A078A10010F5A8 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLMain.h; path = ../../SDLMain.h; sourceTree = "<group>"; };
+		1B4C209E16A078A10010F5A8 /* SDLMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SDLMain.mm; path = ../../SDLMain.mm; sourceTree = "<group>"; };
+		1B4C20DD16A080990010F5A8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../main.cpp; sourceTree = "<group>"; };
+		1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MongoConn.xcodeproj; path = ../MongoConn/MongoConn.xcodeproj; sourceTree = "<group>"; };
+		1B62114416A05C6500C3C947 /* ImgWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImgWriter.cpp; path = ../../linuxVersion/ImgWriter.cpp; sourceTree = "<group>"; };
+		1B62114516A05C6500C3C947 /* ImgWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ImgWriter.hpp; path = ../../linuxVersion/ImgWriter.hpp; sourceTree = "<group>"; };
+		1BEB9F7D16A0570D006DD336 /* MeToo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeToo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BEB9F8116A0570D006DD336 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1BEB9F8416A0570D006DD336 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1BEB9F8516A0570D006DD336 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1BEB9F8616A0570D006DD336 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1BEB9F8916A0570D006DD336 /* MeToo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeToo-Info.plist"; sourceTree = "<group>"; };
+		1BEB9F8B16A0570D006DD336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1BEB9F8F16A0570D006DD336 /* MeToo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeToo-Prefix.pch"; sourceTree = "<group>"; };
+		1BEB9F9116A0570D006DD336 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1BEB9F9716A0570D006DD336 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1BEB9FC016A058FC006DD336 /* areaLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = areaLight.cpp; path = ../../linuxVersion/areaLight.cpp; sourceTree = "<group>"; };
+		1BEB9FC116A058FC006DD336 /* areaLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = areaLight.hpp; path = ../../linuxVersion/areaLight.hpp; sourceTree = "<group>"; };
+		1BEB9FC216A058FC006DD336 /* blockManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = blockManager.cpp; path = ../../linuxVersion/blockManager.cpp; sourceTree = "<group>"; };
+		1BEB9FC316A058FC006DD336 /* blockManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = blockManager.hpp; path = ../../linuxVersion/blockManager.hpp; sourceTree = "<group>"; };
+		1BEB9FC416A058FC006DD336 /* CApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CApp.cpp; path = ../../linuxVersion/CApp.cpp; sourceTree = "<group>"; };
+		1BEB9FC516A058FC006DD336 /* CApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CApp.h; path = ../../linuxVersion/CApp.h; sourceTree = "<group>"; };
+		1BEB9FC616A058FC006DD336 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = ../../linuxVersion/common.h; sourceTree = "<group>"; };
+		1BEB9FC716A058FC006DD336 /* light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = light.cpp; path = ../../linuxVersion/light.cpp; sourceTree = "<group>"; };
+		1BEB9FC816A058FC006DD336 /* light.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = light.hpp; path = ../../linuxVersion/light.hpp; sourceTree = "<group>"; };
+		1BEB9FC916A058FC006DD336 /* Mat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mat.h; path = ../../linuxVersion/Mat.h; sourceTree = "<group>"; };
+		1BEB9FCA16A058FC006DD336 /* Math.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Math.hpp; path = ../../linuxVersion/Math.hpp; sourceTree = "<group>"; };
+		1BEB9FCB16A058FC006DD336 /* pathTracerSplitted.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = pathTracerSplitted.cpp; path = ../../linuxVersion/pathTracerSplitted.cpp; sourceTree = "<group>"; };
+		1BEB9FCC16A058FC006DD336 /* pathTracerSplitted.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = pathTracerSplitted.hpp; path = ../../linuxVersion/pathTracerSplitted.hpp; sourceTree = "<group>"; };
+		1BEB9FCD16A058FC006DD336 /* persp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = persp.cpp; path = ../../linuxVersion/persp.cpp; sourceTree = "<group>"; };
+		1BEB9FCE16A058FC006DD336 /* persp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = persp.hpp; path = ../../linuxVersion/persp.hpp; sourceTree = "<group>"; };
+		1BEB9FCF16A058FC006DD336 /* plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = plane.cpp; path = ../../linuxVersion/plane.cpp; sourceTree = "<group>"; };
+		1BEB9FD016A058FC006DD336 /* plane.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = plane.hpp; path = ../../linuxVersion/plane.hpp; sourceTree = "<group>"; };
+		1BEB9FD116A058FC006DD336 /* SDLHelper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SDLHelper.hpp; path = ../../linuxVersion/SDLHelper.hpp; sourceTree = "<group>"; };
+		1BEB9FD216A058FC006DD336 /* shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shape.cpp; path = ../../linuxVersion/shape.cpp; sourceTree = "<group>"; };
+		1BEB9FD316A058FC006DD336 /* shape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = shape.hpp; path = ../../linuxVersion/shape.hpp; sourceTree = "<group>"; };
+		1BEB9FD416A058FC006DD336 /* sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sphere.cpp; path = ../../linuxVersion/sphere.cpp; sourceTree = "<group>"; };
+		1BEB9FD516A058FC006DD336 /* sphere.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = sphere.hpp; path = ../../linuxVersion/sphere.hpp; sourceTree = "<group>"; };
+		1BEB9FD616A058FC006DD336 /* sphereLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sphereLight.cpp; path = ../../linuxVersion/sphereLight.cpp; sourceTree = "<group>"; };
+		1BEB9FD716A058FC006DD336 /* sphereLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = sphereLight.hpp; path = ../../linuxVersion/sphereLight.hpp; sourceTree = "<group>"; };
+		1BEB9FD816A058FC006DD336 /* triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = ../../linuxVersion/triangle.cpp; sourceTree = "<group>"; };
+		1BEB9FD916A058FC006DD336 /* triangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = triangle.hpp; path = ../../linuxVersion/triangle.hpp; sourceTree = "<group>"; };
+		1BEB9FDA16A058FC006DD336 /* worker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = worker.cpp; path = ../../linuxVersion/worker.cpp; sourceTree = "<group>"; };
+		1BEB9FDB16A058FC006DD336 /* worker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = worker.hpp; path = ../../linuxVersion/worker.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1BEB9F7A16A0570D006DD336 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B5B74D116A12AEE00A47570 /* libMongoConn.a in Frameworks */,
+				1B4C209716A074ED0010F5A8 /* libmongoclient.a in Frameworks */,
+				1B4C209516A074AF0010F5A8 /* libjpeg.a in Frameworks */,
+				1BEB9F8216A0570D006DD336 /* Cocoa.framework in Frameworks */,
+				1B4C209316A0745F0010F5A8 /* SDL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B5B74C316A12AD700A47570 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B5B74CC16A12AD700A47570 /* libMongoConn.a */,
+				1B5B74CE16A12AD700A47570 /* Test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1BEB9F7216A0570D006DD336 = {
+			isa = PBXGroup;
+			children = (
+				1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */,
+				1BEB9FBF16A058BF006DD336 /* src */,
+				1BEB9F8716A0570D006DD336 /* MeToo */,
+				1BEB9F8016A0570D006DD336 /* Frameworks */,
+				1BEB9F7E16A0570D006DD336 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1BEB9F7E16A0570D006DD336 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1BEB9F7D16A0570D006DD336 /* MeToo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1BEB9F8016A0570D006DD336 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B4C209616A074ED0010F5A8 /* libmongoclient.a */,
+				1B4C209416A074AF0010F5A8 /* libjpeg.a */,
+				1B4C209216A0745F0010F5A8 /* SDL.framework */,
+				1BEB9F8116A0570D006DD336 /* Cocoa.framework */,
+				1BEB9F8316A0570D006DD336 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1BEB9F8316A0570D006DD336 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BEB9F8416A0570D006DD336 /* AppKit.framework */,
+				1BEB9F8516A0570D006DD336 /* CoreData.framework */,
+				1BEB9F8616A0570D006DD336 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1BEB9F8716A0570D006DD336 /* MeToo */ = {
+			isa = PBXGroup;
+			children = (
+				1B4C20DD16A080990010F5A8 /* main.cpp */,
+				1B4C209D16A078A10010F5A8 /* SDLMain.h */,
+				1B4C209E16A078A10010F5A8 /* SDLMain.mm */,
+				1BEB9F9616A0570D006DD336 /* MainMenu.xib */,
+				1BEB9F8816A0570D006DD336 /* Supporting Files */,
+			);
+			path = MeToo;
+			sourceTree = "<group>";
+		};
+		1BEB9F8816A0570D006DD336 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BEB9F8916A0570D006DD336 /* MeToo-Info.plist */,
+				1BEB9F8A16A0570D006DD336 /* InfoPlist.strings */,
+				1BEB9F8F16A0570D006DD336 /* MeToo-Prefix.pch */,
+				1BEB9F9016A0570D006DD336 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1BEB9FBF16A058BF006DD336 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1B62114416A05C6500C3C947 /* ImgWriter.cpp */,
+				1B62114516A05C6500C3C947 /* ImgWriter.hpp */,
+				1BEB9FC016A058FC006DD336 /* areaLight.cpp */,
+				1BEB9FC116A058FC006DD336 /* areaLight.hpp */,
+				1BEB9FC216A058FC006DD336 /* blockManager.cpp */,
+				1BEB9FC316A058FC006DD336 /* blockManager.hpp */,
+				1BEB9FC416A058FC006DD336 /* CApp.cpp */,
+				1BEB9FC516A058FC006DD336 /* CApp.h */,
+				1BEB9FC616A058FC006DD336 /* common.h */,
+				1BEB9FC716A058FC006DD336 /* light.cpp */,
+				1BEB9FC816A058FC006DD336 /* light.hpp */,
+				1BEB9FC916A058FC006DD336 /* Mat.h */,
+				1BEB9FCA16A058FC006DD336 /* Math.hpp */,
+				1BEB9FCB16A058FC006DD336 /* pathTracerSplitted.cpp */,
+				1BEB9FCC16A058FC006DD336 /* pathTracerSplitted.hpp */,
+				1BEB9FCD16A058FC006DD336 /* persp.cpp */,
+				1BEB9FCE16A058FC006DD336 /* persp.hpp */,
+				1BEB9FCF16A058FC006DD336 /* plane.cpp */,
+				1BEB9FD016A058FC006DD336 /* plane.hpp */,
+				1BEB9FD116A058FC006DD336 /* SDLHelper.hpp */,
+				1BEB9FD216A058FC006DD336 /* shape.cpp */,
+				1BEB9FD316A058FC006DD336 /* shape.hpp */,
+				1BEB9FD416A058FC006DD336 /* sphere.cpp */,
+				1BEB9FD516A058FC006DD336 /* sphere.hpp */,
+				1BEB9FD616A058FC006DD336 /* sphereLight.cpp */,
+				1BEB9FD716A058FC006DD336 /* sphereLight.hpp */,
+				1BEB9FD816A058FC006DD336 /* triangle.cpp */,
+				1BEB9FD916A058FC006DD336 /* triangle.hpp */,
+				1BEB9FDA16A058FC006DD336 /* worker.cpp */,
+				1BEB9FDB16A058FC006DD336 /* worker.hpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1BEB9F7C16A0570D006DD336 /* MeToo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BEB9F9B16A0570D006DD336 /* Build configuration list for PBXNativeTarget "MeToo" */;
+			buildPhases = (
+				1BEB9F7916A0570D006DD336 /* Sources */,
+				1BEB9F7A16A0570D006DD336 /* Frameworks */,
+				1BEB9F7B16A0570D006DD336 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B5B74D016A12AE600A47570 /* PBXTargetDependency */,
+			);
+			name = MeToo;
+			productName = MeToo;
+			productReference = 1BEB9F7D16A0570D006DD336 /* MeToo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1BEB9F7416A0570D006DD336 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = PongStudio;
+			};
+			buildConfigurationList = 1BEB9F7716A0570D006DD336 /* Build configuration list for PBXProject "MeToo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1BEB9F7216A0570D006DD336;
+			productRefGroup = 1BEB9F7E16A0570D006DD336 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1B5B74C316A12AD700A47570 /* Products */;
+					ProjectRef = 1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1BEB9F7C16A0570D006DD336 /* MeToo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1B5B74CC16A12AD700A47570 /* libMongoConn.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMongoConn.a;
+			remoteRef = 1B5B74CB16A12AD700A47570 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B5B74CE16A12AD700A47570 /* Test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Test;
+			remoteRef = 1B5B74CD16A12AD700A47570 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1BEB9F7B16A0570D006DD336 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BEB9F8C16A0570D006DD336 /* InfoPlist.strings in Resources */,
+				1BEB9F9216A0570D006DD336 /* Credits.rtf in Resources */,
+				1BEB9F9816A0570D006DD336 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BEB9F7916A0570D006DD336 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BEB9FDC16A058FC006DD336 /* areaLight.cpp in Sources */,
+				1BEB9FDD16A058FC006DD336 /* blockManager.cpp in Sources */,
+				1BEB9FDE16A058FC006DD336 /* CApp.cpp in Sources */,
+				1BEB9FDF16A058FC006DD336 /* light.cpp in Sources */,
+				1BEB9FE016A058FC006DD336 /* pathTracerSplitted.cpp in Sources */,
+				1BEB9FE116A058FC006DD336 /* persp.cpp in Sources */,
+				1BEB9FE216A058FC006DD336 /* plane.cpp in Sources */,
+				1BEB9FE316A058FC006DD336 /* shape.cpp in Sources */,
+				1BEB9FE416A058FC006DD336 /* sphere.cpp in Sources */,
+				1BEB9FE516A058FC006DD336 /* sphereLight.cpp in Sources */,
+				1BEB9FE616A058FC006DD336 /* triangle.cpp in Sources */,
+				1BEB9FE716A058FC006DD336 /* worker.cpp in Sources */,
+				1B62114616A05C6500C3C947 /* ImgWriter.cpp in Sources */,
+				1B4C209F16A078A10010F5A8 /* SDLMain.mm in Sources */,
+				1B4C20DE16A080990010F5A8 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B5B74D016A12AE600A47570 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MongoConn;
+			targetProxy = 1B5B74CF16A12AE600A47570 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1BEB9F8A16A0570D006DD336 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BEB9F8B16A0570D006DD336 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1BEB9F9016A0570D006DD336 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BEB9F9116A0570D006DD336 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1BEB9F9616A0570D006DD336 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BEB9F9716A0570D006DD336 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1BEB9F9916A0570D006DD336 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		1BEB9F9A16A0570D006DD336 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
+			};
+			name = Release;
+		};
+		1BEB9F9C16A0570D006DD336 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeToo/MeToo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = (
+					../../include/SDL,
+					../../linuxVersion,
+					"../../include/jpeg-8c",
+					../../include/,
+					/opt/X11/include,
+					/usr/local/include,
+				);
+				INFOPLIST_FILE = "MeToo/MeToo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/X11/lib,
+					"\"$(SRCROOT)/../../lib\"",
+					/usr/local/lib/,
+				);
+				OTHER_LDFLAGS = (
+					"-lX11",
+					"-lpthread",
+					"-Dcimg_use_jpeg",
+					"-ljpeg",
+				);
+				OTHER_TEST_FLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1BEB9F9D16A0570D006DD336 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeToo/MeToo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = (
+					../../include/SDL,
+					../../linuxVersion,
+					"../../include/jpeg-8c",
+					../../include/,
+					/opt/X11/include,
+					/usr/local/include,
+				);
+				INFOPLIST_FILE = "MeToo/MeToo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/X11/lib,
+					"\"$(SRCROOT)/../../lib\"",
+					/usr/local/lib/,
+				);
+				OTHER_LDFLAGS = (
+					"-lX11",
+					"-lpthread",
+					"-Dcimg_use_jpeg",
+					"-ljpeg",
+				);
+				OTHER_TEST_FLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 x86_64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1BEB9F7716A0570D006DD336 /* Build configuration list for PBXProject "MeToo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BEB9F9916A0570D006DD336 /* Debug */,
+				1BEB9F9A16A0570D006DD336 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BEB9F9B16A0570D006DD336 /* Build configuration list for PBXNativeTarget "MeToo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BEB9F9C16A0570D006DD336 /* Debug */,
+				1BEB9F9D16A0570D006DD336 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1BEB9F7416A0570D006DD336 /* Project object */;
+}

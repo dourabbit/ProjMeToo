@@ -72,6 +72,9 @@
     <ClInclude Include="..\linuxVersion\triangle.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\ImgWriter\ImgWriter.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\linuxVersion\main.cpp">
@@ -111,6 +114,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\linuxVersion\worker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ImgWriter\ImgWriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

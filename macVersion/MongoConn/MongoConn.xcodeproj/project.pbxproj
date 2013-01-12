@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B63E64D16A1293D00DF639D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BE0400016A125B700C7D108 /* main.cpp */; };
+		1BE0400116A125B700C7D108 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BE0400016A125B700C7D108 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1B63E64116A128DA00DF639D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1B63E64316A128DA00DF639D /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BE03FF916A1255900C7D108 /* libMongoConn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMongoConn.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BE0400016A125B700C7D108 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1B63E64016A128DA00DF639D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BE03FF616A1255900C7D108 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BE03FEE16A1255900C7D108 = {
+			isa = PBXGroup;
+			children = (
+				1BE0400016A125B700C7D108 /* main.cpp */,
+				1BE03FFA16A1255900C7D108 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1BE03FFA16A1255900C7D108 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1BE03FF916A1255900C7D108 /* libMongoConn.a */,
+				1B63E64316A128DA00DF639D /* Test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1BE03FF716A1255900C7D108 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1B63E64216A128DA00DF639D /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B63E64A16A128DA00DF639D /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				1B63E63F16A128DA00DF639D /* Sources */,
+				1B63E64016A128DA00DF639D /* Frameworks */,
+				1B63E64116A128DA00DF639D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Test;
+			productName = Test;
+			productReference = 1B63E64316A128DA00DF639D /* Test */;
+			productType = "com.apple.product-type.tool";
+		};
+		1BE03FF816A1255900C7D108 /* MongoConn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BE03FFD16A1255900C7D108 /* Build configuration list for PBXNativeTarget "MongoConn" */;
+			buildPhases = (
+				1BE03FF516A1255900C7D108 /* Sources */,
+				1BE03FF616A1255900C7D108 /* Frameworks */,
+				1BE03FF716A1255900C7D108 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MongoConn;
+			productName = MongoConn;
+			productReference = 1BE03FF916A1255900C7D108 /* libMongoConn.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1BE03FF016A1255900C7D108 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = PongStudio;
+			};
+			buildConfigurationList = 1BE03FF316A1255900C7D108 /* Build configuration list for PBXProject "MongoConn" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1BE03FEE16A1255900C7D108;
+			productRefGroup = 1BE03FFA16A1255900C7D108 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1BE03FF816A1255900C7D108 /* MongoConn */,
+				1B63E64216A128DA00DF639D /* Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B63E63F16A128DA00DF639D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B63E64D16A1293D00DF639D /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BE03FF516A1255900C7D108 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BE0400116A125B700C7D108 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1B63E64B16A128DA00DF639D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					../../lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1B63E64C16A128DA00DF639D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					../../lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1BE03FFB16A1255900C7D108 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					../../lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lmongoclient",
+					"-lboost_thread",
+					"-lboost_system",
+					"-lboost_filesystem",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1BE03FFC16A1255900C7D108 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					../../lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-lmongoclient",
+					"-lboost_thread",
+					"-lboost_system",
+					"-lboost_filesystem",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1BE03FFE16A1255900C7D108 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					/usr/local/include,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1BE03FFF16A1255900C7D108 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					/usr/local/include,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1B63E64A16A128DA00DF639D /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B63E64B16A128DA00DF639D /* Debug */,
+				1B63E64C16A128DA00DF639D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1BE03FF316A1255900C7D108 /* Build configuration list for PBXProject "MongoConn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BE03FFB16A1255900C7D108 /* Debug */,
+				1BE03FFC16A1255900C7D108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BE03FFD16A1255900C7D108 /* Build configuration list for PBXNativeTarget "MongoConn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BE03FFE16A1255900C7D108 /* Debug */,
+				1BE03FFF16A1255900C7D108 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1BE03FF016A1255900C7D108 /* Project object */;
+}

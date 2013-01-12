@@ -16,8 +16,8 @@ Tracer::PathTracerSplitted* BlockManager::_tracer = NULL;
 
 //Block* BlockManager::block = NULL;
 int BlockManager::numOfCPUs = 4;
-int BlockManager::blockWidth = 50;
-int BlockManager::blockHeight =50;
+int BlockManager::blockWidth = 100;
+int BlockManager::blockHeight =100;
 
 int BlockManager::renderHeight = 0;
 int BlockManager::renderWidth = 0;
@@ -91,7 +91,7 @@ void BlockManager::genBlocks(){
         for(int ix=0; ix < nx; ix++){
             stringstream nstr;
             nstr<< iy*nx + ix;
-            string blockNm = "block"+nstr.str();
+            string blockNm = "block"+nstr.str()+".JPG";
             if(ix!=nx-1&&iy!=ny-1)//full block
                 blockPool.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,blockWidth,blockHeight));
             else if(ix==nx-1&&iy!=ny-1)// last col
@@ -101,6 +101,10 @@ void BlockManager::genBlocks(){
             else//last one
                blockPool.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,reminderX,reminderY));
         }
+    }
+    
+    for(int i =0;i<blockPool.size();i++){
+        ImgWriter::Write(blockPool[i]);
     }
 };
 int startRendering(void* ptr){

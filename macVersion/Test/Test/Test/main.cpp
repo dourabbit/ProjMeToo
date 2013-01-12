@@ -87,6 +87,7 @@ int main() {
     }
             
     CImg<unsigned char> img(data_buffer,2,2,1,3,false);;
+ 
     
 //    img.load_jpeg_buffer(buffer_input, buf_size);
 //   /Users/Chengfu/Dropbox/MeTooProj/ProjMeToo/macVersion/Test/Test/Test/main.cpp:77: warning: unused variable 'i'

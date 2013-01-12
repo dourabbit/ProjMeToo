@@ -39,7 +39,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\..\linuxVersion;$(SolutionDir)\..\include\SDL;$(SolutionDir)\..\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\..\ImgWriter;$(SolutionDir)\..\ImgWriter\jpeg-8c;$(SolutionDir)\..\linuxVersion;$(SolutionDir)\..\include\SDL;$(SolutionDir)\..\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\..\lib;$(LibraryPath)</LibraryPath>
     <ReferencePath>$(SolutionDir)\..\linuxVersion;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
@@ -86,6 +86,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ImgWriter\ImgWriter.hpp" />
     <ClInclude Include="..\linuxVersion\areaLight.hpp" />
     <ClInclude Include="..\linuxVersion\blockManager.hpp" />
     <ClInclude Include="..\linuxVersion\CApp.h" />
@@ -106,6 +107,7 @@
     <ClInclude Include="..\src\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\ImgWriter\ImgWriter.cpp" />
     <ClCompile Include="..\linuxVersion\areaLight.cpp" />
     <ClCompile Include="..\linuxVersion\blockManager.cpp" />
     <ClCompile Include="..\linuxVersion\CApp.cpp" />

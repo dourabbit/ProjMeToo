@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "self:MeToo.xcodeproj"
+      name = "New Group">
+      <FileRef
+         location = "container:MeToo.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/areaLight.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/areaLight.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/blockManager.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/blockManager.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/CApp.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/CApp.h">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/common.h">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/light.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/light.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/main.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/Mat.h">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/Math.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/pathTracerSplitted.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/pathTracerSplitted.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/persp.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/persp.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/plane.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/plane.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/SDLHelper.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/shape.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/shape.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/sphere.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/sphere.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/sphereLight.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/sphereLight.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/triangle.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/triangle.hpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/worker.cpp">
+      </FileRef>
+      <FileRef
+         location = "group:../../linuxVersion/worker.hpp">
+      </FileRef>
+   </Group>
+</Workspace>

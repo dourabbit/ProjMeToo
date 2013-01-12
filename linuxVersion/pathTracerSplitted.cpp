@@ -149,6 +149,8 @@ Vec PathTracerSplitted::directIllumination(const Point3D &x, RNG &rng){
 
 void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point3D &result){
 	
+    if(lights.size()==0) return;
+    
 	int index = lights.size();
 
 	while(index==lights.size()){
@@ -159,6 +161,7 @@ void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point3D &result){
 
 
 	*pdf = 1.0f/lights.size();
+     if(lights.size()==0) return;
 	*pdf *= lights[index]->Pdf();
 
 	//This doesn't work somehow,
@@ -283,7 +286,7 @@ int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,AfterRenderExec 
 		PathTracerSplitted::Render((void*)block);
         
         SDL_mutexP(writerLock);
-        int writerResult = (*callBack)((void*)&block->blockNm);
+        int writerResult = (*callBack)(block);
         SDL_mutexV(mutLock);
         
         delete block;
@@ -327,7 +330,8 @@ int PathTracerSplitted::Render(Block* block){
 			}
 			pixelCol = pixelCol * (1.0 / pathRays);
 			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
-            block->col[i] = color;
+            const int localIndex = block->GlobalIndex2Local(i);
+            block->col[localIndex] = color;
 			block->wholeBlock->col[i] = color;
 			if(EXITFLAG){
 				printf("Exit!\n");
@@ -339,7 +343,7 @@ int PathTracerSplitted::Render(Block* block){
 			}
 		}
 	}
-    
+    block->Cp2Buffer();
 	return 0;
 }
 

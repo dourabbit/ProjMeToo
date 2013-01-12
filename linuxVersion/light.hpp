@@ -11,7 +11,6 @@ public:
 	virtual ~Light();
 
 
-
 	int shaRays;
 
 	virtual Vec Sample(RNG* rng)=0;

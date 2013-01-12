@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "CApp.h"
+#include <SDL/SDL.h>
 
 int main(int argc, char* argv[]) {
     CApp theApp;

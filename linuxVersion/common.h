@@ -2,7 +2,7 @@
 #define _COMMON_H_
 
 typedef float DATA;
-typedef char IMGDATA;
+//typedef char IMGDATA;
 typedef unsigned char ImgDATA;
 #ifdef __MSC_VER
 #define INLINE __forceinline 
@@ -32,6 +32,7 @@ typedef unsigned char ImgDATA;
 #include "light.hpp"
 #include "areaLight.hpp"
 #include "sphereLight.hpp"
+#include "worker.hpp"
 #include <stdlib.h>
 #include <stdio.h> 
 #include <cstdlib>
@@ -39,6 +40,8 @@ typedef unsigned char ImgDATA;
 
 #include <SDL_thread.h>
 #include <SDL_timer.h>
+
+
 //class _MathHelper;
 //class Mat4;
 //class Quat;
@@ -50,8 +53,6 @@ typedef unsigned char ImgDATA;
 //class RNG;
 
 
-
-typedef int (SDLCALL *AfterRenderExec)(const void*);
 
 static std::vector<Shape*> sceneObjs;
 static std::vector<Light*> lights;
