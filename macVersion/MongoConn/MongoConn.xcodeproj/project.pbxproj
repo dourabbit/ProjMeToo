@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B63E64D16A1293D00DF639D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BE0400016A125B700C7D108 /* main.cpp */; };
+		1BA5E8F216D1DBAE00D9109A /* MongoConn.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5E8F016D1D81100D9109A /* MongoConn.hpp */; };
+		1BA5E8F316D1DBCB00D9109A /* MongoConn.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5E8F016D1D81100D9109A /* MongoConn.hpp */; };
 		1BE0400116A125B700C7D108 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BE0400016A125B700C7D108 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		1B63E64316A128DA00DF639D /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BA5E8F016D1D81100D9109A /* MongoConn.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = MongoConn.hpp; path = src/MongoConn.hpp; sourceTree = "<group>"; };
 		1BE03FF916A1255900C7D108 /* libMongoConn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMongoConn.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE0400016A125B700C7D108 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +53,7 @@
 		1BE03FEE16A1255900C7D108 = {
 			isa = PBXGroup;
 			children = (
+				1BA5E8F016D1D81100D9109A /* MongoConn.hpp */,
 				1BE0400016A125B700C7D108 /* main.cpp */,
 				1BE03FFA16A1255900C7D108 /* Products */,
 			);
@@ -143,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA5E8F316D1DBCB00D9109A /* MongoConn.hpp in Sources */,
 				1B63E64D16A1293D00DF639D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA5E8F216D1DBAE00D9109A /* MongoConn.hpp in Sources */,
 				1BE0400116A125B700C7D108 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +303,7 @@
 				1B63E64C16A128DA00DF639D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BE03FF316A1255900C7D108 /* Build configuration list for PBXProject "MongoConn" */ = {
 			isa = XCConfigurationList;

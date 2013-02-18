@@ -1,5 +1,17 @@
-extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+#container
+#logo
+    img(src='/images/logo.png')
+#display
+    #login        
+        form(method='post')
+            | Enter your name if you want to be a ninja
+            div
+                input(type='text', name='username')
+                input(type='submit', value='Log In')
+    
+#footer
+    div Copyright &copy; Ninja Store #{+new Date().getFullYear()} 
+    a(href='/page?name=about') About 
+    | |  
+    a(href='/page?name=contact') Contact Us
