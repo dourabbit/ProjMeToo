@@ -23,6 +23,7 @@ using namespace cimg_library;
 #include <SDL_thread.h>
 #include <SDL_timer.h>
 
+
 typedef int (SDLCALL *AfterRenderExec)(const Block*);
 class ImgWriter{
 public:

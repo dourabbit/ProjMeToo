@@ -440,7 +440,7 @@
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeToo/MeToo-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					../../include/SDL,
 					../../linuxVersion,
@@ -460,6 +460,7 @@
 					"-lpthread",
 					"-Dcimg_use_jpeg",
 					"-ljpeg",
+					"-lMongoConn",
 				);
 				OTHER_TEST_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -483,7 +484,7 @@
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MeToo/MeToo-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
 					../../include/SDL,
 					../../linuxVersion,
@@ -498,11 +499,13 @@
 					"\"$(SRCROOT)/../../lib\"",
 					/usr/local/lib/,
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lX11",
 					"-lpthread",
 					"-Dcimg_use_jpeg",
 					"-ljpeg",
+					"-lMongoConn",
 				);
 				OTHER_TEST_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

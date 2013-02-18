@@ -102,10 +102,10 @@ void BlockManager::genBlocks(){
                blockPool.push_back(new Block(Vec2D<int>(ix*blockWidth,iy*blockHeight),blockNm,reminderX,reminderY));
         }
     }
-    
-    for(int i =0;i<blockPool.size();i++){
-        ImgWriter::Write(blockPool[i]);
-    }
+//Write blank images
+//    for(int i =0;i<blockPool.size();i++){
+//        ImgWriter::Write(blockPool[i]);
+//    }
 };
 int startRendering(void* ptr){
     ImgWriter* writer = new ImgWriter();

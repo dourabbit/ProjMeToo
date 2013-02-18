@@ -16,6 +16,7 @@ using namespace cimg_library;
 
 //#include "gridfsTest.hpp"
 
+#include <MongoConn.hpp>
 ImgWriter::ImgWriter(){
 
 };
@@ -75,11 +76,9 @@ int ImgWriter::Write(const Block* data){
     std::fclose(file_output);
     delete[] buffer_output;
     
-    std::fprintf(stderr," - All done !\n");
+    printf("%s is Done",block->blockNm.c_str());
     
-   // gridfs* file = new gridfs();
-   // file->save();
-    
+    MongoConn::SaveFile("test",block->blockNm);
     
     return 0;
 
