@@ -33,8 +33,8 @@ int main(int argc, char **argv) {
         fprintf(stderr,"usage: %s <hostname> <port>\n", argv[0]);
         exit(0);
     }
-    hostname = "127.0.0.1";//argv[1];
-    portno = 1984;//atoi(argv[2]);
+    hostname = argv[1];
+    portno = atoi(argv[2]);
     
     /* socket: create the socket */
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
