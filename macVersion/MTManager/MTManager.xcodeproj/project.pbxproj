@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B0E663E16D28B5C00D45F52 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E663D16D28B5C00D45F52 /* main.cpp */; };
 		1B0E664016D28B5C00D45F52 /* MTManager.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1B0E663F16D28B5C00D45F52 /* MTManager.1 */; };
+		1B55DB8316E3217400C164BF /* sio_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1B55DB8216E3217400C164BF /* sio_client.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,9 @@
 
 /* Begin PBXFileReference section */
 		1B0E663916D28B5C00D45F52 /* MTManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MTManager; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B0E663D16D28B5C00D45F52 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1B0E663F16D28B5C00D45F52 /* MTManager.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MTManager.1; sourceTree = "<group>"; };
+		1B55DB8116E3217400C164BF /* handler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = handler.hpp; path = example/handler.hpp; sourceTree = SOURCE_ROOT; };
+		1B55DB8216E3217400C164BF /* sio_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sio_client.cpp; path = example/sio_client.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +61,8 @@
 		1B0E663C16D28B5C00D45F52 /* MTManager */ = {
 			isa = PBXGroup;
 			children = (
-				1B0E663D16D28B5C00D45F52 /* main.cpp */,
+				1B55DB8116E3217400C164BF /* handler.hpp */,
+				1B55DB8216E3217400C164BF /* sio_client.cpp */,
 				1B0E663F16D28B5C00D45F52 /* MTManager.1 */,
 			);
 			path = MTManager;
@@ -117,7 +119,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B0E663E16D28B5C00D45F52 /* main.cpp in Sources */,
+				1B55DB8316E3217400C164BF /* sio_client.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +147,16 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lcrypto",
+					"-lssl",
+					"-lpthread",
+					"-ljson_linux-gcc-4.2.1_libmt",
+					"-lsioclientpp",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -166,7 +176,15 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-lcrypto",
+					"-lssl",
+					"-lpthread",
+					"-ljson_linux-gcc-4.2.1_libmt",
+					"-lsioclientpp",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -174,6 +192,25 @@
 		1B0E664416D28B5C00D45F52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					/usr/local/Cellar/boost/1.51.0/include/,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
+				OTHER_LDFLAGS = (
+					"-lsioclientpp",
+					"-ljson_linux-gcc-4.2.1_libmt",
+					"-lcrypto",
+					"-lssl",
+					"-lpthread",
+					"-lboost_system",
+					"-lboost_date_time",
+					"-lboost_regex",
+					"-lboost_random",
+					"-lboost_program_options",
+					"-lboost_thread",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -181,6 +218,25 @@
 		1B0E664516D28B5C00D45F52 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					/usr/local/Cellar/boost/1.51.0/include/,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
+				OTHER_LDFLAGS = (
+					"-lsioclientpp",
+					"-ljson_linux-gcc-4.2.1_libmt",
+					"-lcrypto",
+					"-lssl",
+					"-lpthread",
+					"-lboost_system",
+					"-lboost_date_time",
+					"-lboost_regex",
+					"-lboost_random",
+					"-lboost_program_options",
+					"-lboost_thread",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -204,6 +260,7 @@
 				1B0E664516D28B5C00D45F52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
