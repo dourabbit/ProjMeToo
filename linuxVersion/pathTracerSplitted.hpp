@@ -23,7 +23,7 @@ public:
 	int static Render(void * ptr);
     int static Render(Block* block);
 
-	int static ManagedRender(vector<Block*>* blockPool,AfterRenderExec callBack);
+	int static ManagedRender(vector<Block*>* blockPool,int (*callBack) (const Block*));
 	static int width;
 	static int height;
 

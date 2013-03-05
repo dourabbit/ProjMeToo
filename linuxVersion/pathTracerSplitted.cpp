@@ -5,7 +5,7 @@
 using namespace Tracer;
 
 void PathTracerSplitted::Initialize(){
-	InitializeScenes();
+	//InitializeScenes();
 }
 
 int PathTracerSplitted::shaRays = 0;
@@ -149,27 +149,27 @@ Vec PathTracerSplitted::directIllumination(const Point3D &x, RNG &rng){
 
 void PathTracerSplitted::getLightSample(float* pdf, RNG* rng, Point3D &result){
 	
-    if(lights.size()==0) return;
+    if(Scene::lights.size()==0) return;
     
-	int index = lights.size();
+	int index = Scene::lights.size();
 
-	while(index==lights.size()){
+	while(index==Scene::lights.size()){
 	
 		float e = rng->RandomFloat();
-		index = (int)e*lights.size();
+		index = (int)e*Scene::lights.size();
 	}
 
 
-	*pdf = 1.0f/lights.size();
-     if(lights.size()==0) return;
-	*pdf *= lights[index]->Pdf();
+	*pdf = 1.0f/Scene::lights.size();
+     if(Scene::lights.size()==0) return;
+	*pdf *= Scene::lights[index]->Pdf();
 
 	//This doesn't work somehow,
 	//the data is swifting for some reason
 	//Shape* shape = (Shape*)lights[index];
 	
 	
-	AreaLight* light = (AreaLight*)lights[index];
+	AreaLight* light = (AreaLight*)Scene::lights[index];
 	Shape* shape = (Shape*)light;
 	Vec p = light->Sample(rng);
 
@@ -210,7 +210,7 @@ float PathTracerSplitted::radianceTransfer(const Point3D &x, const Point3D &y ){
 
 	float r = (x-y).length();
 	
-	shortDis = shortDis < r? shortDis:r;//???????????????????
+	//shortDis = shortDis < r? shortDis:r;//???????????????????
 	//dis.push_back(r);
 
 	return consine1*consine2/(r*r);
@@ -220,7 +220,7 @@ bool PathTracerSplitted::visibility(const Point3D &x, const Point3D &y){
 	float t = 0, d = (x-y).length();
 	Vec dir = (y-x).norm();
 	Ray r = Ray(x,dir);
-	Shape* obj = intersect(r, t);
+	Shape* obj = Scene::intersect(r, t);
 	if(!obj||abs(t-d)<THRESHOLD)
 		return true;
 
@@ -246,7 +246,7 @@ Point3D PathTracerSplitted::trace(const Ray &ray){
 		return result;*/
 
 
-	Shape* obj = intersect(ray, t);
+	Shape* obj = Scene::intersect(ray, t);
 	if(!obj) 
 		return result;
 	Vec x = ray.o + ray.d * t;
@@ -275,19 +275,19 @@ Vec PathTracerSplitted::trace(const Ray &ray,RNG &rng){
 }
 
 
-int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,AfterRenderExec callBack){
+int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,int (*callBack) (const Block*)){
 	int result=1;
     while (!BlockManager::blockPool.empty()) {
-		SDL_mutexP(mutLock);
+		//SDL_mutexP(mutLock);
 		Block* block = BlockManager::blockPool.back();
 		BlockManager::blockPool.pop_back();
-		SDL_mutexV(mutLock);
+		//SDL_mutexV(mutLock);
 
 		PathTracerSplitted::Render((void*)block);
         
-        SDL_mutexP(writerLock);
-        int writerResult = (*callBack)(block);
-        SDL_mutexV(mutLock);
+        //SDL_mutexP(writerLock);
+        int writerResult = callBack(block);
+        //SDL_mutexV(mutLock);
         
         delete block;
         result |= writerResult;

@@ -5,11 +5,15 @@
 //  Created by Chengfu on 12-11-17.
 //
 //
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
 
 #include <blockManager.hpp>
 #include <cmath>
 #include <sstream>
-
 #include <pathTracerSplitted.hpp>
 BlockManager* BlockManager::_singleton=NULL;
 Tracer::PathTracerSplitted* BlockManager::_tracer = NULL;
@@ -23,13 +27,14 @@ int BlockManager::renderHeight = 0;
 int BlockManager::renderWidth = 0;
 
 vector<Block*> BlockManager::blockPool;
-vector<SDL_Thread*> threadPool;
+pthread_t threadPool[NUM_THREADS];
+//vector<pthread_t*> threadPool;
 //vector<ManageInfo*> BlockManager::infoPool;
 
 
 
 //vector<Block*> blockPool;
-BlockManager::BlockManager(const int numOfThread,vector<SDL_Thread*> threadP,
+BlockManager::BlockManager(const int numOfThread,vector<void*> threadP,
                            const int width, const int height){
     //threadPool = threadP;
     renderHeight = width;
@@ -52,18 +57,19 @@ void BlockManager::CleanUp(){
     
     
     //_singleton = NULL;
-    SDL_mutexP(mutLock);
-    EXITFLAG = 1;
-	SDL_mutexV(mutLock);
-	for(int i=0;i<threadPool.size();i++) {
-		SDL_Thread* thread = threadPool[i];
-		Uint32 id =  SDL_GetThreadID(thread);
+    //SDL_mutexP(mutLock);
+    //EXITFLAG = 1;
+	//SDL_mutexV(mutLock);
+	for(int i=0;i<NUM_THREADS;i++) {
+		pthread_t thread = threadPool[i];
+        pthread_cancel(thread);
+		//Uint32 id =  SDL_GetThreadID(thread);
 		//delete thread;
 		//SDL_KillThread(thread);
-		//printf("Killed thread:%d",id);
-        threadPool.pop_back();
+		printf("Killed thread");
+        //threadPool.pop_back();
 	}
-    SDL_Delay(950);
+    //SDL_Delay(950);
     while (!blockPool.empty()) {
         //delete blockPool.back();
         blockPool.pop_back();
@@ -107,10 +113,11 @@ void BlockManager::genBlocks(){
 //        ImgWriter::Write(blockPool[i]);
 //    }
 };
-int startRendering(void* ptr){
+void* startRendering(void* ptr){
     ImgWriter* writer = new ImgWriter();
 	Tracer::PathTracerSplitted::ManagedRender(&BlockManager::blockPool,&ImgWriter::Write);
-	return 0;
+	//return 0;
+     pthread_exit(0);
 };
 
 
@@ -119,17 +126,22 @@ int startRendering(void* ptr){
 
 int BlockManager::Run(void* ptr){
     Block* result = (Block*) ptr;
-    mutLock=SDL_CreateMutex();
+    //mutLock=SDL_CreateMutex();
 
     genBlocks();
-
+    
 
 	for (std::vector<Block*>::iterator i = blockPool.begin(); i != blockPool.end(); ++i) { // Iterate through 'items'
 		(*i)->Initialize(result);
 	}
-	for(int n=0;n<numOfCPUs-1;n++){
+	for(int n=0;n<NUM_THREADS;n++){
         int a =0;
-		SDL_Thread* thread = SDL_CreateThread(startRendering,(void*)&a);
+        pthread_create(&threadPool[n], NULL, &startRendering, (void *)&a);
+       
+	}
+    for(int n=0;n<NUM_THREADS;n++){
+        void* ret = NULL;
+        pthread_join(threadPool[n], &ret);
 	}
 
 	return 0;

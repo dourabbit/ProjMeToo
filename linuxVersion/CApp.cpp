@@ -1,11 +1,11 @@
 //==============================================================================
 #include "CApp.h"
-#include "SDLHelper.hpp"
+//#include "SDLHelper.hpp"
 #include "blockManager.hpp"
 //==============================================================================
 CApp::CApp() {
-	Surf_Display = NULL;
-	Running = true;
+	//Surf_Display = NULL;
+	//Running = true;
 	//tracer = new Tracer::PathTracerSplitted();
 	//tracer->Initialize();
 	this->result = NULL;
@@ -21,16 +21,16 @@ CApp::~CApp(){
 }
 //==============================================================================
 bool CApp::OnInit() {
-    if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        return false;
-    }
+//    if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+//        return false;
+//    }
 	w = h= 512;
-    if((Surf_Display = SDL_SetVideoMode(w, h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
-        return false;
-    }
+//    if((Surf_Display = SDL_SetVideoMode(w, h, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL) {
+//        return false;
+//    }
 
-	SDL_FillRect(Surf_Display, NULL, 0); 
-	SDL_Flip(Surf_Display);
+//	SDL_FillRect(Surf_Display, NULL, 0); 
+//	SDL_Flip(Surf_Display);
 
 	int threadReturnValue;
 
@@ -56,21 +56,21 @@ bool CApp::OnInit() {
 }
 //==============================================================================
 
-void CApp::OnLoop() {
-}
+//void CApp::OnLoop() {
+//}
 //==============================================================================
 
 void CApp::OnRender() {
 
 	//Uint32 *pixels = (Uint32 *) Surf_Display->pixels;            // Get the pixels from the Surface
 	//Uint32 color = SDL_MapRGB(Surf_Display->format,40,40,80);
-	for(int x =0; x<Surf_Display->w;x++)
-		for(int y =0; y<Surf_Display->h;y++){
-			int index = (y) * w + x;
-			SetPixelColor(Surf_Display, x, y, 
-				SDL_MapRGB(Surf_Display->format,wholeBlock->col[index].x*255,wholeBlock->col[index].y*255,wholeBlock->col[index].z*255));
-		}
-	SDL_Flip(Surf_Display);
+//	for(int x =0; x<Surf_Display->w;x++)
+//		for(int y =0; y<Surf_Display->h;y++){
+//			int index = (y) * w + x;
+//			SetPixelColor(Surf_Display, x, y, 
+//				SDL_MapRGB(Surf_Display->format,wholeBlock->col[index].x*255,wholeBlock->col[index].y*255,wholeBlock->col[index].z*255));
+//		}
+//	SDL_Flip(Surf_Display);
 }
 //==============================================================================
 
@@ -84,41 +84,41 @@ void CApp::OnCleanup() {
 	//}
     this->manager->CleanUp();
     
-    SDL_Delay(1500);
-	SDL_FreeSurface(Surf_Display);
-    SDL_Quit();
+//    SDL_Delay(1500);
+//	SDL_FreeSurface(Surf_Display);
+//    SDL_Quit();
 	//free(tracer);
 }
 
 //==============================================================================
-void CApp::OnEvent(SDL_Event* Event) {
-    if(Event->type == SDL_QUIT) {
-        Running = false;
-    }
-}
+//void CApp::OnEvent(SDL_Event* Event) {
+//    if(Event->type == SDL_QUIT) {
+//        Running = false;
+//    }
+//}
 
 //==============================================================================
-
-int CApp::OnExecute() {
-    if(OnInit() == false) {
-        return -1;
-    }
-
-    SDL_Event Event;
-
-    while(Running) {
-        while(SDL_PollEvent(&Event)) {
-            OnEvent(&Event);
-        }
-
-        OnLoop();
-        OnRender();
-    }
-
-    OnCleanup();
-
-    return 0;
-}
+//
+//int CApp::OnExecute() {
+//    if(OnInit() == false) {
+//        return -1;
+//    }
+//
+//    SDL_Event Event;
+//
+//    while(Running) {
+//        while(SDL_PollEvent(&Event)) {
+//            OnEvent(&Event);
+//        }
+//
+//        OnLoop();
+//        OnRender();
+//    }
+//
+//    OnCleanup();
+//
+//    return 0;
+//}
 
 //==============================================================================
 

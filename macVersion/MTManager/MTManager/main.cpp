@@ -34,13 +34,9 @@ int main(int argc, char **argv) {
     char *hostname;
     char buf[BUFSIZE];
     
-//    /* check command line arguments */
-//    if (argc != 3) {
-//        fprintf(stderr,"usage: %s <hostname> <port>\n", argv[0]);
-//        exit(0);
-//    }
-    hostname = "localhost";//argv[1];
-    portno = 1984;//atoi(argv[2]);
+
+    hostname = argv[1];
+    portno = atoi(argv[2]);
     
     /* socket: create the socket */
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -61,11 +57,13 @@ int main(int argc, char **argv) {
           (char *)&serveraddr.sin_addr.s_addr, server->h_length);
     serveraddr.sin_port = htons(portno);
     
+    
+    //============================================================
     /* connect: create a connection with the server */
     if (connect(sockfd, (struct sockaddr *)&serveraddr, sizeof(serveraddr)) < 0)
         error("ERROR connecting");
     
-    
+    //================================================================================
     int listenPID=fork();
     if(listenPID==0){//child proc for listen
         listenPID = getpid();
@@ -80,15 +78,14 @@ int main(int argc, char **argv) {
     
     while(buf[0]!=':'){
 
-    bzero(buf, BUFSIZE);
-    readConsole(buf);
-    if(fork()==0){
-        n = write(sockfd, buf, strlen(buf));
-        if (n < 0)
-            error("ERROR writing to socket");
-        exit(0);
-    }
-            
+        bzero(buf, BUFSIZE);
+        readConsole(buf);
+        if(fork()==0){
+            n = write(sockfd, buf, strlen(buf));
+            if (n < 0)
+                error("ERROR writing to socket");
+            exit(0);
+        }   
     }
     
     
@@ -96,58 +93,6 @@ int main(int argc, char **argv) {
     close(sockfd);
     return 0;
     
-    
-//    while(buf[0]!=':'){
-//        
-////        /* send the message line to the server */
-////        n = write(sockfd, buf, strlen(buf));
-////        if (n < 0)
-////            error("ERROR writing to socket");
-////        
-////        
-////        
-//        int pid;
-//        if (fork() == 0) {
-//            pid = fork();
-//            if (pid == 0) {//child's child proc for sending
-//                /* send the message line to the server */
-//                n = write(sockfd, buf, strlen(buf));
-//                if (n < 0)
-//                    error("ERROR writing to socket");
-//            }
-//            else{//child proc for recieving
-//                /* print the server's reply */
-//                bzero(buf, BUFSIZE);
-//                n = read(sockfd, buf, BUFSIZE);
-//                if (n < 0)
-//                    error("ERROR reading from socket");
-//                printf("Echo from server: %s", buf);
-//            }
-//            exit(0);  // child terminates here
-//        }
-//        
-        
-
-        
-        //        int pid;
-        //        if (fork() == 0) {
-        //            pid = fork();
-        //            if (pid == 0) {//child's child proc for sending
-        //                /* send the message line to the server */
-        //                n = write(sockfd, buf, strlen(buf));
-        //                if (n < 0)
-        //                    error("ERROR writing to socket");
-        //            }
-        //            else{//child proc for recieving
-        //                /* print the server's reply */
-        //                bzero(buf, BUFSIZE);
-        //                n = read(sockfd, buf, BUFSIZE);
-        //                if (n < 0)
-        //                    error("ERROR reading from socket");
-        //                printf("Echo from server: %s", buf);
-        //            }
-        //            exit(0);  // child terminates here
-        //        }
         
     
 }

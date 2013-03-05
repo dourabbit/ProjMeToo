@@ -204,6 +204,7 @@
 				1B0E664516D28B5C00D45F52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

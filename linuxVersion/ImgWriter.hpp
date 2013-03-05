@@ -20,17 +20,17 @@
 #define cimg_plugin "plugins/jpeg_buffer.h"
 #include <CImg.h>
 using namespace cimg_library;
-#include <SDL_thread.h>
-#include <SDL_timer.h>
+//#include <SDL_thread.h>
+//#include <SDL_timer.h>
 
 
-typedef int (SDLCALL *AfterRenderExec)(const Block*);
+//typedef int (SDLCALL *AfterRenderExec)(const Block*);
 class ImgWriter{
 public:
     ImgWriter();
     ~ImgWriter();
     //int  Write(const CImg<ImgDATA>* cimg);
-    static int SDLCALL Write(const Block* data);
+    static int Write(const Block* data);
     static CImg<ImgDATA> convert2Img();
     static std::string fileNm;
 private:

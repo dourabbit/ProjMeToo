@@ -12,7 +12,7 @@
 #include "pathTracerSplitted.hpp"
 #include "worker.hpp"
 #include <vector>
-
+#include <pthread.h>
 #include "common.h"
 #include <string>
 struct ManageInfo{
@@ -24,7 +24,7 @@ struct ManageInfo{
 class BlockManager{
     
 public:
-    BlockManager(const int numOfThread,vector<SDL_Thread*> pool, const int width, const int height);
+    BlockManager(const int numOfThread,vector<void*> pool, const int width, const int height);
     ~BlockManager();
     void CleanUp();
 	//static vector<SDL_Thread*> threadPool;

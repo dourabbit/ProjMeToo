@@ -21,19 +21,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MTManager/main.cpp"
-         timestampString = "384143809.300062"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
-         landmarkName = "main(int argc, char **argv)"
-         landmarkType = "7">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "MTManager/main.cpp"
          timestampString = "384143820.976029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
