@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1BCBAC6216E63E1C00BF6396"
+               BlueprintIdentifier = "1BCBAC7516E6409200BF6396"
                BuildableName = "MeToo"
                BlueprintName = "MeToo"
                ReferencedContainer = "container:MeToo.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1BCBAC6216E63E1C00BF6396"
+            BlueprintIdentifier = "1BCBAC7516E6409200BF6396"
             BuildableName = "MeToo"
             BlueprintName = "MeToo"
             ReferencedContainer = "container:MeToo.xcodeproj">
@@ -44,14 +44,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1BCBAC6216E63E1C00BF6396"
+            BlueprintIdentifier = "1BCBAC7516E6409200BF6396"
             BuildableName = "MeToo"
             BlueprintName = "MeToo"
             ReferencedContainer = "container:MeToo.xcodeproj">
@@ -69,7 +69,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1BCBAC6216E63E1C00BF6396"
+            BlueprintIdentifier = "1BCBAC7516E6409200BF6396"
             BuildableName = "MeToo"
             BlueprintName = "MeToo"
             ReferencedContainer = "container:MeToo.xcodeproj">

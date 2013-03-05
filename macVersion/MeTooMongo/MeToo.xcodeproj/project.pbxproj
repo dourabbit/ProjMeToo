@@ -40,6 +40,7 @@
 		1BCBAC9C16E6434800BF6396 /* worker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FDA16A058FC006DD336 /* worker.cpp */; };
 		1BCBAC9D16E6434800BF6396 /* worker.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FDB16A058FC006DD336 /* worker.hpp */; };
 		1BCBAC9F16E6444600BF6396 /* CImg.h in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBAC9E16E6444000BF6396 /* CImg.h */; };
+		1BD632FE16E67689008D9F18 /* libMongoConn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD632FD16E67689008D9F18 /* libMongoConn.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,16 +75,14 @@
 
 /* Begin PBXFileReference section */
 		1B4C209416A074AF0010F5A8 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../lib/libjpeg.a; sourceTree = "<group>"; };
-		1B4C209616A074ED0010F5A8 /* libmongoclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmongoclient.a; path = ../../lib/libmongoclient.a; sourceTree = "<group>"; };
 		1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MongoConn.xcodeproj; path = ../MongoConn/MongoConn.xcodeproj; sourceTree = "<group>"; };
 		1B62114416A05C6500C3C947 /* ImgWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImgWriter.cpp; path = ../../linuxVersion/ImgWriter.cpp; sourceTree = "<group>"; };
 		1B62114516A05C6500C3C947 /* ImgWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ImgWriter.hpp; path = ../../linuxVersion/ImgWriter.hpp; sourceTree = "<group>"; };
-		1BCBAC6616E63E1C00BF6396 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		1BCBAC6816E63E1C00BF6396 /* MeToo.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MeToo.1; sourceTree = "<group>"; };
 		1BCBAC7616E6409200BF6396 /* MeToo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MeToo; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BCBAC7916E6409200BF6396 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1BCBAC7B16E6409200BF6396 /* MeToo.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MeToo.1; sourceTree = "<group>"; };
 		1BCBAC9E16E6444000BF6396 /* CImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CImg.h; path = ../../include/CImg.h; sourceTree = "<group>"; };
+		1BD632FD16E67689008D9F18 /* libMongoConn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMongoConn.a; sourceTree = "<group>"; };
 		1BEB9FC016A058FC006DD336 /* areaLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = areaLight.cpp; path = ../../linuxVersion/areaLight.cpp; sourceTree = "<group>"; };
 		1BEB9FC116A058FC006DD336 /* areaLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = areaLight.hpp; path = ../../linuxVersion/areaLight.hpp; sourceTree = "<group>"; };
 		1BEB9FC216A058FC006DD336 /* blockManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = blockManager.cpp; path = ../../linuxVersion/blockManager.cpp; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD632FE16E67689008D9F18 /* libMongoConn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,15 +132,6 @@
 				1B5B74CE16A12AD700A47570 /* Test */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1BCBAC6516E63E1C00BF6396 /* MeToo */ = {
-			isa = PBXGroup;
-			children = (
-				1BCBAC6616E63E1C00BF6396 /* main.cpp */,
-				1BCBAC6816E63E1C00BF6396 /* MeToo.1 */,
-			);
-			path = MeToo;
 			sourceTree = "<group>";
 		};
 		1BCBAC7816E6409200BF6396 /* MeToo */ = {
@@ -157,7 +148,6 @@
 			children = (
 				1B5B74C216A12AD700A47570 /* MongoConn.xcodeproj */,
 				1BEB9FBF16A058BF006DD336 /* src */,
-				1BCBAC6516E63E1C00BF6396 /* MeToo */,
 				1BCBAC7816E6409200BF6396 /* MeToo */,
 				1BEB9F8016A0570D006DD336 /* Frameworks */,
 				1BEB9F7E16A0570D006DD336 /* Products */,
@@ -175,7 +165,7 @@
 		1BEB9F8016A0570D006DD336 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1B4C209616A074ED0010F5A8 /* libmongoclient.a */,
+				1BD632FD16E67689008D9F18 /* libMongoConn.a */,
 				1B4C209416A074AF0010F5A8 /* libjpeg.a */,
 			);
 			name = Frameworks;
@@ -344,6 +334,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/X11/lib,
 					/usr/local/lib/,
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lpthread",
@@ -360,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					../../include,
@@ -369,6 +361,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/X11/lib,
 					/usr/local/lib/,
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lpthread",
