@@ -16,7 +16,7 @@ public:
     Vec*   col;
     int width;
     int height;
-    int (*OnFinCB) (const Block*);
+    static int (*OnFinCB) (const Block*);
   
     Block(const Vec2D<int> &p,const std::string &name, const int &w, const int &h);
     

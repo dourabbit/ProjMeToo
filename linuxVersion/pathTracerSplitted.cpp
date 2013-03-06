@@ -291,6 +291,7 @@ int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,
         int writerResult = callBack(block);
         //SDL_mutexV(mutLock);
         
+        //printf("%d",block->OnFinCB);
         if(block->OnFinCB!=NULL)
             block->OnFinCB(block);
         

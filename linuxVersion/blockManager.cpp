@@ -114,7 +114,7 @@ void BlockManager::genBlocks(){
 //    }
 };
 void* startRendering(void* ptr){
-    ImgWriter* writer = new ImgWriter();
+    //ImgWriter* writer = new ImgWriter();
 	Tracer::PathTracerSplitted::ManagedRender(&BlockManager::blockPool,&ImgWriter::Write);
 	//return 0;
      pthread_exit(0);

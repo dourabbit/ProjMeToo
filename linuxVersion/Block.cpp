@@ -5,15 +5,15 @@
 //  Created by Chengfu on 13-3-6.
 //  Copyright (c) 2013年 PongStudio. All rights reserved.
 //
-
-#include "Block.hpp"
 #pragma once
+#include "Block.hpp"
+
 #include <Math.hpp>
 #include <string>
 #include <assert.h>
 
 
-//int * Block::OnFinCB(<#const Block *#>);
+ int (*Block::OnFinCB) (const Block*)=NULL;
 
 Block::Block(const Vec2D<int> &p,const std::string &name, const int &w, const int &h){
         col = new Vec[w*h];
