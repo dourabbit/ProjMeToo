@@ -41,6 +41,7 @@
 		1BCBAC9D16E6434800BF6396 /* worker.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BEB9FDB16A058FC006DD336 /* worker.hpp */; };
 		1BCBAC9F16E6444600BF6396 /* CImg.h in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBAC9E16E6444000BF6396 /* CImg.h */; };
 		1BD632FE16E67689008D9F18 /* libMongoConn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD632FD16E67689008D9F18 /* libMongoConn.a */; };
+		1BDECED516E7176C00EB41D6 /* Block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1BDECED316E7176C00EB41D6 /* Block.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		1BCBAC7B16E6409200BF6396 /* MeToo.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MeToo.1; sourceTree = "<group>"; };
 		1BCBAC9E16E6444000BF6396 /* CImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CImg.h; path = ../../include/CImg.h; sourceTree = "<group>"; };
 		1BD632FD16E67689008D9F18 /* libMongoConn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMongoConn.a; sourceTree = "<group>"; };
+		1BDECED316E7176C00EB41D6 /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Block.cpp; path = ../../linuxVersion/Block.cpp; sourceTree = "<group>"; };
+		1BDECED416E7176C00EB41D6 /* Block.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Block.hpp; path = ../../linuxVersion/Block.hpp; sourceTree = "<group>"; };
 		1BEB9FC016A058FC006DD336 /* areaLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = areaLight.cpp; path = ../../linuxVersion/areaLight.cpp; sourceTree = "<group>"; };
 		1BEB9FC116A058FC006DD336 /* areaLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = areaLight.hpp; path = ../../linuxVersion/areaLight.hpp; sourceTree = "<group>"; };
 		1BEB9FC216A058FC006DD336 /* blockManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = blockManager.cpp; path = ../../linuxVersion/blockManager.cpp; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				1BEB9FD916A058FC006DD336 /* triangle.hpp */,
 				1BEB9FDA16A058FC006DD336 /* worker.cpp */,
 				1BEB9FDB16A058FC006DD336 /* worker.hpp */,
+				1BDECED316E7176C00EB41D6 /* Block.cpp */,
+				1BDECED416E7176C00EB41D6 /* Block.hpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				1BCBAC9C16E6434800BF6396 /* worker.cpp in Sources */,
 				1BCBAC9D16E6434800BF6396 /* worker.hpp in Sources */,
 				1BCBAC7A16E6409200BF6396 /* main.cpp in Sources */,
+				1BDECED516E7176C00EB41D6 /* Block.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

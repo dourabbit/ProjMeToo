@@ -275,7 +275,8 @@ Vec PathTracerSplitted::trace(const Ray &ray,RNG &rng){
 }
 
 
-int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,int (*callBack) (const Block*)){
+int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,
+                                      int (*callBack) (const Block*)){
 	int result=1;
     while (!BlockManager::blockPool.empty()) {
 		//SDL_mutexP(mutLock);
@@ -285,9 +286,13 @@ int PathTracerSplitted::ManagedRender(vector<Block*>* blockPool,int (*callBack) 
 
 		PathTracerSplitted::Render((void*)block);
         
+        //Write Img using callback
         //SDL_mutexP(writerLock);
         int writerResult = callBack(block);
         //SDL_mutexV(mutLock);
+        
+        if(block->OnFinCB!=NULL)
+            block->OnFinCB(block);
         
         delete block;
         result |= writerResult;
@@ -313,11 +318,11 @@ int PathTracerSplitted::Render(Block* block){
     
 	// Loop over image rows
 	for (int r = block->pos.y; r < block->height+block->pos.y; r++) {
-		//fprintf(stderr,"\rRendering (%d spp) %5.2f%%",pathRays,100.*y/(height-1));
 		RNG rng = RNG(r);
 		// Loop cols
 		for (unsigned short c=block->pos.x; c<block->width+block->pos.x; c++) {
-			const int i = r * width+c;
+			//Global index i 
+            const int i = r * width+c;
 			Vec pixelCol = Zero;
 			for(int s = 0; s<pathRays;s++){
 				x = c; y = height - r -1;
@@ -331,8 +336,10 @@ int PathTracerSplitted::Render(Block* block){
 			pixelCol = pixelCol * (1.0 / pathRays);
 			Vec color = Vec(clamp(pixelCol.x), clamp(pixelCol.y), clamp(pixelCol.z));
             const int localIndex = block->GlobalIndex2Local(i);
+            //assign local block col
             block->col[localIndex] = color;
-			block->wholeBlock->col[i] = color;
+			
+            block->wholeBlock->col[i] = color;
 			if(EXITFLAG){
 				printf("Exit!\n");
 				return 0;

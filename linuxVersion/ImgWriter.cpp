@@ -67,7 +67,7 @@ int ImgWriter::Write(const Block* data){
     JOCTET *buffer_output = new JOCTET[buf_size];
     
     string a = block->blockNm;
-    CImg<unsigned char> img(block->_buffer,block->width,block->height,1,3,true);
+    CImg<unsigned char> img(block->buff4ImgWriter,block->width,block->height,1,3,true);
     img.save_jpeg_buffer(buffer_output,buf_size,100);
     const char *filename_output = block->blockNm.c_str();
     std::fprintf(stderr," - Save output file '%s'\n",filename_output);
